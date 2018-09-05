@@ -441,6 +441,11 @@
           <Property Name="OutstndNumOnProgInstalm" Type="int" />
           <Property Name="PlannedNumOnProgInstalm" Type="int" />
           <Property Name="WeightedRate" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="LearnDelEligCareerLearnPilot" Type="bit" />
+          <Property Name="LearnDelApplicSubsidyPilotAreaCode" Type="varchar" MaxLength="50" />
+          <Property Name="LearnDelApplicLARSCarPilFundSubRate" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="LearnDelCarLearnPilotAimValue" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="LearnDelCarLearnPilotInstalAmount" Type="decimal" Precision="12" Scale="5" />
         </EntityType>
         <EntityType Name="ALB_LearningDelivery_Period">
           <Key>
@@ -457,6 +462,8 @@
           <Property Name="ALBSupportPayment" Type="decimal" Precision="10" Scale="5" />
           <Property Name="AreaUpliftBalPayment" Type="decimal" Precision="10" Scale="5" />
           <Property Name="AreaUpliftOnProgPayment" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="LearnDelCarLearnPilotOnProgPayment" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="LearnDelCarLearnPilotBalPayment" Type="decimal" Precision="12" Scale="5" />
         </EntityType>
         <EntityType Name="ALB_LearningDelivery_PeriodisedValues">
           <Key>
@@ -491,12 +498,6 @@
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="CaseData" Type="xml" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'ILR1819_DataStore.Rulebase.DV_global' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="DV_global">
-          <Property Name="UKPRN" Type="int" />
-          <Property Name="RulebaseVersion" Type="varchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="DV_Learner">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -798,12 +799,6 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.DV_global' does not hav
           <Property Name="ReachedThreeMonthPoint" Type="bit" />
           <Property Name="ReachedTwelveMonthPoint" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ESF_global">
-          <Property Name="UKPRN" Type="int" />
-          <Property Name="RulebaseVersion" Type="varchar" MaxLength="10" />
-        </EntityType>-->
         <EntityType Name="ESF_LearningDelivery">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -1944,6 +1939,11 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not ha
           <Property Name="OutstndNumOnProgInstalm" Type="Int32" />
           <Property Name="PlannedNumOnProgInstalm" Type="Int32" />
           <Property Name="WeightedRate" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="LearnDelEligCareerLearnPilot" Type="Boolean" />
+          <Property Name="LearnDelApplicSubsidyPilotAreaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LearnDelApplicLARSCarPilFundSubRate" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="LearnDelCarLearnPilotAimValue" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="LearnDelCarLearnPilotInstalAmount" Type="Decimal" Precision="12" Scale="5" />
         </EntityType>
         <EntityType Name="ALB_LearningDelivery_Period">
           <Key>
@@ -1960,6 +1960,8 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not ha
           <Property Name="ALBSupportPayment" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="AreaUpliftBalPayment" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="AreaUpliftOnProgPayment" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="LearnDelCarLearnPilotOnProgPayment" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="LearnDelCarLearnPilotBalPayment" Type="Decimal" Precision="12" Scale="5" />
         </EntityType>
         <EntityType Name="ALB_LearningDelivery_PeriodisedValues">
           <Key>
@@ -3256,6 +3258,11 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not ha
           <EntitySetMapping Name="ALB_LearningDelivery">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ALB_LearningDelivery">
               <MappingFragment StoreEntitySet="ALB_LearningDelivery">
+                <ScalarProperty Name="LearnDelCarLearnPilotInstalAmount" ColumnName="LearnDelCarLearnPilotInstalAmount" />
+                <ScalarProperty Name="LearnDelCarLearnPilotAimValue" ColumnName="LearnDelCarLearnPilotAimValue" />
+                <ScalarProperty Name="LearnDelApplicLARSCarPilFundSubRate" ColumnName="LearnDelApplicLARSCarPilFundSubRate" />
+                <ScalarProperty Name="LearnDelApplicSubsidyPilotAreaCode" ColumnName="LearnDelApplicSubsidyPilotAreaCode" />
+                <ScalarProperty Name="LearnDelEligCareerLearnPilot" ColumnName="LearnDelEligCareerLearnPilot" />
                 <ScalarProperty Name="WeightedRate" ColumnName="WeightedRate" />
                 <ScalarProperty Name="PlannedNumOnProgInstalm" ColumnName="PlannedNumOnProgInstalm" />
                 <ScalarProperty Name="OutstndNumOnProgInstalm" ColumnName="OutstndNumOnProgInstalm" />
@@ -3280,6 +3287,8 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not ha
           <EntitySetMapping Name="ALB_LearningDelivery_Period">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ALB_LearningDelivery_Period">
               <MappingFragment StoreEntitySet="ALB_LearningDelivery_Period">
+                <ScalarProperty Name="LearnDelCarLearnPilotBalPayment" ColumnName="LearnDelCarLearnPilotBalPayment" />
+                <ScalarProperty Name="LearnDelCarLearnPilotOnProgPayment" ColumnName="LearnDelCarLearnPilotOnProgPayment" />
                 <ScalarProperty Name="AreaUpliftOnProgPayment" ColumnName="AreaUpliftOnProgPayment" />
                 <ScalarProperty Name="AreaUpliftBalPayment" ColumnName="AreaUpliftBalPayment" />
                 <ScalarProperty Name="ALBSupportPayment" ColumnName="ALBSupportPayment" />

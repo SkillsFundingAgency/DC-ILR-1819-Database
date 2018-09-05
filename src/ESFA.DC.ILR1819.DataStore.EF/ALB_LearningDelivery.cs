@@ -32,5 +32,10 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<int> OutstndNumOnProgInstalm { get; set; }
         public Nullable<int> PlannedNumOnProgInstalm { get; set; }
         public Nullable<decimal> WeightedRate { get; set; }
+        public Nullable<bool> LearnDelEligCareerLearnPilot { get; set; }
+        public string LearnDelApplicSubsidyPilotAreaCode { get; set; }
+        public Nullable<decimal> LearnDelApplicLARSCarPilFundSubRate { get; set; }
+        public Nullable<decimal> LearnDelCarLearnPilotAimValue { get; set; }
+        public Nullable<decimal> LearnDelCarLearnPilotInstalAmount { get; set; }
     }
 }

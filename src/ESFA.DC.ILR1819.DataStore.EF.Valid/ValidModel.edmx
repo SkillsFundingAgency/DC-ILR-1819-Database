@@ -269,16 +269,16 @@
         </EntityType>
         <EntityType Name="LLDDandHealthProblem">
           <Key>
-            <PropertyRef Name="LLDDandHealthProblem_ID" />
             <PropertyRef Name="UKPRN" />
             <PropertyRef Name="LearnRefNumber" />
             <PropertyRef Name="LLDDCat" />
+            <PropertyRef Name="LLDDandHealthProblem_ID" />
           </Key>
-          <Property Name="LLDDandHealthProblem_ID" Type="bigint" Nullable="false" />
           <Property Name="UKPRN" Type="int" Nullable="false" />
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="LLDDCat" Type="int" Nullable="false" />
           <Property Name="PrimaryLLDD" Type="int" />
+          <Property Name="LLDDandHealthProblem_ID" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="ProviderSpecDeliveryMonitoring">
           <Key>
