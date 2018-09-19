@@ -6,7 +6,7 @@
     [OutStartDate]   DATE         NOT NULL,
     [OutEndDate]     DATE         NULL,
     [OutCollDate]    DATE         NOT NULL, 
-    CONSTRAINT [PK_DPOutcome] PRIMARY KEY ([UKPRN], [LearnRefNumber])
+    CONSTRAINT [PK_DPOutcome] PRIMARY KEY ([UKPRN], [LearnRefNumber], [OutType], [OutCode], [OutStartDate], [OutCollDate])
 );
 
 
