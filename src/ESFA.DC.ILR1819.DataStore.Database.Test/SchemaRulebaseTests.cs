@@ -135,18 +135,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         }
 
         [Fact]
-        public void CheckColumnAEC_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 1, false, 12),
-                ExpectedColumn.CreateInt("UKPRN", 2, false),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "AEC_Cases", expectedColumns, true);
-        }
-
-        [Fact]
         public void CheckColumnAEC_global()
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
@@ -343,18 +331,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         }
 
         [Fact]
-        public void CheckColumnALB_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "ALB_Cases", expectedColumns, true);
-        }
-
-        [Fact]
         public void CheckColumnALB_global()
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
@@ -409,24 +385,29 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateBigInt("UKPRN", 1, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
                 ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
-                ExpectedColumn.CreateBit("Achieved", 4, true),
-                ExpectedColumn.CreateInt("ActualNumInstalm", 5, true),
-                ExpectedColumn.CreateBit("AdvLoan", 6, true),
-                ExpectedColumn.CreateDate("ApplicFactDate", 7, true),
-                ExpectedColumn.CreateVarChar("ApplicProgWeightFact", 8, true, 1),
-                ExpectedColumn.CreateDecimal("AreaCostFactAdj", 9, true, 10, 5),
-                ExpectedColumn.CreateDecimal("AreaCostInstalment", 10, true, 10, 5),
-                ExpectedColumn.CreateVarChar("FundLine", 11, true, 50),
-                ExpectedColumn.CreateBit("FundStart", 12, true),
-                ExpectedColumn.CreateDate("LiabilityDate", 13, true),
-                ExpectedColumn.CreateBit("LoanBursAreaUplift", 14, true),
-                ExpectedColumn.CreateBit("LoanBursSupp", 15, true),
-                ExpectedColumn.CreateInt("OutstndNumOnProgInstalm", 16, true),
-                ExpectedColumn.CreateInt("PlannedNumOnProgInstalm", 17, true),
-                ExpectedColumn.CreateDecimal("WeightedRate", 18, true, 10, 4)
+                ExpectedColumn.CreateDecimal("AreaCostFactAdj", 4, true, 10, 5),
+                ExpectedColumn.CreateDecimal("WeightedRate", 5, true, 12, 5),
+                ExpectedColumn.CreateInt("PlannedNumOnProgInstalm", 6, true),
+                ExpectedColumn.CreateBit("FundStart", 7, true),
+                ExpectedColumn.CreateBit("Achieved", 8, true),
+                ExpectedColumn.CreateInt("ActualNumInstalm", 9, true),
+                ExpectedColumn.CreateInt("OutstndNumOnProgInstalm", 10, true),
+                ExpectedColumn.CreateDecimal("AreaCostInstalment", 11, true, 12, 5),
+                ExpectedColumn.CreateBit("AdvLoan", 12, true),
+                ExpectedColumn.CreateBit("LoanBursAreaUplift", 13, true),
+                ExpectedColumn.CreateBit("LoanBursSupp", 14, true),
+                ExpectedColumn.CreateVarChar("FundLine", 15, true, 50),
+                ExpectedColumn.CreateDate("LiabilityDate", 16, true),
+                ExpectedColumn.CreateVarChar("ApplicProgWeightFact", 17, true, 1),
+                ExpectedColumn.CreateDate("ApplicFactDate", 18, true),
+                ExpectedColumn.CreateBit("LearnDelEligCareerLearnPilot", 19, true),
+                ExpectedColumn.CreateVarChar("LearnDelApplicSubsidyPilotAreaCode", 20, true, 50),
+                ExpectedColumn.CreateDecimal("LearnDelApplicLARSCarPilFundSubRate", 21, true, 12, 5),
+                ExpectedColumn.CreateDecimal("LearnDelCarLearnPilotAimValue", 22, true, 12, 5),
+                ExpectedColumn.CreateDecimal("LearnDelCarLearnPilotInstalAmount", 23, true, 12, 5)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "ALB_LearningDelivery", expectedColumns, true);
         }
@@ -436,14 +417,14 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateBigInt("UKPRN", 1, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
                 ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
                 ExpectedColumn.CreateInt("Period", 4, false),
-                ExpectedColumn.CreateInt("ALBCode", 5, true),
-                ExpectedColumn.CreateDecimal("ALBSupportPayment", 6, true, 10, 5),
-                ExpectedColumn.CreateDecimal("AreaUpliftBalPayment", 7, true, 10, 5),
-                ExpectedColumn.CreateDecimal("AreaUpliftOnProgPayment", 8, true, 10, 5)
+                ExpectedColumn.CreateDecimal("AreaUpliftOnProgPayment", 5, true, 12, 5),
+                ExpectedColumn.CreateDecimal("AreaUpliftBalPayment", 6, true, 12, 5),
+                ExpectedColumn.CreateInt("ALBCode", 7, true),
+                ExpectedColumn.CreateDecimal("ALBSupportPayment", 8, true, 12, 5)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "ALB_LearningDelivery_Period", expectedColumns, true);
         }
@@ -471,18 +452,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
                 ExpectedColumn.CreateDecimal("Period_12", 16, true, 15, 5)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "ALB_LearningDelivery_PeriodisedValues", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnDV_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "DV_Cases", expectedColumns, true);
         }
 
         [Fact]
@@ -725,18 +694,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         }
 
         [Fact]
-        public void CheckColumnEFA_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "EFA_Cases", expectedColumns, true);
-        }
-
-        [Fact]
         public void CheckColumnEFA_global()
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
@@ -788,18 +745,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         }
 
         [Fact]
-        public void CheckColumnEFA_SFA_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "EFA_SFA_Cases", expectedColumns, true);
-        }
-
-        [Fact]
         public void CheckColumnEFA_SFA_global()
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
@@ -845,18 +790,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
                 ExpectedColumn.CreateDecimal("Period_12", 15, true, 15, 5)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "EFA_SFA_Learner_PeriodisedValues", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnESF_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "ESF_Cases", expectedColumns, true);
         }
 
         [Fact]
@@ -982,18 +915,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         }
 
         [Fact]
-        public void CheckColumnESFVAL_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("Learner_Id", 1, false),
-                ExpectedColumn.CreateInt("UKPRN", 2, true),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "ESFVAL_Cases", expectedColumns, true);
-        }
-
-        [Fact]
         public void CheckColumnESFVAL_global()
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
@@ -1017,18 +938,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
                 ExpectedColumn.CreateVarChar("RuleId", 6, true, 50)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "ESFVAL_ValidationError", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnSFA_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "SFA_Cases", expectedColumns, true);
         }
 
         [Fact]
@@ -1187,18 +1096,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         }
 
         [Fact]
-        public void CheckColumnTBL_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "TBL_Cases", expectedColumns, true);
-        }
-
-        [Fact]
         public void CheckColumnTBL_global()
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
@@ -1326,18 +1223,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         }
 
         [Fact]
-        public void CheckColumnVAL_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateInt("Learner_Id", 2, false),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "VAL_Cases", expectedColumns, true);
-        }
-
-        [Fact]
         public void CheckColumnVAL_global()
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
@@ -1387,18 +1272,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
                 ExpectedColumn.CreateVarChar("RuleId", 6, true, 50)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "VAL_ValidationError", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnVALDP_Cases()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateInt("LearnerDestinationAndProgression_Id", 2, false),
-                // ExpectedColumn.CreateXml("CaseData", 3, false, -1)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "VALDP_Cases", expectedColumns, true);
         }
 
         [Fact]
