@@ -78,9 +78,6 @@
     <Compile Include="AEC_ApprenticeshipPriceEpisode_PeriodisedValues.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="AEC_Cases.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="AEC_global.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
@@ -97,9 +94,6 @@
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="AEC_LearningDelivery_PeriodisedValues.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ALB_Cases.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ALB_global.cs">
@@ -120,6 +114,9 @@
     <Compile Include="ALB_LearningDelivery_PeriodisedValues.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DasLearnerCommitment.cs">
+      <DependentUpon>DataStoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataStoreModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -135,37 +132,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataStoreModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DV_Cases.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DV_Learner.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DV_LearningDelivery.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EFA_SFA_Cases.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EFA_SFA_global.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EFA_SFA_Learner_Period.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EFA_SFA_Learner_PeriodisedValues.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ESFVAL_Cases.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ESFVAL_global.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ESFVAL_ValidationError.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ESF_Cases.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ESF_DPOutcome.cs">
@@ -186,16 +162,19 @@
     <Compile Include="FileDetail.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="FM25_Cases.cs">
+    <Compile Include="FM25_FM35_global.cs">
+      <DependentUpon>DataStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FM25_FM35_Learner_Period.cs">
+      <DependentUpon>DataStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FM25_FM35_Learner_PeriodisedValues.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FM25_global.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FM25_Learner.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FM35_Cases.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FM35_global.cs">
@@ -210,13 +189,16 @@
     <Compile Include="FM35_LearningDelivery_PeriodisedValues.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="PriceEpisodeMatch.cs">
+      <DependentUpon>DataStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PriceEpisodePeriodMatch.cs">
+      <DependentUpon>DataStoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ProcessingData.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TBL_Cases.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="TBL_global.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
@@ -229,9 +211,6 @@
     <Compile Include="TBL_LearningDelivery_PeriodisedValues.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="VALDP_Cases.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="VALDP_global.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
@@ -242,9 +221,6 @@
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ValidationError.cs">
-      <DependentUpon>DataStoreModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VAL_Cases.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="VAL_global.cs">

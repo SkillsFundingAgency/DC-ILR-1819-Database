@@ -62,5 +62,12 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<int> ThresholdDays { get; set; }
         public Nullable<System.DateTime> LearnDelProgEarliestACT2Date { get; set; }
         public Nullable<bool> LearnDelNonLevyProcured { get; set; }
+        public Nullable<decimal> LearnDelApplicCareLeaverIncentive { get; set; }
+        public Nullable<int> LearnDelHistDaysCareLeavers { get; set; }
+        public Nullable<int> LearnDelAccDaysILCareLeavers { get; set; }
+        public Nullable<int> LearnDelPrevAccDaysILCareLeavers { get; set; }
+        public Nullable<System.DateTime> LearnDelLearnerAddPayThresholdDate { get; set; }
+        public Nullable<int> LearnDelRedCode { get; set; }
+        public Nullable<System.DateTime> LearnDelRedStartDate { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class EFA_SFA_global
+    public partial class FM25_FM35_global
     {
         public int UKPRN { get; set; }
         public string RulebaseVersion { get; set; }

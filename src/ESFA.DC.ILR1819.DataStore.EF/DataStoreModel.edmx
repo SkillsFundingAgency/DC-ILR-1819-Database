@@ -5,6 +5,72 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ILR1819_DataStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DasLearnerCommitment">
+          <Key>
+            <PropertyRef Name="Ukprn" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="AimSeqNumber" />
+          </Key>
+          <Property Name="Ukprn" Type="bigint" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AimSeqNumber" Type="bigint" Nullable="false" />
+          <Property Name="CommitmentId" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PriceEpisodeMatch">
+          <Key>
+            <PropertyRef Name="Ukprn" />
+            <PropertyRef Name="PriceEpisodeIdentifier" />
+            <PropertyRef Name="LearnRefNumber" />
+          </Key>
+          <Property Name="Ukprn" Type="bigint" Nullable="false" />
+          <Property Name="PriceEpisodeIdentifier" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="AimSeqNumber" Type="int" />
+          <Property Name="CommitmentId" Type="bigint" />
+          <Property Name="CollectionPeriodName" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="CollectionPeriodMonth" Type="int" Nullable="false" />
+          <Property Name="CollectionPeriodYear" Type="int" Nullable="false" />
+          <Property Name="IsSuccess" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PriceEpisodePeriodMatch">
+          <Key>
+            <PropertyRef Name="Ukprn" />
+            <PropertyRef Name="PriceEpisodeIdentifier" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="VersionId" />
+            <PropertyRef Name="Period" />
+            <PropertyRef Name="TransactionTypesFlag" />
+          </Key>
+          <Property Name="Ukprn" Type="bigint" Nullable="false" />
+          <Property Name="PriceEpisodeIdentifier" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="AimSeqNumber" Type="int" />
+          <Property Name="CommitmentId" Type="bigint" Nullable="false" />
+          <Property Name="VersionId" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Period" Type="int" Nullable="false" />
+          <Property Name="Payable" Type="bit" Nullable="false" />
+          <Property Name="TransactionType" Type="int" Nullable="false" />
+          <Property Name="CollectionPeriodName" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="CollectionPeriodMonth" Type="int" Nullable="false" />
+          <Property Name="CollectionPeriodYear" Type="int" Nullable="false" />
+          <Property Name="TransactionTypesFlag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ValidationError">
+          <Key>
+            <PropertyRef Name="Ukprn" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="RuleId" />
+            <PropertyRef Name="PriceEpisodeIdentifier" />
+          </Key>
+          <Property Name="Ukprn" Type="bigint" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="AimSeqNumber" Type="int" />
+          <Property Name="RuleId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PriceEpisodeIdentifier" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="CollectionPeriodName" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="CollectionPeriodMonth" Type="int" Nullable="false" />
+          <Property Name="CollectionPeriodYear" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="FileDetails">
           <Key>
             <PropertyRef Name="ID" />
@@ -31,7 +97,7 @@
           <Property Name="ProcessingStep" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ExecutionTime" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <EntityType Name="ValidationError">
+        <EntityType Name="ValidationError1">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -115,6 +181,10 @@
           <Property Name="PriceEpisodeTotalPMRs" Type="decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeCumulativePMRs" Type="decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeCompExemCode" Type="int" />
+          <Property Name="PriceEpisodeLearnerAdditionalPaymentThresholdDate" Type="date" />
+          <Property Name="PriceEpisodeAgreeId" Type="varchar" MaxLength="6" />
+          <Property Name="PriceEpisodeRedStartDate" Type="date" />
+          <Property Name="PriceEpisodeRedStatusCode" Type="int" />
         </EntityType>
         <EntityType Name="AEC_ApprenticeshipPriceEpisode_Period">
           <Key>
@@ -147,6 +217,7 @@
           <Property Name="PriceEpisodeSecondProv1618Pay" Type="decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeSFAContribPct" Type="decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeTotProgFunding" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="PriceEpisodeLearnerAdditionalPayment" Type="decimal" Precision="12" Scale="5" />
         </EntityType>
         <EntityType Name="AEC_ApprenticeshipPriceEpisode_PeriodisedValues">
           <Key>
@@ -171,15 +242,6 @@
           <Property Name="Period_10" Type="decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="decimal" Precision="15" Scale="5" />
-        </EntityType>
-        <EntityType Name="AEC_Cases">
-          <Key>
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="UKPRN" />
-          </Key>
-          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
         </EntityType>
         <EntityType Name="AEC_global">
           <Key>
@@ -278,6 +340,13 @@
           <Property Name="ThresholdDays" Type="int" />
           <Property Name="LearnDelProgEarliestACT2Date" Type="date" />
           <Property Name="LearnDelNonLevyProcured" Type="bit" />
+          <Property Name="LearnDelApplicCareLeaverIncentive" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="LearnDelHistDaysCareLeavers" Type="int" />
+          <Property Name="LearnDelAccDaysILCareLeavers" Type="int" />
+          <Property Name="LearnDelPrevAccDaysILCareLeavers" Type="int" />
+          <Property Name="LearnDelLearnerAddPayThresholdDate" Type="date" />
+          <Property Name="LearnDelRedCode" Type="int" />
+          <Property Name="LearnDelRedStartDate" Type="date" />
         </EntityType>
         <EntityType Name="AEC_LearningDelivery_Period">
           <Key>
@@ -366,15 +435,6 @@
           <Property Name="Period_11" Type="decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="decimal" Precision="15" Scale="5" />
         </EntityType>
-        <EntityType Name="ALB_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
-        </EntityType>
         <EntityType Name="ALB_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -423,24 +483,24 @@
             <PropertyRef Name="LearnRefNumber" />
             <PropertyRef Name="AimSeqNumber" />
           </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
+          <Property Name="UKPRN" Type="bigint" Nullable="false" />
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="AimSeqNumber" Type="int" Nullable="false" />
+          <Property Name="AreaCostFactAdj" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="WeightedRate" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="PlannedNumOnProgInstalm" Type="int" />
+          <Property Name="FundStart" Type="bit" />
           <Property Name="Achieved" Type="bit" />
           <Property Name="ActualNumInstalm" Type="int" />
+          <Property Name="OutstndNumOnProgInstalm" Type="int" />
+          <Property Name="AreaCostInstalment" Type="decimal" Precision="12" Scale="5" />
           <Property Name="AdvLoan" Type="bit" />
-          <Property Name="ApplicFactDate" Type="date" />
-          <Property Name="ApplicProgWeightFact" Type="varchar" MaxLength="1" />
-          <Property Name="AreaCostFactAdj" Type="decimal" Precision="10" Scale="5" />
-          <Property Name="AreaCostInstalment" Type="decimal" Precision="10" Scale="5" />
-          <Property Name="FundLine" Type="varchar" MaxLength="50" />
-          <Property Name="FundStart" Type="bit" />
-          <Property Name="LiabilityDate" Type="date" />
           <Property Name="LoanBursAreaUplift" Type="bit" />
           <Property Name="LoanBursSupp" Type="bit" />
-          <Property Name="OutstndNumOnProgInstalm" Type="int" />
-          <Property Name="PlannedNumOnProgInstalm" Type="int" />
-          <Property Name="WeightedRate" Type="decimal" Precision="10" Scale="4" />
+          <Property Name="FundLine" Type="varchar" MaxLength="50" />
+          <Property Name="LiabilityDate" Type="date" />
+          <Property Name="ApplicProgWeightFact" Type="varchar" MaxLength="1" />
+          <Property Name="ApplicFactDate" Type="date" />
           <Property Name="LearnDelEligCareerLearnPilot" Type="bit" />
           <Property Name="LearnDelApplicSubsidyPilotAreaCode" Type="varchar" MaxLength="50" />
           <Property Name="LearnDelApplicLARSCarPilFundSubRate" Type="decimal" Precision="12" Scale="5" />
@@ -454,14 +514,14 @@
             <PropertyRef Name="AimSeqNumber" />
             <PropertyRef Name="Period" />
           </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
+          <Property Name="UKPRN" Type="bigint" Nullable="false" />
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="AimSeqNumber" Type="int" Nullable="false" />
           <Property Name="Period" Type="int" Nullable="false" />
+          <Property Name="AreaUpliftOnProgPayment" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="AreaUpliftBalPayment" Type="decimal" Precision="12" Scale="5" />
           <Property Name="ALBCode" Type="int" />
-          <Property Name="ALBSupportPayment" Type="decimal" Precision="10" Scale="5" />
-          <Property Name="AreaUpliftBalPayment" Type="decimal" Precision="10" Scale="5" />
-          <Property Name="AreaUpliftOnProgPayment" Type="decimal" Precision="10" Scale="5" />
+          <Property Name="ALBSupportPayment" Type="decimal" Precision="12" Scale="5" />
           <Property Name="LearnDelCarLearnPilotOnProgPayment" Type="decimal" Precision="12" Scale="5" />
           <Property Name="LearnDelCarLearnPilotBalPayment" Type="decimal" Precision="12" Scale="5" />
         </EntityType>
@@ -489,15 +549,12 @@
           <Property Name="Period_11" Type="decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="decimal" Precision="15" Scale="5" />
         </EntityType>
-        <EntityType Name="DV_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
-        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ILR1819_DataStore.Rulebase.DV_global' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="DV_global">
+          <Property Name="UKPRN" Type="int" />
+          <Property Name="RulebaseVersion" Type="varchar" MaxLength="10" />
+        </EntityType>-->
         <EntityType Name="DV_Learner">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -721,64 +778,6 @@
           <Property Name="Prog_SourceFundEFA" Type="int" />
           <Property Name="Prog_SourceFundSFA" Type="int" />
         </EntityType>
-        <EntityType Name="EFA_SFA_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
-        </EntityType>
-        <EntityType Name="EFA_SFA_global">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="RulebaseVersion" Type="varchar" MaxLength="10" />
-        </EntityType>
-        <EntityType Name="EFA_SFA_Learner_Period">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="Period" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="Period" Type="int" Nullable="false" />
-          <Property Name="LnrOnProgPay" Type="decimal" Precision="10" Scale="5" />
-        </EntityType>
-        <EntityType Name="EFA_SFA_Learner_PeriodisedValues">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="AttributeName" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="AttributeName" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="Period_1" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_2" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_3" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_4" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_5" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_6" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_7" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_8" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_9" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_10" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_11" Type="decimal" Precision="15" Scale="5" />
-          <Property Name="Period_12" Type="decimal" Precision="15" Scale="5" />
-        </EntityType>
-        <EntityType Name="ESF_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
-        </EntityType>
         <EntityType Name="ESF_DPOutcome">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -799,6 +798,12 @@
           <Property Name="ReachedThreeMonthPoint" Type="bit" />
           <Property Name="ReachedTwelveMonthPoint" Type="bit" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ESF_global">
+          <Property Name="UKPRN" Type="int" />
+          <Property Name="RulebaseVersion" Type="varchar" MaxLength="10" />
+        </EntityType>-->
         <EntityType Name="ESF_LearningDelivery">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -887,14 +892,6 @@
           <Property Name="Period_11" Type="decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="decimal" Precision="15" Scale="5" />
         </EntityType>
-        <EntityType Name="ESFVAL_Cases">
-          <Key>
-            <PropertyRef Name="Learner_Id" />
-          </Key>
-          <Property Name="Learner_Id" Type="int" Nullable="false" />
-          <Property Name="UKPRN" Type="int" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
-        </EntityType>
         <EntityType Name="ESFVAL_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -915,14 +912,45 @@
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="RuleId" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="FM25_Cases">
+        <EntityType Name="FM25_FM35_global">
+          <Key>
+            <PropertyRef Name="UKPRN" />
+          </Key>
+          <Property Name="UKPRN" Type="int" Nullable="false" />
+          <Property Name="RulebaseVersion" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="FM25_FM35_Learner_Period">
           <Key>
             <PropertyRef Name="UKPRN" />
             <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="Period" />
           </Key>
           <Property Name="UKPRN" Type="int" Nullable="false" />
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
+          <Property Name="Period" Type="int" Nullable="false" />
+          <Property Name="LnrOnProgPay" Type="decimal" Precision="10" Scale="5" />
+        </EntityType>
+        <EntityType Name="FM25_FM35_Learner_PeriodisedValues">
+          <Key>
+            <PropertyRef Name="UKPRN" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="AttributeName" />
+          </Key>
+          <Property Name="UKPRN" Type="int" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="AttributeName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Period_1" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_2" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_3" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_4" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_5" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_6" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_7" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_8" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_9" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_10" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_11" Type="decimal" Precision="15" Scale="5" />
+          <Property Name="Period_12" Type="decimal" Precision="15" Scale="5" />
         </EntityType>
         <EntityType Name="FM25_global">
           <Key>
@@ -967,15 +995,6 @@
           <Property Name="RetentNew" Type="decimal" Precision="10" Scale="5" />
           <Property Name="StartFund" Type="bit" />
           <Property Name="ThresholdDays" Type="int" />
-        </EntityType>
-        <EntityType Name="FM35_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
         </EntityType>
         <EntityType Name="FM35_global">
           <Key>
@@ -1124,15 +1143,6 @@
           <Property Name="Period_11" Type="decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="decimal" Precision="15" Scale="5" />
         </EntityType>
-        <EntityType Name="TBL_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
-        </EntityType>
         <EntityType Name="TBL_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -1252,15 +1262,6 @@
           <Property Name="Period_11" Type="decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="decimal" Precision="15" Scale="5" />
         </EntityType>
-        <EntityType Name="VAL_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="Learner_Id" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="Learner_Id" Type="int" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
-        </EntityType>
         <EntityType Name="VAL_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -1300,15 +1301,6 @@
           <Property Name="FieldValues" Type="varchar" MaxLength="2000" />
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="RuleId" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="VALDP_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnerDestinationAndProgression_Id" />
-          </Key>
-          <Property Name="UKPRN" Type="int" Nullable="false" />
-          <Property Name="LearnerDestinationAndProgression_Id" Type="int" Nullable="false" />
-          <Property Name="CaseData" Type="xml" Nullable="false" />
         </EntityType>
         <EntityType Name="VALDP_global">
           <Key>
@@ -1354,69 +1346,62 @@
         </Function>
         <Function Name="DeleteExistingRecords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ukprn" Type="int" Mode="In" />
-          <Parameter Name="fileName" Type="nvarchar" Mode="In" />
+          <Parameter Name="fileName" Type="varchar" Mode="In" />
         </Function>
         <Function Name="UpdateFileProcessingStatusInDEDs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ukprn" Type="int" Mode="In" />
           <Parameter Name="fileName" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="ILR1819_DataStoreModelStoreContainer">
+          <EntitySet Name="DasLearnerCommitment" EntityType="Self.DasLearnerCommitment" Schema="DataLock" store:Type="Tables" />
+          <EntitySet Name="PriceEpisodeMatch" EntityType="Self.PriceEpisodeMatch" Schema="DataLock" store:Type="Tables" />
+          <EntitySet Name="PriceEpisodePeriodMatch" EntityType="Self.PriceEpisodePeriodMatch" Schema="DataLock" store:Type="Tables" />
+          <EntitySet Name="ValidationError" EntityType="Self.ValidationError" Schema="DataLock" store:Type="Tables" />
           <EntitySet Name="FileDetails" EntityType="Self.FileDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProcessingData" EntityType="Self.ProcessingData" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ValidationError" EntityType="Self.ValidationError" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ValidationError1" EntityType="Self.ValidationError1" Schema="dbo" Table="ValidationError" store:Type="Tables" />
           <EntitySet Name="VersionInfo" EntityType="Self.VersionInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AEC_ApprenticeshipPriceEpisode" EntityType="Self.AEC_ApprenticeshipPriceEpisode" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="AEC_ApprenticeshipPriceEpisode_Period" EntityType="Self.AEC_ApprenticeshipPriceEpisode_Period" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" EntityType="Self.AEC_ApprenticeshipPriceEpisode_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="AEC_Cases" EntityType="Self.AEC_Cases" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="AEC_global" EntityType="Self.AEC_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="AEC_HistoricEarningOutput" EntityType="Self.AEC_HistoricEarningOutput" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="AEC_LearningDelivery" EntityType="Self.AEC_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="AEC_LearningDelivery_Period" EntityType="Self.AEC_LearningDelivery_Period" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="AEC_LearningDelivery_PeriodisedTextValues" EntityType="Self.AEC_LearningDelivery_PeriodisedTextValues" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="AEC_LearningDelivery_PeriodisedValues" EntityType="Self.AEC_LearningDelivery_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="ALB_Cases" EntityType="Self.ALB_Cases" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ALB_global" EntityType="Self.ALB_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ALB_Learner_Period" EntityType="Self.ALB_Learner_Period" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ALB_Learner_PeriodisedValues" EntityType="Self.ALB_Learner_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ALB_LearningDelivery" EntityType="Self.ALB_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ALB_LearningDelivery_Period" EntityType="Self.ALB_LearningDelivery_Period" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ALB_LearningDelivery_PeriodisedValues" EntityType="Self.ALB_LearningDelivery_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="DV_Cases" EntityType="Self.DV_Cases" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="DV_Learner" EntityType="Self.DV_Learner" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="DV_LearningDelivery" EntityType="Self.DV_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="EFA_SFA_Cases" EntityType="Self.EFA_SFA_Cases" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="EFA_SFA_global" EntityType="Self.EFA_SFA_global" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="EFA_SFA_Learner_Period" EntityType="Self.EFA_SFA_Learner_Period" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="EFA_SFA_Learner_PeriodisedValues" EntityType="Self.EFA_SFA_Learner_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="ESF_Cases" EntityType="Self.ESF_Cases" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESF_DPOutcome" EntityType="Self.ESF_DPOutcome" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESF_LearningDelivery" EntityType="Self.ESF_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESF_LearningDeliveryDeliverable" EntityType="Self.ESF_LearningDeliveryDeliverable" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESF_LearningDeliveryDeliverable_Period" EntityType="Self.ESF_LearningDeliveryDeliverable_Period" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESF_LearningDeliveryDeliverable_PeriodisedValues" EntityType="Self.ESF_LearningDeliveryDeliverable_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="ESFVAL_Cases" EntityType="Self.ESFVAL_Cases" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESFVAL_global" EntityType="Self.ESFVAL_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESFVAL_ValidationError" EntityType="Self.ESFVAL_ValidationError" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="FM25_Cases" EntityType="Self.FM25_Cases" Schema="Rulebase" store:Type="Tables" />
+          <EntitySet Name="FM25_FM35_global" EntityType="Self.FM25_FM35_global" Schema="Rulebase" store:Type="Tables" />
+          <EntitySet Name="FM25_FM35_Learner_Period" EntityType="Self.FM25_FM35_Learner_Period" Schema="Rulebase" store:Type="Tables" />
+          <EntitySet Name="FM25_FM35_Learner_PeriodisedValues" EntityType="Self.FM25_FM35_Learner_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="FM25_global" EntityType="Self.FM25_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="FM25_Learner" EntityType="Self.FM25_Learner" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="FM35_Cases" EntityType="Self.FM35_Cases" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="FM35_global" EntityType="Self.FM35_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="FM35_LearningDelivery" EntityType="Self.FM35_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="FM35_LearningDelivery_Period" EntityType="Self.FM35_LearningDelivery_Period" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="FM35_LearningDelivery_PeriodisedValues" EntityType="Self.FM35_LearningDelivery_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="TBL_Cases" EntityType="Self.TBL_Cases" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="TBL_global" EntityType="Self.TBL_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="TBL_LearningDelivery" EntityType="Self.TBL_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="TBL_LearningDelivery_Period" EntityType="Self.TBL_LearningDelivery_Period" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="TBL_LearningDelivery_PeriodisedValues" EntityType="Self.TBL_LearningDelivery_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="VAL_Cases" EntityType="Self.VAL_Cases" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="VAL_global" EntityType="Self.VAL_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="VAL_Learner" EntityType="Self.VAL_Learner" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="VAL_LearningDelivery" EntityType="Self.VAL_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="VAL_ValidationError" EntityType="Self.VAL_ValidationError" Schema="Rulebase" store:Type="Tables" />
-          <EntitySet Name="VALDP_Cases" EntityType="Self.VALDP_Cases" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="VALDP_global" EntityType="Self.VALDP_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="VALDP_ValidationError" EntityType="Self.VALDP_ValidationError" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="VALFD_ValidationError" EntityType="Self.VALFD_ValidationError" Schema="Rulebase" store:Type="Tables" />
@@ -1450,58 +1435,50 @@
           <EntitySet Name="AEC_ApprenticeshipPriceEpisode" EntityType="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode" />
           <EntitySet Name="AEC_ApprenticeshipPriceEpisode_Period" EntityType="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode_Period" />
           <EntitySet Name="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" EntityType="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode_PeriodisedValues" />
-          <EntitySet Name="AEC_Cases" EntityType="ILR1819_DataStoreModel.AEC_Cases" />
           <EntitySet Name="AEC_global" EntityType="ILR1819_DataStoreModel.AEC_global" />
           <EntitySet Name="AEC_HistoricEarningOutput" EntityType="ILR1819_DataStoreModel.AEC_HistoricEarningOutput" />
           <EntitySet Name="AEC_LearningDelivery" EntityType="ILR1819_DataStoreModel.AEC_LearningDelivery" />
           <EntitySet Name="AEC_LearningDelivery_Period" EntityType="ILR1819_DataStoreModel.AEC_LearningDelivery_Period" />
           <EntitySet Name="AEC_LearningDelivery_PeriodisedTextValues" EntityType="ILR1819_DataStoreModel.AEC_LearningDelivery_PeriodisedTextValues" />
           <EntitySet Name="AEC_LearningDelivery_PeriodisedValues" EntityType="ILR1819_DataStoreModel.AEC_LearningDelivery_PeriodisedValues" />
-          <EntitySet Name="ALB_Cases" EntityType="ILR1819_DataStoreModel.ALB_Cases" />
           <EntitySet Name="ALB_global" EntityType="ILR1819_DataStoreModel.ALB_global" />
           <EntitySet Name="ALB_Learner_Period" EntityType="ILR1819_DataStoreModel.ALB_Learner_Period" />
           <EntitySet Name="ALB_Learner_PeriodisedValues" EntityType="ILR1819_DataStoreModel.ALB_Learner_PeriodisedValues" />
           <EntitySet Name="ALB_LearningDelivery" EntityType="ILR1819_DataStoreModel.ALB_LearningDelivery" />
           <EntitySet Name="ALB_LearningDelivery_Period" EntityType="ILR1819_DataStoreModel.ALB_LearningDelivery_Period" />
           <EntitySet Name="ALB_LearningDelivery_PeriodisedValues" EntityType="ILR1819_DataStoreModel.ALB_LearningDelivery_PeriodisedValues" />
-          <EntitySet Name="DV_Cases" EntityType="ILR1819_DataStoreModel.DV_Cases" />
           <EntitySet Name="DV_Learner" EntityType="ILR1819_DataStoreModel.DV_Learner" />
           <EntitySet Name="DV_LearningDelivery" EntityType="ILR1819_DataStoreModel.DV_LearningDelivery" />
-          <EntitySet Name="EFA_SFA_Cases" EntityType="ILR1819_DataStoreModel.EFA_SFA_Cases" />
-          <EntitySet Name="EFA_SFA_global" EntityType="ILR1819_DataStoreModel.EFA_SFA_global" />
-          <EntitySet Name="EFA_SFA_Learner_Period" EntityType="ILR1819_DataStoreModel.EFA_SFA_Learner_Period" />
-          <EntitySet Name="EFA_SFA_Learner_PeriodisedValues" EntityType="ILR1819_DataStoreModel.EFA_SFA_Learner_PeriodisedValues" />
-          <EntitySet Name="ESF_Cases" EntityType="ILR1819_DataStoreModel.ESF_Cases" />
           <EntitySet Name="ESF_DPOutcome" EntityType="ILR1819_DataStoreModel.ESF_DPOutcome" />
           <EntitySet Name="ESF_LearningDelivery" EntityType="ILR1819_DataStoreModel.ESF_LearningDelivery" />
           <EntitySet Name="ESF_LearningDeliveryDeliverable" EntityType="ILR1819_DataStoreModel.ESF_LearningDeliveryDeliverable" />
           <EntitySet Name="ESF_LearningDeliveryDeliverable_Period" EntityType="ILR1819_DataStoreModel.ESF_LearningDeliveryDeliverable_Period" />
           <EntitySet Name="ESF_LearningDeliveryDeliverable_PeriodisedValues" EntityType="ILR1819_DataStoreModel.ESF_LearningDeliveryDeliverable_PeriodisedValues" />
-          <EntitySet Name="ESFVAL_Cases" EntityType="ILR1819_DataStoreModel.ESFVAL_Cases" />
           <EntitySet Name="ESFVAL_global" EntityType="ILR1819_DataStoreModel.ESFVAL_global" />
           <EntitySet Name="ESFVAL_ValidationError" EntityType="ILR1819_DataStoreModel.ESFVAL_ValidationError" />
-          <EntitySet Name="FM25_Cases" EntityType="ILR1819_DataStoreModel.FM25_Cases" />
           <EntitySet Name="FM25_global" EntityType="ILR1819_DataStoreModel.FM25_global" />
           <EntitySet Name="FM25_Learner" EntityType="ILR1819_DataStoreModel.FM25_Learner" />
-          <EntitySet Name="FM35_Cases" EntityType="ILR1819_DataStoreModel.FM35_Cases" />
           <EntitySet Name="FM35_global" EntityType="ILR1819_DataStoreModel.FM35_global" />
           <EntitySet Name="FM35_LearningDelivery" EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery" />
           <EntitySet Name="FM35_LearningDelivery_Period" EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_Period" />
           <EntitySet Name="FM35_LearningDelivery_PeriodisedValues" EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues" />
-          <EntitySet Name="TBL_Cases" EntityType="ILR1819_DataStoreModel.TBL_Cases" />
           <EntitySet Name="TBL_global" EntityType="ILR1819_DataStoreModel.TBL_global" />
           <EntitySet Name="TBL_LearningDelivery" EntityType="ILR1819_DataStoreModel.TBL_LearningDelivery" />
           <EntitySet Name="TBL_LearningDelivery_Period" EntityType="ILR1819_DataStoreModel.TBL_LearningDelivery_Period" />
           <EntitySet Name="TBL_LearningDelivery_PeriodisedValues" EntityType="ILR1819_DataStoreModel.TBL_LearningDelivery_PeriodisedValues" />
-          <EntitySet Name="VAL_Cases" EntityType="ILR1819_DataStoreModel.VAL_Cases" />
           <EntitySet Name="VAL_global" EntityType="ILR1819_DataStoreModel.VAL_global" />
           <EntitySet Name="VAL_Learner" EntityType="ILR1819_DataStoreModel.VAL_Learner" />
           <EntitySet Name="VAL_LearningDelivery" EntityType="ILR1819_DataStoreModel.VAL_LearningDelivery" />
           <EntitySet Name="VAL_ValidationError" EntityType="ILR1819_DataStoreModel.VAL_ValidationError" />
-          <EntitySet Name="VALDP_Cases" EntityType="ILR1819_DataStoreModel.VALDP_Cases" />
           <EntitySet Name="VALDP_global" EntityType="ILR1819_DataStoreModel.VALDP_global" />
           <EntitySet Name="VALDP_ValidationError" EntityType="ILR1819_DataStoreModel.VALDP_ValidationError" />
           <EntitySet Name="VALFD_ValidationError" EntityType="ILR1819_DataStoreModel.VALFD_ValidationError" />
+          <EntitySet Name="DasLearnerCommitments" EntityType="ILR1819_DataStoreModel.DasLearnerCommitment" />
+          <EntitySet Name="PriceEpisodeMatches" EntityType="ILR1819_DataStoreModel.PriceEpisodeMatch" />
+          <EntitySet Name="PriceEpisodePeriodMatches" EntityType="ILR1819_DataStoreModel.PriceEpisodePeriodMatch" />
+          <EntitySet Name="FM25_FM35_global" EntityType="ILR1819_DataStoreModel.FM25_FM35_global" />
+          <EntitySet Name="FM25_FM35_Learner_Period" EntityType="ILR1819_DataStoreModel.FM25_FM35_Learner_Period" />
+          <EntitySet Name="FM25_FM35_Learner_PeriodisedValues" EntityType="ILR1819_DataStoreModel.FM25_FM35_Learner_PeriodisedValues" />
           </EntityContainer>
         <EntityType Name="FileDetail">
           <Key>
@@ -1613,6 +1590,10 @@
           <Property Name="PriceEpisodeTotalPMRs" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeCumulativePMRs" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeCompExemCode" Type="Int32" />
+          <Property Name="PriceEpisodeLearnerAdditionalPaymentThresholdDate" Type="DateTime" Precision="0" />
+          <Property Name="PriceEpisodeAgreeId" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="PriceEpisodeRedStartDate" Type="DateTime" Precision="0" />
+          <Property Name="PriceEpisodeRedStatusCode" Type="Int32" />
         </EntityType>
         <EntityType Name="AEC_ApprenticeshipPriceEpisode_Period">
           <Key>
@@ -1645,6 +1626,7 @@
           <Property Name="PriceEpisodeSecondProv1618Pay" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeSFAContribPct" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeTotProgFunding" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="PriceEpisodeLearnerAdditionalPayment" Type="Decimal" Precision="12" Scale="5" />
         </EntityType>
         <EntityType Name="AEC_ApprenticeshipPriceEpisode_PeriodisedValues">
           <Key>
@@ -1669,15 +1651,6 @@
           <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
-        </EntityType>
-        <EntityType Name="AEC_Cases">
-          <Key>
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="UKPRN" />
-          </Key>
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AEC_global">
           <Key>
@@ -1776,6 +1749,13 @@
           <Property Name="ThresholdDays" Type="Int32" />
           <Property Name="LearnDelProgEarliestACT2Date" Type="DateTime" Precision="0" />
           <Property Name="LearnDelNonLevyProcured" Type="Boolean" />
+          <Property Name="LearnDelApplicCareLeaverIncentive" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="LearnDelHistDaysCareLeavers" Type="Int32" />
+          <Property Name="LearnDelAccDaysILCareLeavers" Type="Int32" />
+          <Property Name="LearnDelPrevAccDaysILCareLeavers" Type="Int32" />
+          <Property Name="LearnDelLearnerAddPayThresholdDate" Type="DateTime" Precision="0" />
+          <Property Name="LearnDelRedCode" Type="Int32" />
+          <Property Name="LearnDelRedStartDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="AEC_LearningDelivery_Period">
           <Key>
@@ -1864,15 +1844,6 @@
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
         </EntityType>
-        <EntityType Name="ALB_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="ALB_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -1930,7 +1901,7 @@
           <Property Name="ApplicFactDate" Type="DateTime" Precision="0" />
           <Property Name="ApplicProgWeightFact" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="AreaCostFactAdj" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="AreaCostInstalment" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="AreaCostInstalment" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="FundLine" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FundStart" Type="Boolean" />
           <Property Name="LiabilityDate" Type="DateTime" Precision="0" />
@@ -1938,7 +1909,7 @@
           <Property Name="LoanBursSupp" Type="Boolean" />
           <Property Name="OutstndNumOnProgInstalm" Type="Int32" />
           <Property Name="PlannedNumOnProgInstalm" Type="Int32" />
-          <Property Name="WeightedRate" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="WeightedRate" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="LearnDelEligCareerLearnPilot" Type="Boolean" />
           <Property Name="LearnDelApplicSubsidyPilotAreaCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LearnDelApplicLARSCarPilFundSubRate" Type="Decimal" Precision="12" Scale="5" />
@@ -1957,9 +1928,9 @@
           <Property Name="AimSeqNumber" Type="Int32" Nullable="false" />
           <Property Name="Period" Type="Int32" Nullable="false" />
           <Property Name="ALBCode" Type="Int32" />
-          <Property Name="ALBSupportPayment" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="AreaUpliftBalPayment" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="AreaUpliftOnProgPayment" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="ALBSupportPayment" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="AreaUpliftBalPayment" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="AreaUpliftOnProgPayment" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="LearnDelCarLearnPilotOnProgPayment" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="LearnDelCarLearnPilotBalPayment" Type="Decimal" Precision="12" Scale="5" />
         </EntityType>
@@ -1986,15 +1957,6 @@
           <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
-        </EntityType>
-        <EntityType Name="DV_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DV_Learner">
           <Key>
@@ -2219,64 +2181,6 @@
           <Property Name="Prog_SourceFundEFA" Type="Int32" />
           <Property Name="Prog_SourceFundSFA" Type="Int32" />
         </EntityType>
-        <EntityType Name="EFA_SFA_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="EFA_SFA_global">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="EFA_SFA_Learner_Period">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="Period" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="Period" Type="Int32" Nullable="false" />
-          <Property Name="LnrOnProgPay" Type="Decimal" Precision="10" Scale="5" />
-        </EntityType>
-        <EntityType Name="EFA_SFA_Learner_PeriodisedValues">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="AttributeName" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="AttributeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Period_1" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_2" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_3" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_4" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_5" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_6" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_7" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_8" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_9" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
-        </EntityType>
-        <EntityType Name="ESF_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="ESF_DPOutcome">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -2385,14 +2289,6 @@
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
         </EntityType>
-        <EntityType Name="ESFVAL_Cases">
-          <Key>
-            <PropertyRef Name="Learner_Id" />
-          </Key>
-          <Property Name="Learner_Id" Type="Int32" Nullable="false" />
-          <Property Name="UKPRN" Type="Int32" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="ESFVAL_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -2412,15 +2308,6 @@
           <Property Name="FieldValues" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="RuleId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="FM25_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="FM25_global">
           <Key>
@@ -2465,15 +2352,6 @@
           <Property Name="RetentNew" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="StartFund" Type="Boolean" />
           <Property Name="ThresholdDays" Type="Int32" />
-        </EntityType>
-        <EntityType Name="FM35_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="FM35_global">
           <Key>
@@ -2622,15 +2500,6 @@
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
         </EntityType>
-        <EntityType Name="TBL_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="TBL_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -2750,15 +2619,6 @@
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
         </EntityType>
-        <EntityType Name="VAL_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="Learner_Id" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="Learner_Id" Type="Int32" Nullable="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="VAL_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -2799,15 +2659,6 @@
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="RuleId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="VALDP_Cases">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnerDestinationAndProgression_Id" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnerDestinationAndProgression_Id" Type="Int32" Nullable="false" />
-          <Property Name="CaseData" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="VALDP_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -2840,6 +2691,96 @@
           <Property Name="FieldValues" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="RuleId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DasLearnerCommitment">
+          <Key>
+            <PropertyRef Name="Ukprn" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="AimSeqNumber" />
+          </Key>
+          <Property Name="Ukprn" Type="Int64" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AimSeqNumber" Type="Int64" Nullable="false" />
+          <Property Name="CommitmentId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PriceEpisodeMatch">
+          <Key>
+            <PropertyRef Name="Ukprn" />
+            <PropertyRef Name="PriceEpisodeIdentifier" />
+            <PropertyRef Name="LearnRefNumber" />
+          </Key>
+          <Property Name="Ukprn" Type="Int64" Nullable="false" />
+          <Property Name="PriceEpisodeIdentifier" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="AimSeqNumber" Type="Int32" />
+          <Property Name="CommitmentId" Type="Int64" />
+          <Property Name="CollectionPeriodName" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CollectionPeriodMonth" Type="Int32" Nullable="false" />
+          <Property Name="CollectionPeriodYear" Type="Int32" Nullable="false" />
+          <Property Name="IsSuccess" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PriceEpisodePeriodMatch">
+          <Key>
+            <PropertyRef Name="Ukprn" />
+            <PropertyRef Name="PriceEpisodeIdentifier" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="VersionId" />
+            <PropertyRef Name="Period" />
+            <PropertyRef Name="TransactionTypesFlag" />
+          </Key>
+          <Property Name="Ukprn" Type="Int64" Nullable="false" />
+          <Property Name="PriceEpisodeIdentifier" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="AimSeqNumber" Type="Int32" />
+          <Property Name="CommitmentId" Type="Int64" Nullable="false" />
+          <Property Name="VersionId" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Period" Type="Int32" Nullable="false" />
+          <Property Name="Payable" Type="Boolean" Nullable="false" />
+          <Property Name="TransactionType" Type="Int32" Nullable="false" />
+          <Property Name="CollectionPeriodName" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CollectionPeriodMonth" Type="Int32" Nullable="false" />
+          <Property Name="CollectionPeriodYear" Type="Int32" Nullable="false" />
+          <Property Name="TransactionTypesFlag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FM25_FM35_global">
+          <Key>
+            <PropertyRef Name="UKPRN" />
+          </Key>
+          <Property Name="UKPRN" Type="Int32" Nullable="false" />
+          <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FM25_FM35_Learner_Period">
+          <Key>
+            <PropertyRef Name="UKPRN" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="Period" />
+          </Key>
+          <Property Name="UKPRN" Type="Int32" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Period" Type="Int32" Nullable="false" />
+          <Property Name="LnrOnProgPay" Type="Decimal" Precision="10" Scale="5" />
+        </EntityType>
+        <EntityType Name="FM25_FM35_Learner_PeriodisedValues">
+          <Key>
+            <PropertyRef Name="UKPRN" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="AttributeName" />
+          </Key>
+          <Property Name="UKPRN" Type="Int32" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="AttributeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Period_1" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_2" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_3" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_4" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_5" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_6" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_7" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_8" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_9" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2882,7 +2823,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="ValidationErrors">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ValidationError">
-              <MappingFragment StoreEntitySet="ValidationError">
+              <MappingFragment StoreEntitySet="ValidationError1">
                 <ScalarProperty Name="FileLevelError" ColumnName="FileLevelError" />
                 <ScalarProperty Name="Severity" ColumnName="Severity" />
                 <ScalarProperty Name="RuleName" ColumnName="RuleName" />
@@ -2909,6 +2850,10 @@
           <EntitySetMapping Name="AEC_ApprenticeshipPriceEpisode">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode">
               <MappingFragment StoreEntitySet="AEC_ApprenticeshipPriceEpisode">
+                <ScalarProperty Name="PriceEpisodeRedStatusCode" ColumnName="PriceEpisodeRedStatusCode" />
+                <ScalarProperty Name="PriceEpisodeRedStartDate" ColumnName="PriceEpisodeRedStartDate" />
+                <ScalarProperty Name="PriceEpisodeAgreeId" ColumnName="PriceEpisodeAgreeId" />
+                <ScalarProperty Name="PriceEpisodeLearnerAdditionalPaymentThresholdDate" ColumnName="PriceEpisodeLearnerAdditionalPaymentThresholdDate" />
                 <ScalarProperty Name="PriceEpisodeCompExemCode" ColumnName="PriceEpisodeCompExemCode" />
                 <ScalarProperty Name="PriceEpisodeCumulativePMRs" ColumnName="PriceEpisodeCumulativePMRs" />
                 <ScalarProperty Name="PriceEpisodeTotalPMRs" ColumnName="PriceEpisodeTotalPMRs" />
@@ -2969,6 +2914,7 @@
           <EntitySetMapping Name="AEC_ApprenticeshipPriceEpisode_Period">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode_Period">
               <MappingFragment StoreEntitySet="AEC_ApprenticeshipPriceEpisode_Period">
+                <ScalarProperty Name="PriceEpisodeLearnerAdditionalPayment" ColumnName="PriceEpisodeLearnerAdditionalPayment" />
                 <ScalarProperty Name="PriceEpisodeTotProgFunding" ColumnName="PriceEpisodeTotProgFunding" />
                 <ScalarProperty Name="PriceEpisodeSFAContribPct" ColumnName="PriceEpisodeSFAContribPct" />
                 <ScalarProperty Name="PriceEpisodeSecondProv1618Pay" ColumnName="PriceEpisodeSecondProv1618Pay" />
@@ -3018,15 +2964,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AEC_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.AEC_Cases">
-              <MappingFragment StoreEntitySet="AEC_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AEC_global">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.AEC_global">
               <MappingFragment StoreEntitySet="AEC_global">
@@ -3073,6 +3010,13 @@
           <EntitySetMapping Name="AEC_LearningDelivery">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.AEC_LearningDelivery">
               <MappingFragment StoreEntitySet="AEC_LearningDelivery">
+                <ScalarProperty Name="LearnDelRedStartDate" ColumnName="LearnDelRedStartDate" />
+                <ScalarProperty Name="LearnDelRedCode" ColumnName="LearnDelRedCode" />
+                <ScalarProperty Name="LearnDelLearnerAddPayThresholdDate" ColumnName="LearnDelLearnerAddPayThresholdDate" />
+                <ScalarProperty Name="LearnDelPrevAccDaysILCareLeavers" ColumnName="LearnDelPrevAccDaysILCareLeavers" />
+                <ScalarProperty Name="LearnDelAccDaysILCareLeavers" ColumnName="LearnDelAccDaysILCareLeavers" />
+                <ScalarProperty Name="LearnDelHistDaysCareLeavers" ColumnName="LearnDelHistDaysCareLeavers" />
+                <ScalarProperty Name="LearnDelApplicCareLeaverIncentive" ColumnName="LearnDelApplicCareLeaverIncentive" />
                 <ScalarProperty Name="LearnDelNonLevyProcured" ColumnName="LearnDelNonLevyProcured" />
                 <ScalarProperty Name="LearnDelProgEarliestACT2Date" ColumnName="LearnDelProgEarliestACT2Date" />
                 <ScalarProperty Name="ThresholdDays" ColumnName="ThresholdDays" />
@@ -3205,15 +3149,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ALB_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ALB_Cases">
-              <MappingFragment StoreEntitySet="ALB_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ALB_global">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ALB_global">
               <MappingFragment StoreEntitySet="ALB_global">
@@ -3317,15 +3252,6 @@
                 <ScalarProperty Name="Period_1" ColumnName="Period_1" />
                 <ScalarProperty Name="AttributeName" ColumnName="AttributeName" />
                 <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DV_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.DV_Cases">
-              <MappingFragment StoreEntitySet="DV_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
                 <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
                 <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
               </MappingFragment>
@@ -3553,63 +3479,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EFA_SFA_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.EFA_SFA_Cases">
-              <MappingFragment StoreEntitySet="EFA_SFA_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EFA_SFA_global">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.EFA_SFA_global">
-              <MappingFragment StoreEntitySet="EFA_SFA_global">
-                <ScalarProperty Name="RulebaseVersion" ColumnName="RulebaseVersion" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EFA_SFA_Learner_Period">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.EFA_SFA_Learner_Period">
-              <MappingFragment StoreEntitySet="EFA_SFA_Learner_Period">
-                <ScalarProperty Name="LnrOnProgPay" ColumnName="LnrOnProgPay" />
-                <ScalarProperty Name="Period" ColumnName="Period" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EFA_SFA_Learner_PeriodisedValues">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.EFA_SFA_Learner_PeriodisedValues">
-              <MappingFragment StoreEntitySet="EFA_SFA_Learner_PeriodisedValues">
-                <ScalarProperty Name="Period_12" ColumnName="Period_12" />
-                <ScalarProperty Name="Period_11" ColumnName="Period_11" />
-                <ScalarProperty Name="Period_10" ColumnName="Period_10" />
-                <ScalarProperty Name="Period_9" ColumnName="Period_9" />
-                <ScalarProperty Name="Period_8" ColumnName="Period_8" />
-                <ScalarProperty Name="Period_7" ColumnName="Period_7" />
-                <ScalarProperty Name="Period_6" ColumnName="Period_6" />
-                <ScalarProperty Name="Period_5" ColumnName="Period_5" />
-                <ScalarProperty Name="Period_4" ColumnName="Period_4" />
-                <ScalarProperty Name="Period_3" ColumnName="Period_3" />
-                <ScalarProperty Name="Period_2" ColumnName="Period_2" />
-                <ScalarProperty Name="Period_1" ColumnName="Period_1" />
-                <ScalarProperty Name="AttributeName" ColumnName="AttributeName" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ESF_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ESF_Cases">
-              <MappingFragment StoreEntitySet="ESF_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ESF_DPOutcome">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ESF_DPOutcome">
               <MappingFragment StoreEntitySet="ESF_DPOutcome">
@@ -3706,15 +3575,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ESFVAL_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ESFVAL_Cases">
-              <MappingFragment StoreEntitySet="ESFVAL_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-                <ScalarProperty Name="Learner_Id" ColumnName="Learner_Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ESFVAL_global">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ESFVAL_global">
               <MappingFragment StoreEntitySet="ESFVAL_global">
@@ -3731,15 +3591,6 @@
                 <ScalarProperty Name="FieldValues" ColumnName="FieldValues" />
                 <ScalarProperty Name="ErrorString" ColumnName="ErrorString" />
                 <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FM25_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.FM25_Cases">
-              <MappingFragment StoreEntitySet="FM25_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
                 <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3784,15 +3635,6 @@
                 <ScalarProperty Name="ActualDaysILCurrYear" ColumnName="ActualDaysILCurrYear" />
                 <ScalarProperty Name="AcadProg" ColumnName="AcadProg" />
                 <ScalarProperty Name="AcadMonthPayment" ColumnName="AcadMonthPayment" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FM35_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.FM35_Cases">
-              <MappingFragment StoreEntitySet="FM35_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
                 <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
                 <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
               </MappingFragment>
@@ -3941,15 +3783,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TBL_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.TBL_Cases">
-              <MappingFragment StoreEntitySet="TBL_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TBL_global">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.TBL_global">
               <MappingFragment StoreEntitySet="TBL_global">
@@ -4065,15 +3898,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VAL_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.VAL_Cases">
-              <MappingFragment StoreEntitySet="VAL_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
-                <ScalarProperty Name="Learner_Id" ColumnName="Learner_Id" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VAL_global">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.VAL_global">
               <MappingFragment StoreEntitySet="VAL_global">
@@ -4114,15 +3938,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VALDP_Cases">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.VALDP_Cases">
-              <MappingFragment StoreEntitySet="VALDP_Cases">
-                <ScalarProperty Name="CaseData" ColumnName="CaseData" />
-                <ScalarProperty Name="LearnerDestinationAndProgression_Id" ColumnName="LearnerDestinationAndProgression_Id" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VALDP_global">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.VALDP_global">
               <MappingFragment StoreEntitySet="VALDP_global">
@@ -4152,6 +3967,89 @@
                 <ScalarProperty Name="FieldValues" ColumnName="FieldValues" />
                 <ScalarProperty Name="ErrorString" ColumnName="ErrorString" />
                 <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
+                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DasLearnerCommitments">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.DasLearnerCommitment">
+              <MappingFragment StoreEntitySet="DasLearnerCommitment">
+                <ScalarProperty Name="CommitmentId" ColumnName="CommitmentId" />
+                <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
+                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
+                <ScalarProperty Name="Ukprn" ColumnName="Ukprn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceEpisodeMatches">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.PriceEpisodeMatch">
+              <MappingFragment StoreEntitySet="PriceEpisodeMatch">
+                <ScalarProperty Name="IsSuccess" ColumnName="IsSuccess" />
+                <ScalarProperty Name="CollectionPeriodYear" ColumnName="CollectionPeriodYear" />
+                <ScalarProperty Name="CollectionPeriodMonth" ColumnName="CollectionPeriodMonth" />
+                <ScalarProperty Name="CollectionPeriodName" ColumnName="CollectionPeriodName" />
+                <ScalarProperty Name="CommitmentId" ColumnName="CommitmentId" />
+                <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
+                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
+                <ScalarProperty Name="PriceEpisodeIdentifier" ColumnName="PriceEpisodeIdentifier" />
+                <ScalarProperty Name="Ukprn" ColumnName="Ukprn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceEpisodePeriodMatches">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.PriceEpisodePeriodMatch">
+              <MappingFragment StoreEntitySet="PriceEpisodePeriodMatch">
+                <ScalarProperty Name="TransactionTypesFlag" ColumnName="TransactionTypesFlag" />
+                <ScalarProperty Name="CollectionPeriodYear" ColumnName="CollectionPeriodYear" />
+                <ScalarProperty Name="CollectionPeriodMonth" ColumnName="CollectionPeriodMonth" />
+                <ScalarProperty Name="CollectionPeriodName" ColumnName="CollectionPeriodName" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="Payable" ColumnName="Payable" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="VersionId" ColumnName="VersionId" />
+                <ScalarProperty Name="CommitmentId" ColumnName="CommitmentId" />
+                <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
+                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
+                <ScalarProperty Name="PriceEpisodeIdentifier" ColumnName="PriceEpisodeIdentifier" />
+                <ScalarProperty Name="Ukprn" ColumnName="Ukprn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FM25_FM35_global">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.FM25_FM35_global">
+              <MappingFragment StoreEntitySet="FM25_FM35_global">
+                <ScalarProperty Name="RulebaseVersion" ColumnName="RulebaseVersion" />
+                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FM25_FM35_Learner_Period">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.FM25_FM35_Learner_Period">
+              <MappingFragment StoreEntitySet="FM25_FM35_Learner_Period">
+                <ScalarProperty Name="LnrOnProgPay" ColumnName="LnrOnProgPay" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
+                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FM25_FM35_Learner_PeriodisedValues">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.FM25_FM35_Learner_PeriodisedValues">
+              <MappingFragment StoreEntitySet="FM25_FM35_Learner_PeriodisedValues">
+                <ScalarProperty Name="Period_12" ColumnName="Period_12" />
+                <ScalarProperty Name="Period_11" ColumnName="Period_11" />
+                <ScalarProperty Name="Period_10" ColumnName="Period_10" />
+                <ScalarProperty Name="Period_9" ColumnName="Period_9" />
+                <ScalarProperty Name="Period_8" ColumnName="Period_8" />
+                <ScalarProperty Name="Period_7" ColumnName="Period_7" />
+                <ScalarProperty Name="Period_6" ColumnName="Period_6" />
+                <ScalarProperty Name="Period_5" ColumnName="Period_5" />
+                <ScalarProperty Name="Period_4" ColumnName="Period_4" />
+                <ScalarProperty Name="Period_3" ColumnName="Period_3" />
+                <ScalarProperty Name="Period_2" ColumnName="Period_2" />
+                <ScalarProperty Name="Period_1" ColumnName="Period_1" />
+                <ScalarProperty Name="AttributeName" ColumnName="AttributeName" />
+                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
                 <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
               </MappingFragment>
             </EntityTypeMapping>

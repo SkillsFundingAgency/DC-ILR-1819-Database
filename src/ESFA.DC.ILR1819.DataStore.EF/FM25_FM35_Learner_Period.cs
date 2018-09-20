@@ -12,10 +12,11 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class ALB_Cases
+    public partial class FM25_FM35_Learner_Period
     {
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
-        public string CaseData { get; set; }
+        public int Period { get; set; }
+        public Nullable<decimal> LnrOnProgPay { get; set; }
     }
 }
