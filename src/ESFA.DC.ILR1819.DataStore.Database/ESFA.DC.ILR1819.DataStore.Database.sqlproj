@@ -104,10 +104,8 @@
     <Folder Include="zzDeploymentProfiles" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Rulebase\Tables\VAL_Cases.sql" />
     <Build Include="Rulebase\Tables\VAL_global.sql" />
     <Build Include="Rulebase\Tables\VAL_ValidationError.sql" />
-    <Build Include="Rulebase\Tables\TBL_Cases.sql" />
     <Build Include="dbo\Tables\VersionInfo.sql" />
     <Build Include="Rulebase\Tables\TBL_global.sql" />
     <Build Include="Valid\Tables\CollectionDetails.sql" />
@@ -129,7 +127,6 @@
     <Build Include="Valid\Tables\LearningDelivery.sql" />
     <Build Include="Valid\Tables\LearningDeliveryFAM.sql" />
     <Build Include="Valid\Tables\LearningDeliveryWorkPlacement.sql" />
-    <Build Include="Rulebase\Tables\ESFVAL_Cases.sql" />
     <Build Include="Valid\Tables\AppFinRecord.sql" />
     <Build Include="Valid\Tables\ProviderSpecDeliveryMonitoring.sql" />
     <Build Include="Rulebase\Tables\ESFVAL_global.sql" />
@@ -151,7 +148,6 @@
     <Build Include="DataLock\Tables\ValidationError.sql" />
     <Build Include="Invalid\Tables\ContactPreference.sql" />
     <Build Include="Invalid\Tables\LLDDandHealthProblem.sql" />
-    <Build Include="Rulebase\Tables\DV_Cases.sql" />
     <Build Include="Rulebase\Tables\DV_global.sql" />
     <Build Include="Invalid\Tables\LearnerFAM.sql" />
     <Build Include="Rulebase\Tables\DV_Learner.sql" />
@@ -163,7 +159,6 @@
     <Build Include="Invalid\Tables\LearnerHEFinancialSupport.sql" />
     <Build Include="Invalid\Tables\LearningDelivery.sql" />
     <Build Include="Invalid\Tables\LearningDeliveryFAM.sql" />
-    <Build Include="Rulebase\Tables\AEC_Cases.sql" />
     <Build Include="Invalid\Tables\LearningDeliveryWorkPlacement.sql" />
     <Build Include="Rulebase\Tables\AEC_global.sql" />
     <Build Include="Rulebase\Tables\AEC_LearningDelivery.sql" />
@@ -177,13 +172,8 @@
     <Build Include="Rulebase\Tables\AEC_HistoricEarningOutput.sql" />
     <Build Include="Invalid\Tables\DPOutcome.sql" />
     <Build Include="Rulebase\Tables\AEC_ApprenticeshipPriceEpisode.sql" />
-    <Build Include="Rulebase\Tables\EFA_SFA_Cases.sql" />
     <Build Include="Rulebase\Tables\AEC_ApprenticeshipPriceEpisode_Period.sql" />
-    <Build Include="Rulebase\Tables\EFA_SFA_global.sql" />
     <Build Include="Rulebase\Tables\AEC_ApprenticeshipPriceEpisode_PeriodisedValues.sql" />
-    <Build Include="Rulebase\Tables\EFA_SFA_Learner_Period.sql" />
-    <Build Include="Rulebase\Tables\EFA_SFA_Learner_PeriodisedValues.sql" />
-    <Build Include="Rulebase\Tables\ESF_Cases.sql" />
     <Build Include="Rulebase\Tables\ESF_global.sql" />
     <Build Include="Rulebase\Tables\ESF_LearningDelivery.sql" />
     <Build Include="Rulebase\Tables\ESF_LearningDeliveryDeliverable.sql" />
@@ -192,7 +182,6 @@
     <Build Include="Rulebase\Tables\ESF_DPOutcome.sql" />
     <Build Include="Rulebase\Tables\VAL_Learner.sql" />
     <Build Include="Rulebase\Tables\VAL_LearningDelivery.sql" />
-    <Build Include="Rulebase\Tables\ALB_Cases.sql" />
     <Build Include="Rulebase\Tables\ALB_global.sql" />
     <Build Include="Rulebase\Tables\ALB_Learner_Period.sql" />
     <Build Include="Rulebase\Tables\ALB_Learner_PeriodisedValues.sql" />
@@ -200,10 +189,8 @@
     <Build Include="Rulebase\Tables\VALFD_ValidationError.sql" />
     <Build Include="Rulebase\Tables\ALB_LearningDelivery_Period.sql" />
     <Build Include="Rulebase\Tables\ALB_LearningDelivery_PeriodisedValues.sql" />
-    <Build Include="Rulebase\Tables\VALDP_Cases.sql" />
     <Build Include="Rulebase\Tables\VALDP_global.sql" />
     <Build Include="Rulebase\Tables\VALDP_ValidationError.sql" />
-    <Build Include="Valid\Views\TrailblazerApprenticeshipFinancialRecord.sql" />
     <Build Include="Valid\Views\LearnerDenorm.sql" />
     <Build Include="Valid\Views\LearningDeliveryDenorm.sql" />
     <Build Include="Valid\Views\LearnerEmploymentStatusDenorm.sql" />
@@ -222,14 +209,16 @@
     <Build Include="Rulebase\Tables\FM35_LearningDelivery_Period.sql" />
     <Build Include="Rulebase\Tables\FM35_LearningDelivery.sql" />
     <Build Include="Rulebase\Tables\FM35_global.sql" />
-    <Build Include="Rulebase\Tables\FM35_Cases.sql" />
     <Build Include="Rulebase\Tables\FM25_Learner.sql" />
     <Build Include="Rulebase\Tables\FM25_global.sql" />
-    <Build Include="Rulebase\Tables\FM25_Cases.sql" />
     <Build Include="Security\User_RW.sql" />
     <Build Include="Security\User_RO.sql" />
     <Build Include="Security\DataProcessing.sql" />
     <Build Include="Security\DataViewing.sql" />
+    <Build Include="Rulebase\Tables\FM25_FM35_Learner_PeriodisedValues.sql" />
+    <Build Include="Rulebase\Tables\FM25_FM35_Learner_Period.sql" />
+    <Build Include="Rulebase\Tables\FM25_FM35_global.sql" />
+    <Build Include="Valid\Views\ApprenticeshipFinancialRecord.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />

@@ -1,4 +1,4 @@
-﻿CREATE TABLE [Rulebase].[EFA_SFA_Learner_Period] (
+﻿CREATE TABLE [Rulebase].[FM25_FM35_Learner_Period] (
     [UKPRN]          INT             NOT NULL,
     [LearnRefNumber] VARCHAR (12)    NOT NULL,
     [Period]         INT             NOT NULL,

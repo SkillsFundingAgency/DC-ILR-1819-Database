@@ -1,117 +1,121 @@
 ﻿
 
-CREATE procedure [dbo].[DeleteExistingRecords] (@ukprn int, @fileName NVARCHAR(100)) as
-BEGIN 
 
---FileDetails--
--- Todo: Fix this
-DELETE FROM [dbo].[FileDetails] WHERE [UKPRN] = @ukprn AND [Filename] = @fileName -- AND [Success] ='0' 
-DELETE FROM [dbo].[ValidationError] WHERE UKPRN = @ukprn
+CREATE procedure [dbo].[DeleteExistingRecords] (
+	@ukprn int,
+	@fileName varchar(100)
+) as
+begin
 
+	delete from [dbo].[FileDetails] where [UKPRN] = @ukprn and [Filename] = @fileName and [Success] ='0' 
 
-DELETE FROM [Invalid].[AppFinRecord] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[CollectionDetails] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[ContactPreference] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[DPOutcome] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[EmploymentStatusMonitoring] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[Learner] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearnerDestinationandProgression] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearnerEmploymentStatus] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearnerFAM] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearnerHE] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearnerHEFinancialSupport] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearningDelivery] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearningDeliveryFAM] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearningDeliveryHE] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearningDeliveryWorkPlacement] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LearningProvider] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[LLDDandHealthProblem] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[ProviderSpecDeliveryMonitoring] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[ProviderSpecLearnerMonitoring] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[Source] WHERE UKPRN = @ukprn
-DELETE FROM [Invalid].[SourceFile] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_ApprenticeshipPriceEpisode] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_ApprenticeshipPriceEpisode_Period] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_ApprenticeshipPriceEpisode_PeriodisedValues] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_HistoricEarningOutput] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_LearningDelivery] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_LearningDelivery_Period] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_LearningDelivery_PeriodisedTextValues] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[AEC_LearningDelivery_PeriodisedValues] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ALB_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ALB_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ALB_Learner_Period] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ALB_Learner_PeriodisedValues] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ALB_LearningDelivery] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ALB_LearningDelivery_Period] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ALB_LearningDelivery_PeriodisedValues] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[DV_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[DV_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[DV_Learner] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[DV_LearningDelivery] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[FM25_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[FM25_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[FM25_Learner] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[EFA_SFA_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[EFA_SFA_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[EFA_SFA_Learner_Period] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[EFA_SFA_Learner_PeriodisedValues] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESFVAL_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESFVAL_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESFVAL_ValidationError] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESF_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESF_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESF_LearningDelivery] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESF_LearningDeliveryDeliverable] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESF_LearningDeliveryDeliverable_Period] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESF_LearningDeliveryDeliverable_PeriodisedValues] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[ESF_DPOutcome] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[FM35_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[FM35_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[FM35_LearningDelivery] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[FM35_LearningDelivery_Period] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[FM35_LearningDelivery_PeriodisedValues] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[TBL_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[TBL_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[TBL_LearningDelivery] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[TBL_LearningDelivery_Period] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[TBL_LearningDelivery_PeriodisedValues] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[VAL_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[VAL_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[VAL_Learner] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[VAL_LearningDelivery] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[VAL_ValidationError] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[VALDP_Cases] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[VALDP_global] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[VALDP_ValidationError] WHERE UKPRN = @ukprn
-DELETE FROM [Rulebase].[VALFD_ValidationError] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[AppFinRecord] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[CollectionDetails] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[ContactPreference] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[DPOutcome] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[EmploymentStatusMonitoring] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[Learner] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearnerDestinationandProgression] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearnerEmploymentStatus] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearnerFAM] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearnerHE] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearnerHEFinancialSupport] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearningDelivery] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearningDeliveryFAM] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearningDeliveryHE] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearningDeliveryWorkPlacement] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LearningProvider] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[LLDDandHealthProblem] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[ProviderSpecDeliveryMonitoring] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[ProviderSpecLearnerMonitoring] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[Source] WHERE UKPRN = @ukprn
-DELETE FROM [Valid].[SourceFile] WHERE UKPRN = @ukprn
+	delete from dbo.ValidationError where UKPRN = @ukprn
+	delete from Invalid.AppFinRecord where UKPRN = @ukprn
+	delete from Invalid.CollectionDetails where UKPRN = @ukprn
+	delete from Invalid.ContactPreference where UKPRN = @ukprn
+	delete from Invalid.DPOutcome where UKPRN = @ukprn
+	delete from Invalid.EmploymentStatusMonitoring where UKPRN = @ukprn
+	delete from Invalid.Learner where UKPRN = @ukprn
+	delete from Invalid.LearnerDestinationandProgression where UKPRN = @ukprn
+	delete from Invalid.LearnerEmploymentStatus where UKPRN = @ukprn
+	delete from Invalid.LearnerFAM where UKPRN = @ukprn
+	delete from Invalid.LearnerHE where UKPRN = @ukprn
+	delete from Invalid.LearnerHEFinancialSupport where UKPRN = @ukprn
+	delete from Invalid.LearningDelivery where UKPRN = @ukprn
+	delete from Invalid.LearningDeliveryFAM where UKPRN = @ukprn
+	delete from Invalid.LearningDeliveryHE where UKPRN = @ukprn
+	delete from Invalid.LearningDeliveryWorkPlacement where UKPRN = @ukprn
+	delete from Invalid.LearningProvider where UKPRN = @ukprn
+	delete from Invalid.LLDDandHealthProblem where UKPRN = @ukprn
+	delete from Invalid.ProviderSpecDeliveryMonitoring where UKPRN = @ukprn
+	delete from Invalid.ProviderSpecLearnerMonitoring where UKPRN = @ukprn
+	delete from Invalid.[Source] where UKPRN = @ukprn
+	delete from Invalid.SourceFile where UKPRN = @ukprn
+	delete from Rulebase.AEC_ApprenticeshipPriceEpisode where UKPRN = @ukprn
+	delete from Rulebase.AEC_ApprenticeshipPriceEpisode_Period where UKPRN = @ukprn
+	delete from Rulebase.AEC_ApprenticeshipPriceEpisode_PeriodisedValues where UKPRN = @ukprn
+	--delete from Rulebase.AEC_Cases where UKPRN = @ukprn
+	delete from Rulebase.AEC_global where UKPRN = @ukprn
+	delete from Rulebase.AEC_HistoricEarningOutput where UKPRN = @ukprn
+	delete from Rulebase.AEC_LearningDelivery where UKPRN = @ukprn
+	delete from Rulebase.AEC_LearningDelivery_Period where UKPRN = @ukprn
+	delete from Rulebase.AEC_LearningDelivery_PeriodisedTextValues where UKPRN = @ukprn
+	delete from Rulebase.AEC_LearningDelivery_PeriodisedValues where UKPRN = @ukprn
+	--delete from Rulebase.ALB_Cases where UKPRN = @ukprn
+	delete from Rulebase.ALB_global where UKPRN = @ukprn
+	delete from Rulebase.ALB_Learner_Period where UKPRN = @ukprn
+	delete from Rulebase.ALB_Learner_PeriodisedValues where UKPRN = @ukprn
+	delete from Rulebase.ALB_LearningDelivery where UKPRN = @ukprn
+	delete from Rulebase.ALB_LearningDelivery_Period where UKPRN = @ukprn
+	delete from Rulebase.ALB_LearningDelivery_PeriodisedValues where UKPRN = @ukprn
+	--delete from Rulebase.DV_Cases where UKPRN = @ukprn
+	delete from Rulebase.DV_global where UKPRN = @ukprn
+	delete from Rulebase.DV_Learner where UKPRN = @ukprn
+	delete from Rulebase.DV_LearningDelivery where UKPRN = @ukprn
+	--delete from Rulebase.FM25_Cases where UKPRN = @ukprn
+	delete from Rulebase.FM25_global where UKPRN = @ukprn
+	delete from Rulebase.FM25_Learner where UKPRN = @ukprn
+	--delete from Rulebase.FM25_FM35_Cases where UKPRN = @ukprn
+	delete from Rulebase.FM25_FM35_global where UKPRN = @ukprn
+	delete from Rulebase.FM25_FM35_Learner_Period where UKPRN = @ukprn
+	delete from Rulebase.FM25_FM35_Learner_PeriodisedValues where UKPRN = @ukprn
+	--delete from Rulebase.ESFVAL_Cases where UKPRN = @ukprn
+	delete from Rulebase.ESFVAL_global where UKPRN = @ukprn
+	delete from Rulebase.ESFVAL_ValidationError where UKPRN = @ukprn
 
-END
+	--delete from Rulebase.ESF_Cases where UKPRN = @ukprn
+	delete from Rulebase.ESF_global where UKPRN = @ukprn
+	delete from Rulebase.ESF_LearningDelivery where UKPRN = @ukprn
+	delete from Rulebase.ESF_LearningDeliveryDeliverable where UKPRN = @ukprn
+	delete from Rulebase.ESF_LearningDeliveryDeliverable_Period where UKPRN = @ukprn
+	delete from Rulebase.ESF_LearningDeliveryDeliverable_PeriodisedValues where UKPRN = @ukprn
+	delete from Rulebase.ESF_DPOutcome where UKPRN = @ukprn
+
+	--delete from Rulebase.FM35_Cases where UKPRN = @ukprn
+	delete from Rulebase.FM35_global where UKPRN = @ukprn
+	delete from Rulebase.FM35_LearningDelivery where UKPRN = @ukprn
+	delete from Rulebase.FM35_LearningDelivery_Period where UKPRN = @ukprn
+	delete from Rulebase.FM35_LearningDelivery_PeriodisedValues where UKPRN = @ukprn
+	--delete from Rulebase.TBL_Cases where UKPRN = @ukprn
+	delete from Rulebase.TBL_global where UKPRN = @ukprn
+	delete from Rulebase.TBL_LearningDelivery where UKPRN = @ukprn
+	delete from Rulebase.TBL_LearningDelivery_Period where UKPRN = @ukprn
+	delete from Rulebase.TBL_LearningDelivery_PeriodisedValues where UKPRN = @ukprn
+	--delete from Rulebase.VAL_Cases where UKPRN = @ukprn
+	delete from Rulebase.VAL_global where UKPRN = @ukprn
+	delete from Rulebase.VAL_Learner where UKPRN = @ukprn
+	delete from Rulebase.VAL_LearningDelivery where UKPRN = @ukprn
+	delete from Rulebase.VAL_ValidationError where UKPRN = @ukprn
+	--delete from Rulebase.VALDP_Cases where UKPRN = @ukprn
+	delete from Rulebase.VALDP_global where UKPRN = @ukprn
+	delete from Rulebase.VALDP_ValidationError where UKPRN = @ukprn
+
+	delete from Rulebase.VALFD_ValidationError where UKPRN = @ukprn
+
+	delete from Valid.AppFinRecord where UKPRN = @ukprn
+	delete from Valid.CollectionDetails where UKPRN = @ukprn
+	delete from Valid.ContactPreference where UKPRN = @ukprn
+	delete from Valid.DPOutcome where UKPRN = @ukprn
+	delete from Valid.EmploymentStatusMonitoring where UKPRN = @ukprn
+	delete from Valid.Learner where UKPRN = @ukprn
+	delete from Valid.LearnerDestinationandProgression where UKPRN = @ukprn
+	delete from Valid.LearnerEmploymentStatus where UKPRN = @ukprn
+	delete from Valid.LearnerFAM where UKPRN = @ukprn
+	delete from Valid.LearnerHE where UKPRN = @ukprn
+	delete from Valid.LearnerHEFinancialSupport where UKPRN = @ukprn
+	delete from Valid.LearningDelivery where UKPRN = @ukprn
+	delete from Valid.LearningDeliveryFAM where UKPRN = @ukprn
+	delete from Valid.LearningDeliveryHE where UKPRN = @ukprn
+	delete from Valid.LearningDeliveryWorkPlacement where UKPRN = @ukprn
+	delete from Valid.LearningProvider where UKPRN = @ukprn
+	delete from Valid.LLDDandHealthProblem where UKPRN = @ukprn
+	delete from Valid.ProviderSpecDeliveryMonitoring where UKPRN = @ukprn
+	delete from Valid.ProviderSpecLearnerMonitoring where UKPRN = @ukprn
+	delete from Valid.[Source] where UKPRN = @ukprn
+	delete from Valid.SourceFile where UKPRN = @ukprn
+end
 
 GO
 
-GRANT EXECUTE ON [dbo].[DeleteExistingRecords] TO [DataProcessing]
+
 
