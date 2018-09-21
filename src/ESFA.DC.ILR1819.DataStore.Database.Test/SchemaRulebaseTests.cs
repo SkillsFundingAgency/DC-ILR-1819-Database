@@ -694,105 +694,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         }
 
         [Fact]
-        public void CheckColumnEFA_global()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LARSVersion", 2, true, 50),
-                ExpectedColumn.CreateVarChar("OrgVersion", 3, true, 50),
-                ExpectedColumn.CreateVarChar("PostcodeDisadvantageVersion", 4, true, 50),
-                ExpectedColumn.CreateVarChar("RulebaseVersion", 5, true, 10)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "EFA_global", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnEFA_Learner()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateInt("AcadMonthPayment", 3, true),
-                ExpectedColumn.CreateBit("AcadProg", 4, true),
-                ExpectedColumn.CreateInt("ActualDaysILCurrYear", 5, true),
-                ExpectedColumn.CreateDecimal("AreaCostFact1618Hist", 6, true, 10, 5),
-                ExpectedColumn.CreateDecimal("Block1DisadvUpliftNew", 7, true, 10, 5),
-                ExpectedColumn.CreateDecimal("Block2DisadvElementsNew", 8, true, 10, 5),
-                ExpectedColumn.CreateVarChar("ConditionOfFundingEnglish", 9, true, 100),
-                ExpectedColumn.CreateVarChar("ConditionOfFundingMaths", 10, true, 100),
-                ExpectedColumn.CreateInt("CoreAimSeqNumber", 11, true),
-                ExpectedColumn.CreateDecimal("FullTimeEquiv", 12, true, 10, 5),
-                ExpectedColumn.CreateVarChar("FundLine", 13, true, 100),
-                ExpectedColumn.CreateDate("LearnerActEndDate", 14, true),
-                ExpectedColumn.CreateDate("LearnerPlanEndDate", 15, true),
-                ExpectedColumn.CreateDate("LearnerStartDate", 16, true),
-                ExpectedColumn.CreateDecimal("NatRate", 17, true, 10, 5),
-                ExpectedColumn.CreateDecimal("OnProgPayment", 18, true, 10, 5),
-                ExpectedColumn.CreateInt("PlannedDaysILCurrYear", 19, true),
-                ExpectedColumn.CreateDecimal("ProgWeightHist", 20, true, 10, 5),
-                ExpectedColumn.CreateDecimal("ProgWeightNew", 21, true, 10, 5),
-                ExpectedColumn.CreateDecimal("PrvDisadvPropnHist", 22, true, 10, 5),
-                ExpectedColumn.CreateDecimal("PrvHistLrgProgPropn", 23, true, 10, 5),
-                ExpectedColumn.CreateDecimal("PrvRetentFactHist", 24, true, 10, 5),
-                ExpectedColumn.CreateVarChar("RateBand", 25, true, 50),
-                ExpectedColumn.CreateDecimal("RetentNew", 26, true, 10, 5),
-                ExpectedColumn.CreateBit("StartFund", 27, true),
-                ExpectedColumn.CreateInt("ThresholdDays", 28, true)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "EFA_Learner", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnEFA_SFA_global()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("RulebaseVersion", 2, true, 10)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "EFA_SFA_global", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnEFA_SFA_Learner_Period()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateInt("Period", 3, false),
-                ExpectedColumn.CreateDecimal("LnrOnProgPay", 4, true, 10, 5)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "EFA_SFA_Learner_Period", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnEFA_SFA_Learner_PeriodisedValues()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateVarChar("AttributeName", 3, false, 100),
-                ExpectedColumn.CreateDecimal("Period_1", 4, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_2", 5, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_3", 6, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_4", 7, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_5", 8, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_6", 9, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_7", 10, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_8", 11, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_9", 12, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_10", 13, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_11", 14, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_12", 15, true, 15, 5)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "EFA_SFA_Learner_PeriodisedValues", expectedColumns, true);
-        }
-
-        [Fact]
         public void CheckColumnESF_DPOutcome()
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
@@ -938,161 +839,6 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
                 ExpectedColumn.CreateVarChar("RuleId", 6, true, 50)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "ESFVAL_ValidationError", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnSFA_global()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateVarChar("UKPRN", 1, false, 8),
-                ExpectedColumn.CreateVarChar("CurFundYr", 2, true, 9),
-                ExpectedColumn.CreateVarChar("LARSVersion", 3, true, 100),
-                ExpectedColumn.CreateVarChar("OrgVersion", 4, true, 100),
-                ExpectedColumn.CreateVarChar("PostcodeDisadvantageVersion", 5, true, 50),
-                ExpectedColumn.CreateVarChar("RulebaseVersion", 6, true, 10)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "SFA_global", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnSFA_LearningDelivery()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
-                ExpectedColumn.CreateDate("AchApplicDate", 4, true),
-                ExpectedColumn.CreateBit("Achieved", 5, true),
-                ExpectedColumn.CreateDecimal("AchieveElement", 6, true, 10, 5),
-                ExpectedColumn.CreateBit("AchievePayElig", 7, true),
-                ExpectedColumn.CreateDecimal("AchievePayPctPreTrans", 8, true, 10, 5),
-                ExpectedColumn.CreateDecimal("AchPayTransHeldBack", 9, true, 10, 5),
-                ExpectedColumn.CreateInt("ActualDaysIL", 10, true),
-                ExpectedColumn.CreateInt("ActualNumInstalm", 11, true),
-                ExpectedColumn.CreateInt("ActualNumInstalmPreTrans", 12, true),
-                ExpectedColumn.CreateInt("ActualNumInstalmTrans", 13, true),
-                ExpectedColumn.CreateDate("AdjLearnStartDate", 14, true),
-                ExpectedColumn.CreateBit("AdltLearnResp", 15, true),
-                ExpectedColumn.CreateInt("AgeAimStart", 16, true),
-                ExpectedColumn.CreateDecimal("AimValue", 17, true, 10, 5),
-                ExpectedColumn.CreateDate("AppAdjLearnStartDate", 18, true),
-                ExpectedColumn.CreateDecimal("AppAgeFact", 19, true, 10, 5),
-                ExpectedColumn.CreateBit("AppATAGTA", 20, true),
-                ExpectedColumn.CreateBit("AppCompetency", 21, true),
-                ExpectedColumn.CreateBit("AppFuncSkill", 22, true),
-                ExpectedColumn.CreateDecimal("AppFuncSkill1618AdjFact", 23, true, 10, 5),
-                ExpectedColumn.CreateBit("AppKnowl", 24, true),
-                ExpectedColumn.CreateDate("AppLearnStartDate", 25, true),
-                ExpectedColumn.CreateDate("ApplicEmpFactDate", 26, true),
-                ExpectedColumn.CreateDate("ApplicFactDate", 27, true),
-                ExpectedColumn.CreateDate("ApplicFundRateDate", 28, true),
-                ExpectedColumn.CreateVarChar("ApplicProgWeightFact", 29, true, 1),
-                ExpectedColumn.CreateDecimal("ApplicUnweightFundRate", 30, true, 10, 5),
-                ExpectedColumn.CreateDecimal("ApplicWeightFundRate", 31, true, 10, 5),
-                ExpectedColumn.CreateBit("AppNonFund", 32, true),
-                ExpectedColumn.CreateDecimal("AreaCostFactAdj", 33, true, 10, 5),
-                ExpectedColumn.CreateInt("BalInstalmPreTrans", 34, true),
-                ExpectedColumn.CreateDecimal("BaseValueUnweight", 35, true, 10, 5),
-                ExpectedColumn.CreateDecimal("CapFactor", 36, true, 10, 5),
-                ExpectedColumn.CreateDecimal("DisUpFactAdj", 37, true, 10, 4),
-                ExpectedColumn.CreateBit("EmpOutcomePayElig", 38, true),
-                ExpectedColumn.CreateDecimal("EmpOutcomePctHeldBackTrans", 39, true, 10, 5),
-                ExpectedColumn.CreateDecimal("EmpOutcomePctPreTrans", 40, true, 10, 5),
-                ExpectedColumn.CreateBit("EmpRespOth", 41, true),
-                ExpectedColumn.CreateBit("ESOL", 42, true),
-                ExpectedColumn.CreateBit("FullyFund", 43, true),
-                ExpectedColumn.CreateVarChar("FundLine", 44, true, 100),
-                ExpectedColumn.CreateBit("FundStart", 45, true),
-                ExpectedColumn.CreateInt("LargeEmployerID", 46, true),
-                ExpectedColumn.CreateDecimal("LargeEmployerSFAFctr", 47, true, 10, 2),
-                ExpectedColumn.CreateDate("LargeEmployerStatusDate", 48, true),
-                ExpectedColumn.CreateDecimal("LTRCUpliftFctr", 49, true, 10, 5),
-                ExpectedColumn.CreateDecimal("NonGovCont", 50, true, 10, 5),
-                ExpectedColumn.CreateBit("OLASSCustody", 51, true),
-                ExpectedColumn.CreateDecimal("OnProgPayPctPreTrans", 52, true, 10, 5),
-                ExpectedColumn.CreateInt("OutstndNumOnProgInstalm", 53, true),
-                ExpectedColumn.CreateInt("OutstndNumOnProgInstalmTrans", 54, true),
-                ExpectedColumn.CreateInt("PlannedNumOnProgInstalm", 55, true),
-                ExpectedColumn.CreateInt("PlannedNumOnProgInstalmTrans", 56, true),
-                ExpectedColumn.CreateInt("PlannedTotalDaysIL", 57, true),
-                ExpectedColumn.CreateInt("PlannedTotalDaysILPreTrans", 58, true),
-                ExpectedColumn.CreateDecimal("PropFundRemain", 59, true, 10, 2),
-                ExpectedColumn.CreateDecimal("PropFundRemainAch", 60, true, 10, 2),
-                ExpectedColumn.CreateBit("PrscHEAim", 61, true),
-                ExpectedColumn.CreateBit("Residential", 62, true),
-                ExpectedColumn.CreateBit("Restart", 63, true),
-                ExpectedColumn.CreateDecimal("SpecResUplift", 64, true, 10, 5),
-                ExpectedColumn.CreateDecimal("StartPropTrans", 65, true, 10, 5),
-                ExpectedColumn.CreateInt("ThresholdDays", 66, true),
-                ExpectedColumn.CreateBit("Traineeship", 67, true),
-                ExpectedColumn.CreateBit("Trans", 68, true),
-                ExpectedColumn.CreateDate("TrnAdjLearnStartDate", 69, true),
-                ExpectedColumn.CreateBit("TrnWorkPlaceAim", 70, true),
-                ExpectedColumn.CreateBit("TrnWorkPrepAim", 71, true),
-                ExpectedColumn.CreateDecimal("UnWeightedRateFromESOL", 72, true, 10, 5),
-                ExpectedColumn.CreateDecimal("UnweightedRateFromLARS", 73, true, 10, 5),
-                ExpectedColumn.CreateDecimal("WeightedRateFromESOL", 74, true, 10, 5),
-                ExpectedColumn.CreateDecimal("WeightedRateFromLARS", 75, true, 10, 5)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "SFA_LearningDelivery", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnSFA_LearningDelivery_Period()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
-                ExpectedColumn.CreateInt("Period", 4, false),
-                ExpectedColumn.CreateDecimal("AchievePayment", 5, true, 10, 5),
-                ExpectedColumn.CreateDecimal("AchievePayPct", 6, true, 10, 5),
-                ExpectedColumn.CreateDecimal("AchievePayPctTrans", 7, true, 10, 5),
-                ExpectedColumn.CreateDecimal("BalancePayment", 8, true, 10, 5),
-                ExpectedColumn.CreateDecimal("BalancePaymentUncapped", 9, true, 10, 5),
-                ExpectedColumn.CreateDecimal("BalancePct", 10, true, 10, 5),
-                ExpectedColumn.CreateDecimal("BalancePctTrans", 11, true, 10, 5),
-                ExpectedColumn.CreateDecimal("EmpOutcomePay", 12, true, 10, 5),
-                ExpectedColumn.CreateDecimal("EmpOutcomePct", 13, true, 10, 5),
-                ExpectedColumn.CreateDecimal("EmpOutcomePctTrans", 14, true, 10, 5),
-                ExpectedColumn.CreateInt("InstPerPeriod", 15, true),
-                ExpectedColumn.CreateBit("LearnSuppFund", 16, true),
-                ExpectedColumn.CreateDecimal("LearnSuppFundCash", 17, true, 10, 5),
-                ExpectedColumn.CreateDecimal("OnProgPayment", 18, true, 10, 5),
-                ExpectedColumn.CreateDecimal("OnProgPaymentUncapped", 19, true, 10, 5),
-                ExpectedColumn.CreateDecimal("OnProgPayPct", 20, true, 10, 5),
-                ExpectedColumn.CreateDecimal("OnProgPayPctTrans", 21, true, 10, 5),
-                ExpectedColumn.CreateInt("TransInstPerPeriod", 22, true)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "SFA_LearningDelivery_Period", expectedColumns, true);
-        }
-
-        [Fact]
-        public void CheckColumnSFA_LearningDelivery_PeriodisedValues()
-        {
-            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
-            {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
-                ExpectedColumn.CreateVarChar("AttributeName", 4, false, 100),
-                ExpectedColumn.CreateDecimal("Period_1", 5, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_2", 6, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_3", 7, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_4", 8, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_5", 9, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_6", 10, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_7", 11, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_8", 12, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_9", 13, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_10", 14, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_11", 15, true, 15, 5),
-                ExpectedColumn.CreateDecimal("Period_12", 16, true, 15, 5)
-            };
-            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "SFA_LearningDelivery_PeriodisedValues", expectedColumns, true);
         }
 
         [Fact]
@@ -1314,6 +1060,260 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
                 ExpectedColumn.CreateVarChar("RuleId", 6, true, 50)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "VALFD_ValidationError", expectedColumns, true);
+        }
+
+        [Fact]
+        public void CheckColumnFM25_global()
+        {
+            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
+            {
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateVarChar("LARSVersion", 2, true, 50),
+                ExpectedColumn.CreateVarChar("OrgVersion", 3, true, 50),
+                ExpectedColumn.CreateVarChar("PostcodeDisadvantageVersion", 4, true, 50),
+                ExpectedColumn.CreateVarChar("RulebaseVersion", 5, true, 10)
+            };
+            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "FM25_global", expectedColumns, true);
+        }
+
+        [Fact]
+        public void CheckColumnFM25_Learner()
+        {
+            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
+            {
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
+                ExpectedColumn.CreateInt("AcadMonthPayment", 3, true),
+                ExpectedColumn.CreateBit("AcadProg", 4, true),
+                ExpectedColumn.CreateInt("ActualDaysILCurrYear", 5, true),
+                ExpectedColumn.CreateDecimal("AreaCostFact1618Hist", 6, true, 10, 5),
+                ExpectedColumn.CreateDecimal("Block1DisadvUpliftNew", 7, true, 10, 5),
+                ExpectedColumn.CreateDecimal("Block2DisadvElementsNew", 8, true, 10, 5),
+                ExpectedColumn.CreateVarChar("ConditionOfFundingEnglish", 9, true, 100),
+                ExpectedColumn.CreateVarChar("ConditionOfFundingMaths", 10, true, 100),
+                ExpectedColumn.CreateInt("CoreAimSeqNumber", 11, true),
+                ExpectedColumn.CreateDecimal("FullTimeEquiv", 12, true, 10, 5),
+                ExpectedColumn.CreateVarChar("FundLine", 13, true, 100),
+                ExpectedColumn.CreateDate("LearnerActEndDate", 14, true),
+                ExpectedColumn.CreateDate("LearnerPlanEndDate", 15, true),
+                ExpectedColumn.CreateDate("LearnerStartDate", 16, true),
+                ExpectedColumn.CreateDecimal("NatRate", 17, true, 10, 5),
+                ExpectedColumn.CreateDecimal("OnProgPayment", 18, true, 10, 5),
+                ExpectedColumn.CreateInt("PlannedDaysILCurrYear", 19, true),
+                ExpectedColumn.CreateDecimal("ProgWeightHist", 20, true, 10, 5),
+                ExpectedColumn.CreateDecimal("ProgWeightNew", 21, true, 10, 5),
+                ExpectedColumn.CreateDecimal("PrvDisadvPropnHist", 22, true, 10, 5),
+                ExpectedColumn.CreateDecimal("PrvHistLrgProgPropn", 23, true, 10, 5),
+                ExpectedColumn.CreateDecimal("PrvRetentFactHist", 24, true, 10, 5),
+                ExpectedColumn.CreateVarChar("RateBand", 25, true, 50),
+                ExpectedColumn.CreateDecimal("RetentNew", 26, true, 10, 5),
+                ExpectedColumn.CreateBit("StartFund", 27, true),
+                ExpectedColumn.CreateInt("ThresholdDays", 28, true)
+            };
+            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "FM25_Learner", expectedColumns, true);
+        }
+
+        [Fact]
+        public void CheckColumnFM25_FM35_global()
+        {
+            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
+            {
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateVarChar("RulebaseVersion", 2, true, 10)
+            };
+            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "FM25_FM35_global", expectedColumns, true);
+        }
+
+        [Fact]
+        public void CheckColumnFM25_FM35_Learner_Period()
+        {
+            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
+            {
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
+                ExpectedColumn.CreateInt("Period", 3, false),
+                ExpectedColumn.CreateDecimal("LnrOnProgPay", 4, true, 10, 5)
+            };
+            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "FM25_FM35_Learner_Period", expectedColumns, true);
+        }
+
+        [Fact]
+        public void CheckColumnFM25_FM35_Learner_PeriodisedValues()
+        {
+            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
+            {
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
+                ExpectedColumn.CreateVarChar("AttributeName", 3, false, 100),
+                ExpectedColumn.CreateDecimal("Period_1", 4, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_2", 5, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_3", 6, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_4", 7, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_5", 8, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_6", 9, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_7", 10, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_8", 11, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_9", 12, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_10", 13, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_11", 14, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_12", 15, true, 15, 5)
+            };
+            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "FM25_FM35_Learner_PeriodisedValues", expectedColumns, true);
+        }
+
+        [Fact]
+        public void CheckColumnFM35_global()
+        {
+            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
+            {
+                ExpectedColumn.CreateVarChar("UKPRN", 1, false, 8),
+                ExpectedColumn.CreateVarChar("CurFundYr", 2, true, 9),
+                ExpectedColumn.CreateVarChar("LARSVersion", 3, true, 100),
+                ExpectedColumn.CreateVarChar("OrgVersion", 4, true, 100),
+                ExpectedColumn.CreateVarChar("PostcodeDisadvantageVersion", 5, true, 50),
+                ExpectedColumn.CreateVarChar("RulebaseVersion", 6, true, 10)
+            };
+            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "FM35_global", expectedColumns, true);
+        }
+
+        [Fact]
+        public void CheckColumnFM35_LearningDelivery()
+        {
+            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
+            {
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
+                ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
+                ExpectedColumn.CreateDate("AchApplicDate", 4, true),
+                ExpectedColumn.CreateBit("Achieved", 5, true),
+                ExpectedColumn.CreateDecimal("AchieveElement", 6, true, 10, 5),
+                ExpectedColumn.CreateBit("AchievePayElig", 7, true),
+                ExpectedColumn.CreateDecimal("AchievePayPctPreTrans", 8, true, 10, 5),
+                ExpectedColumn.CreateDecimal("AchPayTransHeldBack", 9, true, 10, 5),
+                ExpectedColumn.CreateInt("ActualDaysIL", 10, true),
+                ExpectedColumn.CreateInt("ActualNumInstalm", 11, true),
+                ExpectedColumn.CreateInt("ActualNumInstalmPreTrans", 12, true),
+                ExpectedColumn.CreateInt("ActualNumInstalmTrans", 13, true),
+                ExpectedColumn.CreateDate("AdjLearnStartDate", 14, true),
+                ExpectedColumn.CreateBit("AdltLearnResp", 15, true),
+                ExpectedColumn.CreateInt("AgeAimStart", 16, true),
+                ExpectedColumn.CreateDecimal("AimValue", 17, true, 10, 5),
+                ExpectedColumn.CreateDate("AppAdjLearnStartDate", 18, true),
+                ExpectedColumn.CreateDecimal("AppAgeFact", 19, true, 10, 5),
+                ExpectedColumn.CreateBit("AppATAGTA", 20, true),
+                ExpectedColumn.CreateBit("AppCompetency", 21, true),
+                ExpectedColumn.CreateBit("AppFuncSkill", 22, true),
+                ExpectedColumn.CreateDecimal("AppFuncSkill1618AdjFact", 23, true, 10, 5),
+                ExpectedColumn.CreateBit("AppKnowl", 24, true),
+                ExpectedColumn.CreateDate("AppLearnStartDate", 25, true),
+                ExpectedColumn.CreateDate("ApplicEmpFactDate", 26, true),
+                ExpectedColumn.CreateDate("ApplicFactDate", 27, true),
+                ExpectedColumn.CreateDate("ApplicFundRateDate", 28, true),
+                ExpectedColumn.CreateVarChar("ApplicProgWeightFact", 29, true, 1),
+                ExpectedColumn.CreateDecimal("ApplicUnweightFundRate", 30, true, 10, 5),
+                ExpectedColumn.CreateDecimal("ApplicWeightFundRate", 31, true, 10, 5),
+                ExpectedColumn.CreateBit("AppNonFund", 32, true),
+                ExpectedColumn.CreateDecimal("AreaCostFactAdj", 33, true, 10, 5),
+                ExpectedColumn.CreateInt("BalInstalmPreTrans", 34, true),
+                ExpectedColumn.CreateDecimal("BaseValueUnweight", 35, true, 10, 5),
+                ExpectedColumn.CreateDecimal("CapFactor", 36, true, 10, 5),
+                ExpectedColumn.CreateDecimal("DisUpFactAdj", 37, true, 10, 4),
+                ExpectedColumn.CreateBit("EmpOutcomePayElig", 38, true),
+                ExpectedColumn.CreateDecimal("EmpOutcomePctHeldBackTrans", 39, true, 10, 5),
+                ExpectedColumn.CreateDecimal("EmpOutcomePctPreTrans", 40, true, 10, 5),
+                ExpectedColumn.CreateBit("EmpRespOth", 41, true),
+                ExpectedColumn.CreateBit("ESOL", 42, true),
+                ExpectedColumn.CreateBit("FullyFund", 43, true),
+                ExpectedColumn.CreateVarChar("FundLine", 44, true, 100),
+                ExpectedColumn.CreateBit("FundStart", 45, true),
+                ExpectedColumn.CreateInt("LargeEmployerID", 46, true),
+                ExpectedColumn.CreateDecimal("LargeEmployerFM35Fctr", 47, true, 10, 2),
+                ExpectedColumn.CreateDate("LargeEmployerStatusDate", 48, true),
+                ExpectedColumn.CreateDecimal("LTRCUpliftFctr", 49, true, 10, 5),
+                ExpectedColumn.CreateDecimal("NonGovCont", 50, true, 10, 5),
+                ExpectedColumn.CreateBit("OLASSCustody", 51, true),
+                ExpectedColumn.CreateDecimal("OnProgPayPctPreTrans", 52, true, 10, 5),
+                ExpectedColumn.CreateInt("OutstndNumOnProgInstalm", 53, true),
+                ExpectedColumn.CreateInt("OutstndNumOnProgInstalmTrans", 54, true),
+                ExpectedColumn.CreateInt("PlannedNumOnProgInstalm", 55, true),
+                ExpectedColumn.CreateInt("PlannedNumOnProgInstalmTrans", 56, true),
+                ExpectedColumn.CreateInt("PlannedTotalDaysIL", 57, true),
+                ExpectedColumn.CreateInt("PlannedTotalDaysILPreTrans", 58, true),
+                ExpectedColumn.CreateDecimal("PropFundRemain", 59, true, 10, 2),
+                ExpectedColumn.CreateDecimal("PropFundRemainAch", 60, true, 10, 2),
+                ExpectedColumn.CreateBit("PrscHEAim", 61, true),
+                ExpectedColumn.CreateBit("Residential", 62, true),
+                ExpectedColumn.CreateBit("Restart", 63, true),
+                ExpectedColumn.CreateDecimal("SpecResUplift", 64, true, 10, 5),
+                ExpectedColumn.CreateDecimal("StartPropTrans", 65, true, 10, 5),
+                ExpectedColumn.CreateInt("ThresholdDays", 66, true),
+                ExpectedColumn.CreateBit("Traineeship", 67, true),
+                ExpectedColumn.CreateBit("Trans", 68, true),
+                ExpectedColumn.CreateDate("TrnAdjLearnStartDate", 69, true),
+                ExpectedColumn.CreateBit("TrnWorkPlaceAim", 70, true),
+                ExpectedColumn.CreateBit("TrnWorkPrepAim", 71, true),
+                ExpectedColumn.CreateDecimal("UnWeightedRateFromESOL", 72, true, 10, 5),
+                ExpectedColumn.CreateDecimal("UnweightedRateFromLARS", 73, true, 10, 5),
+                ExpectedColumn.CreateDecimal("WeightedRateFromESOL", 74, true, 10, 5),
+                ExpectedColumn.CreateDecimal("WeightedRateFromLARS", 75, true, 10, 5)
+            };
+            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "FM35_LearningDelivery", expectedColumns, true);
+        }
+
+        [Fact]
+        public void CheckColumnFM35_LearningDelivery_Period()
+        {
+            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
+            {
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
+                ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
+                ExpectedColumn.CreateInt("Period", 4, false),
+                ExpectedColumn.CreateDecimal("AchievePayment", 5, true, 10, 5),
+                ExpectedColumn.CreateDecimal("AchievePayPct", 6, true, 10, 5),
+                ExpectedColumn.CreateDecimal("AchievePayPctTrans", 7, true, 10, 5),
+                ExpectedColumn.CreateDecimal("BalancePayment", 8, true, 10, 5),
+                ExpectedColumn.CreateDecimal("BalancePaymentUncapped", 9, true, 10, 5),
+                ExpectedColumn.CreateDecimal("BalancePct", 10, true, 10, 5),
+                ExpectedColumn.CreateDecimal("BalancePctTrans", 11, true, 10, 5),
+                ExpectedColumn.CreateDecimal("EmpOutcomePay", 12, true, 10, 5),
+                ExpectedColumn.CreateDecimal("EmpOutcomePct", 13, true, 10, 5),
+                ExpectedColumn.CreateDecimal("EmpOutcomePctTrans", 14, true, 10, 5),
+                ExpectedColumn.CreateInt("InstPerPeriod", 15, true),
+                ExpectedColumn.CreateBit("LearnSuppFund", 16, true),
+                ExpectedColumn.CreateDecimal("LearnSuppFundCash", 17, true, 10, 5),
+                ExpectedColumn.CreateDecimal("OnProgPayment", 18, true, 10, 5),
+                ExpectedColumn.CreateDecimal("OnProgPaymentUncapped", 19, true, 10, 5),
+                ExpectedColumn.CreateDecimal("OnProgPayPct", 20, true, 10, 5),
+                ExpectedColumn.CreateDecimal("OnProgPayPctTrans", 21, true, 10, 5),
+                ExpectedColumn.CreateInt("TransInstPerPeriod", 22, true)
+            };
+            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "FM35_LearningDelivery_Period", expectedColumns, true);
+        }
+
+        [Fact]
+        public void CheckColumnFM35_LearningDelivery_PeriodisedValues()
+        {
+            List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
+            {
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
+                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
+                ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
+                ExpectedColumn.CreateVarChar("AttributeName", 4, false, 100),
+                ExpectedColumn.CreateDecimal("Period_1", 5, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_2", 6, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_3", 7, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_4", 8, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_5", 9, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_6", 10, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_7", 11, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_8", 12, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_9", 13, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_10", 14, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_11", 15, true, 15, 5),
+                ExpectedColumn.CreateDecimal("Period_12", 16, true, 15, 5)
+            };
+            _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "FM35_LearningDelivery_PeriodisedValues", expectedColumns, true);
         }
     }
 }
