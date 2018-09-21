@@ -5,12 +5,13 @@
     [OutCode]        INT          NOT NULL,
     [OutStartDate]   DATE         NOT NULL,
     [OutEndDate]     DATE         NULL,
-    [OutCollDate]    DATE         NOT NULL, 
-    CONSTRAINT [PK_DPOutcome] PRIMARY KEY ([UKPRN], [LearnRefNumber], [OutType], [OutCode], [OutStartDate], [OutCollDate])
+    [OutCollDate]    DATE         NOT NULL,
+    CONSTRAINT [PK_DPOutcome] PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [OutType] ASC, [OutCode] ASC, [OutStartDate] ASC, [OutCollDate] ASC)
 );
 
 
+
+
 GO
-CREATE NONCLUSTERED INDEX [IX_Valid_DPOutcome]
-    ON [Valid].[DPOutcome]([UKPRN] ASC, [LearnRefNumber] ASC, [OutType] ASC, [OutCode] ASC, [OutStartDate] ASC);
+
 

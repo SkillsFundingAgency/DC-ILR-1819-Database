@@ -47,8 +47,17 @@
     [ThresholdDays]                                 INT             NULL,
     [LearnDelProgEarliestACT2Date]                  DATE            NULL,
     [LearnDelNonLevyProcured]                       BIT             NULL,
+    [LearnDelApplicCareLeaverIncentive]             DECIMAL (12, 5) NULL,
+    [LearnDelHistDaysCareLeavers]                   INT             NULL,
+    [LearnDelAccDaysILCareLeavers]                  INT             NULL,
+    [LearnDelPrevAccDaysILCareLeavers]              INT             NULL,
+    [LearnDelLearnerAddPayThresholdDate]            DATE            NULL,
+    [LearnDelRedCode]                               INT             NULL,
+    [LearnDelRedStartDate]                          DATE            NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
+
+
 
 
 GO

@@ -37,7 +37,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
                 ExpectedColumn.CreateInt("CollectionDetails_Id", 1, false),
-                ExpectedColumn.CreateInt("UKPRN", 2, true),
+                ExpectedColumn.CreateInt("UKPRN", 2, false),
                 ExpectedColumn.CreateVarChar("Collection", 3, true, 3),
                 ExpectedColumn.CreateVarChar("Year", 4, true, 4),
                 ExpectedColumn.CreateDate("FilePreparationDate", 5, true)
@@ -52,7 +52,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("ContactPreference_Id", 1, false),
                 ExpectedColumn.CreateInt("Learner_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateVarChar("ContPrefType", 5, true, 100),
                 ExpectedColumn.CreateBigInt("ContPrefCode", 6, true)
@@ -66,7 +66,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
                 ExpectedColumn.CreateInt("DPOutcome_Id", 1, false),
-                ExpectedColumn.CreateInt("UKPRN", 2, true),
+                ExpectedColumn.CreateInt("UKPRN", 2, false),
                 ExpectedColumn.CreateInt("LearnerDestinationandProgression_Id", 3, true),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateVarChar("OutType", 5, true, 100),
@@ -85,7 +85,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("EmploymentStatusMonitoring_Id", 1, false),
                 ExpectedColumn.CreateInt("LearnerEmploymentStatus_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateDate("DateEmpStatApp", 5, true),
                 ExpectedColumn.CreateVarChar("ESMType", 6, true, 100),
@@ -101,7 +101,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("Learner_Id", 1, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 2, true, 100),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("PrevLearnRefNumber", 4, true, 1000),
                 ExpectedColumn.CreateBigInt("PrevUKPRN", 5, true),
                 ExpectedColumn.CreateBigInt("PMUKPRN", 6, true),
@@ -140,7 +140,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
                 ExpectedColumn.CreateInt("LearnerDestinationandProgression_Id", 1, false),
-                ExpectedColumn.CreateInt("UKPRN", 2, true),
+                ExpectedColumn.CreateInt("UKPRN", 2, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 3, true, 100),
                 ExpectedColumn.CreateBigInt("ULN", 4, true)
             };
@@ -154,7 +154,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("LearnerEmploymentStatus_Id", 1, false),
                 ExpectedColumn.CreateInt("Learner_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateBigInt("EmpStat", 5, true),
                 ExpectedColumn.CreateDate("DateEmpStatApp", 6, true),
@@ -171,7 +171,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("LearnerFAM_Id", 1, false),
                 ExpectedColumn.CreateInt("Learner_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateVarChar("LearnFAMType", 5, true, 1000),
                 ExpectedColumn.CreateBigInt("LearnFAMCode", 6, true)
@@ -186,7 +186,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("LearnerHE_Id", 1, false),
                 ExpectedColumn.CreateInt("Learner_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateVarChar("UCASPERID", 5, true, 1000),
                 ExpectedColumn.CreateBigInt("TTACCOM", 6, true)
@@ -201,7 +201,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("LearningDelivery_Id", 1, false),
                 ExpectedColumn.CreateInt("Learner_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateVarChar("LearnAimRef", 5, true, 1000),
                 ExpectedColumn.CreateBigInt("AimType", 6, true),
@@ -240,7 +240,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("LearningDeliveryFAM_Id", 1, false),
                 ExpectedColumn.CreateInt("LearningDelivery_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateBigInt("AimSeqNumber", 5, true),
                 ExpectedColumn.CreateVarChar("LearnDelFAMType", 6, true, 100),
@@ -256,32 +256,34 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
-                ExpectedColumn.CreateVarChar("NUMHUS", 4, true, 20),
-                ExpectedColumn.CreateVarChar("SSN", 5, true, 13),
-                ExpectedColumn.CreateVarChar("QUALENT3", 6, true, 3),
-                ExpectedColumn.CreateInt("SOC2000", 7, true),
-                ExpectedColumn.CreateInt("SEC", 8, true),
-                ExpectedColumn.CreateVarChar("UCASAPPID", 9, true, 9),
-                ExpectedColumn.CreateInt("TYPEYR", 10, false),
-                ExpectedColumn.CreateInt("MODESTUD", 11, false),
-                ExpectedColumn.CreateInt("FUNDLEV", 12, false),
-                ExpectedColumn.CreateInt("FUNDCOMP", 13, false),
-                ExpectedColumn.CreateDecimal("STULOAD", 14, true, 4, 1),
-                ExpectedColumn.CreateInt("YEARSTU", 15, false),
-                ExpectedColumn.CreateInt("MSTUFEE", 16, false),
-                ExpectedColumn.CreateDecimal("PCOLAB", 17, true, 4, 1),
-                ExpectedColumn.CreateDecimal("PCFLDCS", 18, true, 4, 1),
-                ExpectedColumn.CreateDecimal("PCSLDCS", 19, true, 4, 1),
-                ExpectedColumn.CreateDecimal("PCTLDCS", 20, true, 4, 1),
-                ExpectedColumn.CreateInt("SPECFEE", 21, false),
-                ExpectedColumn.CreateInt("NETFEE", 22, true),
-                ExpectedColumn.CreateInt("GROSSFEE", 23, true),
-                ExpectedColumn.CreateVarChar("DOMICILE", 24, true, 2),
-                ExpectedColumn.CreateInt("ELQ", 25, true),
-                ExpectedColumn.CreateVarChar("HEPostCode", 26, true, 8)
+                ExpectedColumn.CreateInt("LearningDeliveryHE_Id", 1, false),
+                ExpectedColumn.CreateInt("UKPRN", 2, false),
+                ExpectedColumn.CreateInt("LearningDelivery_Id", 3, true),
+                ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
+                ExpectedColumn.CreateBigInt("AimSeqNumber", 5, true),
+                ExpectedColumn.CreateVarChar("NUMHUS", 6, true, 1000),
+                ExpectedColumn.CreateVarChar("SSN", 7, true, 1000),
+                ExpectedColumn.CreateVarChar("QUALENT3", 8, true, 1000),
+                ExpectedColumn.CreateBigInt("SOC2000", 9, true),
+                ExpectedColumn.CreateBigInt("SEC", 10, true),
+                ExpectedColumn.CreateVarChar("UCASAPPID", 11, true, 1000),
+                ExpectedColumn.CreateBigInt("TYPEYR", 12, true),
+                ExpectedColumn.CreateBigInt("MODESTUD", 13, true),
+                ExpectedColumn.CreateBigInt("FUNDLEV", 14, true),
+                ExpectedColumn.CreateBigInt("FUNDCOMP", 15, true),
+                new ExpectedColumn("STULOAD", "float", true, 16, numericPrecision: 4, numericScale: 1),
+                ExpectedColumn.CreateBigInt("YEARSTU", 17, true),
+                ExpectedColumn.CreateBigInt("MSTUFEE", 18, true),
+                new ExpectedColumn("PCOLAB", "float", true, 19, numericPrecision: 4, numericScale: 1),
+                new ExpectedColumn("PCFLDCS", "float", true, 20, numericPrecision: 4, numericScale: 1),
+                new ExpectedColumn("PCSLDCS", "float", true, 21, numericPrecision: 4, numericScale: 1),
+                new ExpectedColumn("PCTLDCS", "float", true, 22, numericPrecision: 4, numericScale: 1),
+                ExpectedColumn.CreateBigInt("SPECFEE", 23, true),
+                ExpectedColumn.CreateBigInt("NETFEE", 24, true),
+                ExpectedColumn.CreateBigInt("GROSSFEE", 25, true),
+                ExpectedColumn.CreateVarChar("DOMICILE", 26, true, 1000),
+                ExpectedColumn.CreateBigInt("ELQ", 27, true),
+                ExpectedColumn.CreateVarChar("HEPostCode", 28, true, 1000)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Invalid", "LearningDeliveryHE", expectedColumns, true);
         }
@@ -293,7 +295,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("LearnerHEFinancialSupport_Id", 1, false),
                 ExpectedColumn.CreateInt("LearnerHE_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateBigInt("FINTYPE", 5, true),
                 ExpectedColumn.CreateBigInt("FINAMOUNT", 6, true)
@@ -308,7 +310,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("LearningDelivery_Id", 1, false),
                 ExpectedColumn.CreateInt("Learner_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateVarChar("LearnAimRef", 5, true, 1000),
                 ExpectedColumn.CreateBigInt("AimType", 6, true),
@@ -347,7 +349,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("LearningDeliveryWorkPlacement_Id", 1, false),
                 ExpectedColumn.CreateInt("LearningDelivery_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateBigInt("AimSeqNumber", 5, true),
                 ExpectedColumn.CreateDate("WorkPlaceStartDate", 6, true),
@@ -365,7 +367,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
                 ExpectedColumn.CreateInt("LearningProvider_Id", 1, false),
-                ExpectedColumn.CreateInt("UKPRN", 2, true)
+                ExpectedColumn.CreateInt("UKPRN", 2, false)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Invalid", "LearningProvider", expectedColumns, true);
         }
@@ -377,7 +379,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("LLDDandHealthProblem_Id", 1, false),
                 ExpectedColumn.CreateInt("Learner_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateBigInt("LLDDCat", 5, true),
                 ExpectedColumn.CreateBigInt("PrimaryLLDD", 6, true)
@@ -391,7 +393,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
                 ExpectedColumn.CreateInt("ProviderSpecDeliveryMonitoring_Id", 1, false),
-                ExpectedColumn.CreateInt("UKPRN", 2, true),
+                ExpectedColumn.CreateInt("UKPRN", 2, false),
                 ExpectedColumn.CreateInt("LearningDelivery_Id", 3, true),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateBigInt("AimSeqNumber", 5, true),
@@ -408,7 +410,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("ProviderSpecLearnerMonitoring_Id", 1, false),
                 ExpectedColumn.CreateInt("Learner_Id", 2, true),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 4, true, 100),
                 ExpectedColumn.CreateVarChar("ProvSpecLearnMonOccur", 5, true, 100),
                 ExpectedColumn.CreateVarChar("ProvSpecLearnMon", 6, true, 1000)
@@ -423,7 +425,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("Source_Id", 1, false),
                 ExpectedColumn.CreateVarChar("ProtectiveMarking", 2, true, 30),
-                ExpectedColumn.CreateInt("UKPRN", 3, true),
+                ExpectedColumn.CreateInt("UKPRN", 3, false),
                 ExpectedColumn.CreateVarChar("SoftwareSupplier", 4, true, 40),
                 ExpectedColumn.CreateVarChar("SoftwarePackage", 5, true, 30),
                 ExpectedColumn.CreateVarChar("Release", 6, true, 20),
@@ -441,7 +443,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
                 ExpectedColumn.CreateInt("SourceFile_Id", 1, false),
-                ExpectedColumn.CreateInt("UKPRN", 2, true),
+                ExpectedColumn.CreateInt("UKPRN", 2, false),
                 ExpectedColumn.CreateVarChar("SourceFileName", 3, true, 50),
                 ExpectedColumn.CreateDate("FilePreparationDate", 4, true),
                 ExpectedColumn.CreateVarChar("SoftwareSupplier", 5, true, 40),

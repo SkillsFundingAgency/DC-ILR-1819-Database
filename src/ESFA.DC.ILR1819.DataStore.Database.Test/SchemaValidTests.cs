@@ -158,7 +158,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("UKPRN", 1, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateVarChar("LearnFAMType", 3, true, 3),
+                ExpectedColumn.CreateVarChar("LearnFAMType", 3, false, 3),
                 ExpectedColumn.CreateInt("LearnFAMCode", 4, false)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Valid", "LearnerFAM", expectedColumns, true);

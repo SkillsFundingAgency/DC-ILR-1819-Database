@@ -68,5 +68,9 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> PriceEpisodeTotalPMRs { get; set; }
         public Nullable<decimal> PriceEpisodeCumulativePMRs { get; set; }
         public Nullable<int> PriceEpisodeCompExemCode { get; set; }
+        public Nullable<System.DateTime> PriceEpisodeLearnerAdditionalPaymentThresholdDate { get; set; }
+        public string PriceEpisodeAgreeId { get; set; }
+        public Nullable<System.DateTime> PriceEpisodeRedStartDate { get; set; }
+        public Nullable<int> PriceEpisodeRedStatusCode { get; set; }
     }
 }

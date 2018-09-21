@@ -12,10 +12,11 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class VALDP_Cases
+    public partial class DasLearnerCommitment
     {
-        public int UKPRN { get; set; }
-        public int LearnerDestinationAndProgression_Id { get; set; }
-        public string CaseData { get; set; }
+        public long Ukprn { get; set; }
+        public string LearnRefNumber { get; set; }
+        public long AimSeqNumber { get; set; }
+        public string CommitmentId { get; set; }
     }
 }
