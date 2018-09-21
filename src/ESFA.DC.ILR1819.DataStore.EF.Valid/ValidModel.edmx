@@ -49,6 +49,10 @@
           <Key>
             <PropertyRef Name="UKPRN" />
             <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="OutType" />
+            <PropertyRef Name="OutCode" />
+            <PropertyRef Name="OutStartDate" />
+            <PropertyRef Name="OutCollDate" />
           </Key>
           <Property Name="UKPRN" Type="int" Nullable="false" />
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />

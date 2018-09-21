@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.AppFinRecord" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.CollectionDetail" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.ContactPreference" Width="1.5" PointX="2.75" PointY="3.75" />
-        <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.DPOutcome" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.DPOutcome" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.EmploymentStatusMonitoring" Width="1.5" PointX="4.75" PointY="4.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.Learner" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LearnerDestinationandProgression" Width="1.5" PointX="0.75" PointY="6.75" />
