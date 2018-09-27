@@ -7,7 +7,7 @@ CREATE procedure [dbo].[DeleteExistingRecords] (
 ) as
 begin
 
-	delete from [dbo].[FileDetails] where [UKPRN] = @ukprn and [Filename] = @fileName and [Success] ='0' 
+	delete from [dbo].[FileDetails] where [UKPRN] = @ukprn and [Filename] = @fileName
 
 	delete from dbo.ValidationError where UKPRN = @ukprn
 	delete from Invalid.AppFinRecord where UKPRN = @ukprn
