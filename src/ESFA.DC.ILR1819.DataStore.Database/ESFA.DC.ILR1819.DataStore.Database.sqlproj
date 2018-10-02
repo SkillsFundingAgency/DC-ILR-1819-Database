@@ -101,7 +101,6 @@
     <Folder Include="Security\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="DataLock\Stored Procedures\" />
-    <Folder Include="zzDeploymentProfiles" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Rulebase\Tables\VAL_global.sql" />
@@ -213,15 +212,13 @@
     <Build Include="Rulebase\Tables\FM25_global.sql" />
     <Build Include="Security\User_RW.sql" />
     <Build Include="Security\User_RO.sql" />
-    <Build Include="Security\DataProcessing.sql" />
-    <Build Include="Security\DataViewing.sql" />
+    <Build Include="Security\Role_DataProcessing.sql" />
+    <Build Include="Security\Role_DataViewing.sql" />
     <Build Include="Rulebase\Tables\FM25_FM35_Learner_PeriodisedValues.sql" />
     <Build Include="Rulebase\Tables\FM25_FM35_Learner_Period.sql" />
     <Build Include="Rulebase\Tables\FM25_FM35_global.sql" />
     <Build Include="Valid\Views\ApprenticeshipFinancialRecord.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
+    <Build Include="Security\User_DSCI.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="BUILD_BRANCHNAME">
@@ -231,6 +228,10 @@
     <SqlCmdVariable Include="BUILD_BUILDNUMBER">
       <DefaultValue>YY.YY.YY.YY</DefaultValue>
       <Value>$(SqlCmdVar__3)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DSCIUserPassword">
+      <DefaultValue>NotUsed@1223zxxas@ss.PR</DefaultValue>
+      <Value>$(SqlCmdVar__7)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="RELEASE_RELEASENAME">
       <DefaultValue>ZZZ.ZZZZ.ZZ.zZZZZZ</DefaultValue>

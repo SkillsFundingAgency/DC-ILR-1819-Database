@@ -12,3 +12,5 @@ GO
 
 ALTER ROLE [DataViewing] ADD MEMBER [ILR1819DataStore_RO_User];
 GO
+ALTER ROLE [db_datareader] ADD MEMBER [User_DSCI];
+GO
