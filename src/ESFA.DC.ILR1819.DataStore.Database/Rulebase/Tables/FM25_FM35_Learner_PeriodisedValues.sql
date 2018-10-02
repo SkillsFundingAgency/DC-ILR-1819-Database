@@ -1,4 +1,4 @@
-﻿CREATE TABLE [Rulebase].[EFA_SFA_Learner_PeriodisedValues] (
+﻿CREATE TABLE [Rulebase].[FM25_FM35_Learner_PeriodisedValues] (
     [UKPRN]          INT             NOT NULL,
     [LearnRefNumber] VARCHAR (12)    NOT NULL,
     [AttributeName]  VARCHAR (100)   NOT NULL,

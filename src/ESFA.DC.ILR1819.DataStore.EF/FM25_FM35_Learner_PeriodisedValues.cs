@@ -12,7 +12,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class EFA_SFA_Learner_PeriodisedValues
+    public partial class FM25_FM35_Learner_PeriodisedValues
     {
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }

@@ -12,10 +12,16 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class FM35_Cases
+    public partial class PriceEpisodeMatch
     {
-        public int UKPRN { get; set; }
+        public long Ukprn { get; set; }
+        public string PriceEpisodeIdentifier { get; set; }
         public string LearnRefNumber { get; set; }
-        public string CaseData { get; set; }
+        public Nullable<int> AimSeqNumber { get; set; }
+        public Nullable<long> CommitmentId { get; set; }
+        public string CollectionPeriodName { get; set; }
+        public int CollectionPeriodMonth { get; set; }
+        public int CollectionPeriodYear { get; set; }
+        public bool IsSuccess { get; set; }
     }
 }

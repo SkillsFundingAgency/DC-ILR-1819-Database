@@ -391,6 +391,9 @@
             <PropertyRef Name="UKPRN" />
             <PropertyRef Name="LearnRefNumber" />
             <PropertyRef Name="AimSeqNumber" />
+            <PropertyRef Name="AFinType" />
+            <PropertyRef Name="AFinCode" />
+            <PropertyRef Name="AFinDate" />
           </Key>
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
@@ -512,6 +515,7 @@
             <PropertyRef Name="UKPRN" />
             <PropertyRef Name="LearnRefNumber" />
             <PropertyRef Name="LearnFAMCode" />
+            <PropertyRef Name="LearnFAMType" />
           </Key>
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />

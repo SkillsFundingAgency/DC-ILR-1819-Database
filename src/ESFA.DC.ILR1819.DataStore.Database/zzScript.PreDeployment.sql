@@ -62,9 +62,14 @@ GO
 
 RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
 GO
+RAISERROR('			     RO User',10,1) WITH NOWAIT;
 ALTER USER [ILR1819DataStore_RO_User] WITH PASSWORD = N'$(ROUserPassword)';
+GO
+RAISERROR('			     RW User',10,1) WITH NOWAIT;
 ALTER USER [ILR1819DataStore_RW_User] WITH PASSWORD = N'$(RWUserPassword)';
-
+GO
+RAISERROR('			     DSCI User',10,1) WITH NOWAIT;
+ALTER USER [User_DSCI] WITH PASSWORD = N'$(DSCIUserPassword)';
 GO
 RAISERROR('Completed',10,1) WITH NOWAIT;
 GO
