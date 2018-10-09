@@ -56,11 +56,3 @@
     [LearnDelRedStartDate]                          DATE            NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
-
-
-
-
-GO
-CREATE NONCLUSTERED INDEX [ix_Rulebase_AEC_LearningDelivery]
-    ON [Rulebase].[AEC_LearningDelivery]([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC);
-

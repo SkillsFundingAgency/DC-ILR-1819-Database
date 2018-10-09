@@ -459,7 +459,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateInt("UKPRN", 1, true),
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
                 ExpectedColumn.CreateVarChar("RulebaseVersion", 2, true, 10)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "DV_global", expectedColumns, true);
@@ -718,7 +718,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateInt("UKPRN", 1, true),
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
                 ExpectedColumn.CreateVarChar("RulebaseVersion", 2, true, 10)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Rulebase", "ESF_global", expectedColumns, true);
