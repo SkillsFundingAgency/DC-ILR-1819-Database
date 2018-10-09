@@ -132,6 +132,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataStoreModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DV_global.cs">
+      <DependentUpon>DataStoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DV_Learner.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
@@ -145,6 +148,9 @@
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ESF_DPOutcome.cs">
+      <DependentUpon>DataStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ESF_global.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ESF_LearningDelivery.cs">

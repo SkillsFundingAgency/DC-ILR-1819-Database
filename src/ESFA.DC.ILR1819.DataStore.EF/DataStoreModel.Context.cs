@@ -78,6 +78,8 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual DbSet<FM25_FM35_global> FM25_FM35_global { get; set; }
         public virtual DbSet<FM25_FM35_Learner_Period> FM25_FM35_Learner_Period { get; set; }
         public virtual DbSet<FM25_FM35_Learner_PeriodisedValues> FM25_FM35_Learner_PeriodisedValues { get; set; }
+        public virtual DbSet<DV_global> DV_global { get; set; }
+        public virtual DbSet<ESF_global> ESF_global { get; set; }
     
         public virtual int CleanUpDataLock(Nullable<int> ukprn)
         {

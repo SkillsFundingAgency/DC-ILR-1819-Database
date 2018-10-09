@@ -56,6 +56,8 @@
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM25_FM35_global" Width="1.5" PointX="25.375" PointY="22.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM25_FM35_Learner_Period" Width="1.5" PointX="25.375" PointY="25.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM25_FM35_Learner_PeriodisedValues" Width="1.5" PointX="27.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ILR1819_DataStoreModel.DV_global" Width="1.5" PointX="3.375" PointY="16.75" />
+        <EntityTypeShape EntityType="ILR1819_DataStoreModel.ESF_global" Width="1.5" PointX="5.375" PointY="16.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

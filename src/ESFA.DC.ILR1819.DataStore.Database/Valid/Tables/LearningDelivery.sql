@@ -29,9 +29,3 @@
     [SWSupAimId]         VARCHAR (36) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
-
-
-GO
-CREATE NONCLUSTERED INDEX [ix_Valid_LearningDelivery]
-    ON [Valid].[LearningDelivery]([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC);
-
