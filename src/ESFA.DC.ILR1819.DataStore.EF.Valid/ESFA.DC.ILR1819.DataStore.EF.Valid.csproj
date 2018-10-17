@@ -82,6 +82,8 @@
     <Compile Include="EmploymentStatusMonitoring.cs">
       <DependentUpon>ValidModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ILR1819_DataStoreEntitiesValid.cs" />
+    <Compile Include="Interfaces\IILR1819_DataStoreEntitiesValid.cs" />
     <Compile Include="Learner.cs">
       <DependentUpon>ValidModel.tt</DependentUpon>
     </Compile>
