@@ -247,6 +247,6 @@
     </SqlCmdVariable>
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="zzScript.PreDeployment.sql" />
+    <PostDeploy Include="zzScript.PostDeployment.sql" />
   </ItemGroup>
 </Project>

@@ -13,6 +13,9 @@ Post-Deployment Script Template
 SET NOCOUNT ON;
 GO
 
+UPDATE valid.LearningDeliveryFAM
+SET LearningDeliveryFAM_Id = ROW_NUMBER() OVER (ORDER BY (SELECT 0))
+
 RAISERROR('		   Extended Property',10,1) WITH NOWAIT;
 GO
 
