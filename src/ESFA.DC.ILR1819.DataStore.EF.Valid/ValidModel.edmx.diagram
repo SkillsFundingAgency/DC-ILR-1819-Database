@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LearnerHE" Width="1.5" PointX="8.75" PointY="3.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LearnerHEFinancialSupport" Width="1.5" PointX="4.75" PointY="8.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LearningDelivery" Width="1.5" PointX="8.75" PointY="6.75" />
-        <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LearningDeliveryFAM" Width="1.75" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LearningDeliveryFAM" Width="2" PointX="10.5" PointY="0.625" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LearningDeliveryHE" Width="1.5" PointX="0.75" PointY="10.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LearningDeliveryWorkPlacement" Width="1.5" PointX="10.75" PointY="4.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LearningProvider" Width="1.5" PointX="10.75" PointY="8.75" />
