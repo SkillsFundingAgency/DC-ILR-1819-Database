@@ -7,7 +7,7 @@
     [LearnDelFAMCode]     VARCHAR (5)  NOT NULL,
     [LearnDelFAMDateFrom] DATE         NULL,
     [LearnDelFAMDateTo]   DATE         NULL, 
-    CONSTRAINT [PK_LearningDeliveryFAM] PRIMARY KEY ([UKPRN])
+    --CONSTRAINT [PK_LearningDeliveryFAM] PRIMARY KEY ([UKPRN])
 );
 
 
