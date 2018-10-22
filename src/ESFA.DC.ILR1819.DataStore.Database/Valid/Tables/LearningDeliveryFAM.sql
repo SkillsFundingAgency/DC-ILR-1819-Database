@@ -1,4 +1,5 @@
 ﻿CREATE TABLE [Valid].[LearningDeliveryFAM] (
+	[LearningDeliveryFAM_Id] INT       NULL,
     [UKPRN]               INT          NOT NULL,
     [LearnRefNumber]      VARCHAR (12) NOT NULL,
     [AimSeqNumber]        INT          NOT NULL,
@@ -6,7 +7,7 @@
     [LearnDelFAMCode]     VARCHAR (5)  NOT NULL,
     [LearnDelFAMDateFrom] DATE         NULL,
     [LearnDelFAMDateTo]   DATE         NULL, 
-    CONSTRAINT [PK_LearningDeliveryFAM] PRIMARY KEY ([UKPRN], [LearnRefNumber], [AimSeqNumber], [LearnDelFAMType], [LearnDelFAMCode])
+    CONSTRAINT [PK_LearningDeliveryFAM] PRIMARY KEY ([UKPRN])
 );
 
 
