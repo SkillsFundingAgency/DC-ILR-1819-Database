@@ -53,18 +53,9 @@ ELSE
 GO
 
 
-IF EXISTS (SELECT * FROM [sys].[objects] WHERE [type] = 'V' AND Name = 'DisplayDeploymentProperties_VW')
-BEGIN 
-	DROP VIEW [dbo].[DisplayDeploymentProperties_VW];
-END
-
+DROP VIEW IF EXISTS  [dbo].[DisplayDeploymentProperties_VW];
 GO
-EXEC ('CREATE VIEW [dbo].[DisplayDeploymentProperties_VW]
-AS
-	SELECT name, value 
-	FROM fn_listextendedproperty(default, default, default, default, default, default, default);  
-	');
-
+--EXEC ('CREATE VIEW [dbo].[DisplayDeploymentProperties_VW] AS SELECT name, value FROM fn_listextendedproperty(default, default, default, default, default, default, default);');
 GO
 
 RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
