@@ -20,6 +20,8 @@ CREATE SEQUENCE [Valid].[LearningDeliveryFAM_SEQUENCE]
     START WITH 1  
     INCREMENT BY 1 ;  
 GO
+RAISERROR('		   CREATE SEQUENCE',10,1) WITH NOWAIT;
+GO
 --SELECT NEXT VALUE FOR [Valid].[LearningDeliveryFAM_SEQUENCE] AS Id, *
 GO
 IF EXISTS
@@ -29,10 +31,13 @@ WHERE C.TABLE_SCHEMA = 'Valid'
   AND C.COLUMN_NAME = 'LearningDeliveryFAM_Id'
 ) 
 BEGIN
+	RAISERROR('		   Start Update.',10,1) WITH NOWAIT;
 	EXEC ('UPDATE O SET [LearningDeliveryFAM_Id] = NEXT VALUE FOR [Valid].[LearningDeliveryFAM_SEQUENCE] FROM [Valid].[LearningDeliveryFAM] O')
+	RAISERROR('		     End Update.',10,1) WITH NOWAIT;
+	
 END
 GO
 DROP SEQUENCE IF EXISTS  [Valid].[LearningDeliveryFAM_SEQUENCE]
 GO
-SELECT * FROM sys.sequences WHERE name = 'LearningDeliveryFAM_SEQUENCE' ; 
+RAISERROR('		   Update valid.LearningDeliveryFAM.LearningDeliveryFAM_Id END',10,1) WITH NOWAIT;
 GO
