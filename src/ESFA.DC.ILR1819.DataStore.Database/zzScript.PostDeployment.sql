@@ -10,15 +10,7 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-SET NOCOUNT ON;
-GO
 
-RAISERROR('		   Update valid.LearningDeliveryFAM.LearningDeliveryFAM_Id',10,1) WITH NOWAIT;
-GO
---UPDATE LDFAM
---SET LearningDeliveryFAM_Id = ROW_NUMBER() OVER (PARTITION BY UKPRN ORDER BY [LearnDelFAMDateFrom] ASC)
---FROM valid.LearningDeliveryFAM AS LDFAM
-GO
 
 RAISERROR('		   Extended Property',10,1) WITH NOWAIT;
 GO
