@@ -15,9 +15,9 @@ GO
 
 RAISERROR('		   Update valid.LearningDeliveryFAM.LearningDeliveryFAM_Id',10,1) WITH NOWAIT;
 GO
-UPDATE LDFAM
-SET LearningDeliveryFAM_Id = ROW_NUMBER() OVER (PARTITION BY UKPRN ORDER BY [LearnDelFAMDateFrom] ASC)
-FROM valid.LearningDeliveryFAM AS LDFAM
+--UPDATE LDFAM
+--SET LearningDeliveryFAM_Id = ROW_NUMBER() OVER (PARTITION BY UKPRN ORDER BY [LearnDelFAMDateFrom] ASC)
+--FROM valid.LearningDeliveryFAM AS LDFAM
 GO
 
 RAISERROR('		   Extended Property',10,1) WITH NOWAIT;
@@ -55,7 +55,7 @@ GO
 
 DROP VIEW IF EXISTS  [dbo].[DisplayDeploymentProperties_VW];
 GO
---EXEC ('CREATE VIEW [dbo].[DisplayDeploymentProperties_VW] AS SELECT name, value FROM fn_listextendedproperty(default, default, default, default, default, default, default);');
+EXEC ('CREATE VIEW [dbo].[DisplayDeploymentProperties_VW] AS SELECT name, value FROM fn_listextendedproperty(default, default, default, default, default, default, default);');
 GO
 
 RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
