@@ -219,7 +219,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateInt("LearningDeliveryFAM_Id", 1, true),
+                ExpectedColumn.CreateInt("LearningDeliveryFAM_Id", 1, false),
                 ExpectedColumn.CreateInt("UKPRN", 2, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 3, false, 12),
                 ExpectedColumn.CreateInt("AimSeqNumber", 4, false),
