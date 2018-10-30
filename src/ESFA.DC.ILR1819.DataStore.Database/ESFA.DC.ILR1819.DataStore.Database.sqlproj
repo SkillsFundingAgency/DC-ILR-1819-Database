@@ -249,4 +249,7 @@
   <ItemGroup>
     <PostDeploy Include="zzScript.PostDeployment.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="zScript.PreDeployment.sql" />
+  </ItemGroup>
 </Project>
