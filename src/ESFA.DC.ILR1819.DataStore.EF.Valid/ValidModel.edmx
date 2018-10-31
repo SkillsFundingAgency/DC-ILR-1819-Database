@@ -203,12 +203,10 @@
         </EntityType>
         <EntityType Name="LearningDeliveryFAM">
           <Key>
+            <PropertyRef Name="LearningDeliveryFAM_Id" />
             <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="AimSeqNumber" />
-            <PropertyRef Name="LearnDelFAMType" />
-            <PropertyRef Name="LearnDelFAMCode" />
           </Key>
+          <Property Name="LearningDeliveryFAM_Id" Type="int" Nullable="false" />
           <Property Name="UKPRN" Type="int" Nullable="false" />
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="AimSeqNumber" Type="int" Nullable="false" />
@@ -430,6 +428,10 @@
           <Key>
             <PropertyRef Name="UKPRN" />
             <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="OutType" />
+            <PropertyRef Name="OutCode" />
+            <PropertyRef Name="OutStartDate" />
+            <PropertyRef Name="OutCollDate" />
           </Key>
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
@@ -581,10 +583,7 @@
         <EntityType Name="LearningDeliveryFAM">
           <Key>
             <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="AimSeqNumber" />
-            <PropertyRef Name="LearnDelFAMType" />
-            <PropertyRef Name="LearnDelFAMCode" />
+            <PropertyRef Name="LearningDeliveryFAM_Id" />
           </Key>
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
@@ -593,6 +592,7 @@
           <Property Name="LearnDelFAMCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="LearnDelFAMDateFrom" Type="DateTime" Precision="0" />
           <Property Name="LearnDelFAMDateTo" Type="DateTime" Precision="0" />
+          <Property Name="LearningDeliveryFAM_Id" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="LearningDeliveryHE">
           <Key>
@@ -900,6 +900,7 @@
           <EntitySetMapping Name="LearningDeliveryFAMs">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModelValid.LearningDeliveryFAM">
               <MappingFragment StoreEntitySet="LearningDeliveryFAM">
+                <ScalarProperty Name="LearningDeliveryFAM_Id" ColumnName="LearningDeliveryFAM_Id" />
                 <ScalarProperty Name="LearnDelFAMDateTo" ColumnName="LearnDelFAMDateTo" />
                 <ScalarProperty Name="LearnDelFAMDateFrom" ColumnName="LearnDelFAMDateFrom" />
                 <ScalarProperty Name="LearnDelFAMCode" ColumnName="LearnDelFAMCode" />

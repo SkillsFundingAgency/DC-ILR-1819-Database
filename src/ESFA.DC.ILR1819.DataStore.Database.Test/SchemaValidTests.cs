@@ -219,13 +219,14 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateInt("UKPRN", 1, false),
-                ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
-                ExpectedColumn.CreateVarChar("LearnDelFAMType", 4, false, 3),
-                ExpectedColumn.CreateVarChar("LearnDelFAMCode", 5, false, 5),
-                ExpectedColumn.CreateDate("LearnDelFAMDateFrom", 6, true),
-                ExpectedColumn.CreateDate("LearnDelFAMDateTo", 7, true)
+                ExpectedColumn.CreateInt("LearningDeliveryFAM_Id", 1, false),
+                ExpectedColumn.CreateInt("UKPRN", 2, false),
+                ExpectedColumn.CreateVarChar("LearnRefNumber", 3, false, 12),
+                ExpectedColumn.CreateInt("AimSeqNumber", 4, false),
+                ExpectedColumn.CreateVarChar("LearnDelFAMType", 5, false, 3),
+                ExpectedColumn.CreateVarChar("LearnDelFAMCode", 6, false, 5),
+                ExpectedColumn.CreateDate("LearnDelFAMDateFrom", 7, true),
+                ExpectedColumn.CreateDate("LearnDelFAMDateTo", 8, true)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Valid", "LearningDeliveryFAM", expectedColumns, true);
         }

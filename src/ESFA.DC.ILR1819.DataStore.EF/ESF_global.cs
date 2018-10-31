@@ -7,20 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ESFA.DC.ILR1819.DataStore.EF.Valid
+namespace ESFA.DC.ILR1819.DataStore.EF
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class LearningDeliveryFAM
+    public partial class ESF_global
     {
         public int UKPRN { get; set; }
-        public string LearnRefNumber { get; set; }
-        public int AimSeqNumber { get; set; }
-        public string LearnDelFAMType { get; set; }
-        public string LearnDelFAMCode { get; set; }
-        public Nullable<System.DateTime> LearnDelFAMDateFrom { get; set; }
-        public Nullable<System.DateTime> LearnDelFAMDateTo { get; set; }
-        public int LearningDeliveryFAM_Id { get; set; }
+        public string RulebaseVersion { get; set; }
     }
 }

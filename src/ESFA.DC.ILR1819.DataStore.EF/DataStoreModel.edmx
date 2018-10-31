@@ -549,12 +549,13 @@
           <Property Name="Period_11" Type="decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="decimal" Precision="15" Scale="5" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'ILR1819_DataStore.Rulebase.DV_global' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="DV_global">
-          <Property Name="UKPRN" Type="int" />
+          <Key>
+            <PropertyRef Name="UKPRN" />
+          </Key>
+          <Property Name="UKPRN" Type="int" Nullable="false" />
           <Property Name="RulebaseVersion" Type="varchar" MaxLength="10" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="DV_Learner">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -798,12 +799,13 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.DV_global' does not hav
           <Property Name="ReachedThreeMonthPoint" Type="bit" />
           <Property Name="ReachedTwelveMonthPoint" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
         <EntityType Name="ESF_global">
-          <Property Name="UKPRN" Type="int" />
+          <Key>
+            <PropertyRef Name="UKPRN" />
+          </Key>
+          <Property Name="UKPRN" Type="int" Nullable="false" />
           <Property Name="RulebaseVersion" Type="varchar" MaxLength="10" />
-        </EntityType>-->
+        </EntityType>
         <EntityType Name="ESF_LearningDelivery">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -1376,9 +1378,11 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not ha
           <EntitySet Name="ALB_LearningDelivery" EntityType="Self.ALB_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ALB_LearningDelivery_Period" EntityType="Self.ALB_LearningDelivery_Period" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ALB_LearningDelivery_PeriodisedValues" EntityType="Self.ALB_LearningDelivery_PeriodisedValues" Schema="Rulebase" store:Type="Tables" />
+          <EntitySet Name="DV_global" EntityType="Self.DV_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="DV_Learner" EntityType="Self.DV_Learner" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="DV_LearningDelivery" EntityType="Self.DV_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESF_DPOutcome" EntityType="Self.ESF_DPOutcome" Schema="Rulebase" store:Type="Tables" />
+          <EntitySet Name="ESF_global" EntityType="Self.ESF_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESF_LearningDelivery" EntityType="Self.ESF_LearningDelivery" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESF_LearningDeliveryDeliverable" EntityType="Self.ESF_LearningDeliveryDeliverable" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="ESF_LearningDeliveryDeliverable_Period" EntityType="Self.ESF_LearningDeliveryDeliverable_Period" Schema="Rulebase" store:Type="Tables" />
@@ -1479,6 +1483,8 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not ha
           <EntitySet Name="FM25_FM35_global" EntityType="ILR1819_DataStoreModel.FM25_FM35_global" />
           <EntitySet Name="FM25_FM35_Learner_Period" EntityType="ILR1819_DataStoreModel.FM25_FM35_Learner_Period" />
           <EntitySet Name="FM25_FM35_Learner_PeriodisedValues" EntityType="ILR1819_DataStoreModel.FM25_FM35_Learner_PeriodisedValues" />
+          <EntitySet Name="DV_global" EntityType="ILR1819_DataStoreModel.DV_global" />
+          <EntitySet Name="ESF_global" EntityType="ILR1819_DataStoreModel.ESF_global" />
           </EntityContainer>
         <EntityType Name="FileDetail">
           <Key>
@@ -2782,6 +2788,20 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not ha
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
         </EntityType>
+        <EntityType Name="DV_global">
+          <Key>
+            <PropertyRef Name="UKPRN" />
+          </Key>
+          <Property Name="UKPRN" Type="Int32" Nullable="false" />
+          <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ESF_global">
+          <Key>
+            <PropertyRef Name="UKPRN" />
+          </Key>
+          <Property Name="UKPRN" Type="Int32" Nullable="false" />
+          <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4050,6 +4070,22 @@ warning 6013: The table/view 'ILR1819_DataStore.Rulebase.ESF_global' does not ha
                 <ScalarProperty Name="Period_1" ColumnName="Period_1" />
                 <ScalarProperty Name="AttributeName" ColumnName="AttributeName" />
                 <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
+                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DV_global">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.DV_global">
+              <MappingFragment StoreEntitySet="DV_global">
+                <ScalarProperty Name="RulebaseVersion" ColumnName="RulebaseVersion" />
+                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESF_global">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ESF_global">
+              <MappingFragment StoreEntitySet="ESF_global">
+                <ScalarProperty Name="RulebaseVersion" ColumnName="RulebaseVersion" />
                 <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
               </MappingFragment>
             </EntityTypeMapping>

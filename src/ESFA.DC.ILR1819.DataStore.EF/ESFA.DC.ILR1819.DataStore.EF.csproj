@@ -132,6 +132,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataStoreModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DV_global.cs">
+      <DependentUpon>DataStoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DV_Learner.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
@@ -145,6 +148,9 @@
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ESF_DPOutcome.cs">
+      <DependentUpon>DataStoreModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ESF_global.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ESF_LearningDelivery.cs">
@@ -189,6 +195,8 @@
     <Compile Include="FM35_LearningDelivery_PeriodisedValues.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IILR1819_DataStoreEntities.cs" />
+    <Compile Include="ILR1819_DataStoreEntities.cs" />
     <Compile Include="PriceEpisodeMatch.cs">
       <DependentUpon>DataStoreModel.tt</DependentUpon>
     </Compile>

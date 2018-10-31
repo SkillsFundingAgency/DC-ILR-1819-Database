@@ -31,9 +31,3 @@
     [OTJHours]           BIGINT        NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC)
 );
-
-
-GO
-CREATE NONCLUSTERED INDEX [ix_Valid_Learner]
-    ON [Valid].[Learner]([UKPRN] ASC, [LearnRefNumber] ASC);
-
