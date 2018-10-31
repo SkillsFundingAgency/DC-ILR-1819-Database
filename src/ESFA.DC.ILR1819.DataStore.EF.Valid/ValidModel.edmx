@@ -583,10 +583,7 @@
         <EntityType Name="LearningDeliveryFAM">
           <Key>
             <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="AimSeqNumber" />
-            <PropertyRef Name="LearnDelFAMType" />
-            <PropertyRef Name="LearnDelFAMCode" />
+            <PropertyRef Name="LearningDeliveryFAM_Id" />
           </Key>
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
