@@ -8,7 +8,7 @@ GRANT
 	SELECT, 
 	VIEW DEFINITION 
 ON SCHEMA::dbo
-	TO DataProcessing
+	TO DataViewing
 GO
 
 -- Grant access rights to a specific schema in the database
@@ -17,7 +17,7 @@ REFERENCES,
 	SELECT, 
 	VIEW DEFINITION 
 ON SCHEMA::Invalid
-	TO DataProcessing
+	TO DataViewing
 GO
 
 -- Grant access rights to a specific schema in the database
@@ -26,7 +26,7 @@ GRANT
 	SELECT, 
 	VIEW DEFINITION 
 ON SCHEMA::Valid
-	TO DataProcessing
+	TO DataViewing
 GO
 
 -- Grant access rights to a specific schema in the database
@@ -35,7 +35,7 @@ GRANT
 	SELECT, 
 	VIEW DEFINITION 
 ON SCHEMA::Rulebase
-	TO DataProcessing
+	TO DataViewing
 GO
 
 -- Grant access rights to a specific schema in the database
@@ -44,5 +44,5 @@ GRANT
 	SELECT, 
 	VIEW DEFINITION 
 ON SCHEMA::DataLock
-	TO DataProcessing
+	TO DataViewing
 GO
