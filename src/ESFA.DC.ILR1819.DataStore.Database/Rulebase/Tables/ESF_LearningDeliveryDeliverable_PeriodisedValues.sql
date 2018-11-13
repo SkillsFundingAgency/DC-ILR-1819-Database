@@ -21,7 +21,7 @@
 GO
 
 ALTER TABLE [Rulebase].[ESF_LearningDeliveryDeliverable_PeriodisedValues] ADD CONSTRAINT [FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber], [DeliverableCode])
-REFERENCES [Rulebase].[ESF_LearningDeliveryDeliverable_Period] ([UKPRN], [LearnRefNumber], [AimSeqNumber], [DeliverableCode]);
+REFERENCES [Rulebase].[ESF_LearningDeliveryDeliverable] ([UKPRN], [LearnRefNumber], [AimSeqNumber], [DeliverableCode]);
 GO
 
 ALTER TABLE [Rulebase].[ESF_LearningDeliveryDeliverable_PeriodisedValues] CHECK CONSTRAINT [FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery]

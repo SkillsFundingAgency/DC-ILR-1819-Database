@@ -12,7 +12,7 @@ CREATE NONCLUSTERED INDEX [IX_Valid_ContactPreference]
 GO
 
 ALTER TABLE [Valid].[ContactPreference] ADD CONSTRAINT [FK_ContactPreference_Learner] FOREIGN KEY([UKPRN], [LearnRefNumber])
-REFERENCES [Valid].[LearningDelivery] ([UKPRN], [LearnRefNumber]);
+REFERENCES [Valid].[Learner] ([UKPRN], [LearnRefNumber]);
 GO
 
 ALTER TABLE [Valid].[ContactPreference] CHECK CONSTRAINT [FK_ContactPreference_Learner];
