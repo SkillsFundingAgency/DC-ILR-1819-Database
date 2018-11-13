@@ -23,4 +23,11 @@
     [TransInstPerPeriod]     INT             NULL,
     CONSTRAINT [PK_FM35_LearningDelivery_Period] PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [Period] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[FM35_LearningDelivery_Period] ADD CONSTRAINT [FK_FM35LearningDeliveryPeriod_FM35LearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber])
+REFERENCES [Rulebase].[FM35_LearningDelivery] ([UKPRN], [LearnRefNumber], [AimSeqNumber]);
+GO
+
+ALTER TABLE [Rulebase].[FM35_LearningDelivery_Period] CHECK CONSTRAINT [FK_FM35LearningDeliveryPeriod_FM35LearningDelivery]
+GO

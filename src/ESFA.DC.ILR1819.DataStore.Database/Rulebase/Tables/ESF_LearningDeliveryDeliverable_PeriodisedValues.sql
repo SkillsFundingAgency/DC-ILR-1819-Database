@@ -18,4 +18,11 @@
     [Period_12]       DECIMAL (15, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [DeliverableCode] ASC, [AttributeName] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[ESF_LearningDeliveryDeliverable_PeriodisedValues] ADD CONSTRAINT [FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber], [DeliverableCode])
+REFERENCES [Rulebase].[ESF_LearningDeliveryDeliverable_Period] ([UKPRN], [LearnRefNumber], [AimSeqNumber], [DeliverableCode]);
+GO
+
+ALTER TABLE [Rulebase].[ESF_LearningDeliveryDeliverable_PeriodisedValues] CHECK CONSTRAINT [FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery]
+GO

@@ -26,11 +26,15 @@
     [PriceEpisodeLearnerAdditionalPayment]                   DECIMAL (12, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [PriceEpisodeIdentifier] ASC, [Period] ASC)
 );
-
-
-
-
 GO
+
 CREATE NONCLUSTERED INDEX [ix_AEC_ApprenticeshipPriceEpisodePeriod]
     ON [Rulebase].[AEC_ApprenticeshipPriceEpisode_Period]([UKPRN] ASC, [LearnRefNumber] ASC, [PriceEpisodeIdentifier] ASC);
+GO
 
+ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode_Period] ADD CONSTRAINT [FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode] FOREIGN KEY([UKPRN], [LearnRefNumber], [PriceEpisodeIdentifier])
+REFERENCES [Rulebase].[AEC_ApprenticeshipPriceEpisode] ([UKPRN], [LearnRefNumber], [PriceEpisodeIdentifier]);
+GO
+
+ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode_Period] CHECK CONSTRAINT [FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode]
+GO

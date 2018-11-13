@@ -11,3 +11,10 @@ GO
 CREATE NONCLUSTERED INDEX [IX_Valid_LearnerFAM]
     ON [Valid].[LearnerFAM]([UKPRN] ASC, [LearnRefNumber] ASC);
 
+GO
+	ALTER TABLE [Valid].[LearnerFAM] ADD CONSTRAINT [FK_LearnerFAM_Learner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Valid].[Learner] ([UKPRN], [LearnRefNumber]);
+GO
+
+ALTER TABLE [Valid].[LearnerFAM] CHECK CONSTRAINT [FK_LearnerFAM_Learner]
+GO

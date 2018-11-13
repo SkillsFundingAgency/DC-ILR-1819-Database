@@ -9,9 +9,15 @@
     [WorkPlaceEmpId]     INT          NOT NULL, 
     CONSTRAINT [PK_LearningDeliveryWorkPlacement] PRIMARY KEY ([UKPRN], [LearnRefNumber], [AimSeqNumber])
 );
-
-
 GO
+
 CREATE NONCLUSTERED INDEX [IX_Valid_LearningDeliveryWorkPlacement]
     ON [Valid].[LearningDeliveryWorkPlacement]([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [WorkPlaceStartDate] ASC, [WorkPlaceMode] ASC, [WorkPlaceEmpId] ASC);
+GO
 
+ALTER TABLE [Valid].[LearningDeliveryWorkPlacement] ADD CONSTRAINT [FK_LearningDeliveryWorkPlacement_LearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber])
+REFERENCES [Valid].[LearningDelivery] ([UKPRN], [LearnRefNumber], [AimSeqNumber])
+GO
+
+ALTER TABLE [Valid].[LearningDeliveryWorkPlacement] CHECK CONSTRAINT [FK_LearningDeliveryWorkPlacement_LearningDelivery]
+GO

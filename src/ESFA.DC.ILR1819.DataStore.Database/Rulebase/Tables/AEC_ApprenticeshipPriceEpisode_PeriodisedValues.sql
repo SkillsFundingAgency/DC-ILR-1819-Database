@@ -17,4 +17,11 @@
     [Period_12]              DECIMAL (15, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [PriceEpisodeIdentifier] ASC, [AttributeName] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode_PeriodisedValues] ADD CONSTRAINT [FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode] FOREIGN KEY([UKPRN], [LearnRefNumber], [PriceEpisodeIdentifier])
+REFERENCES [Rulebase].[AEC_ApprenticeshipPriceEpisode] ([UKPRN], [LearnRefNumber], [PriceEpisodeIdentifier]);
+GO
+
+ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode_PeriodisedValues] CHECK CONSTRAINT [FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode]
+GO

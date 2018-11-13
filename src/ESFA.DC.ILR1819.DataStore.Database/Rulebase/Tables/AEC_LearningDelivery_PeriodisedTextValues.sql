@@ -17,4 +17,11 @@
     [Period_12]      VARCHAR (255) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [AttributeName] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[AEC_LearningDelivery_PeriodisedTextValues] ADD CONSTRAINT [FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber])
+REFERENCES [Rulebase].[AEC_LearningDelivery] ([UKPRN], [LearnRefNumber], [AimSeqNumber]);
+GO
+
+ALTER TABLE [Rulebase].[AEC_LearningDelivery_PeriodisedTextValues] CHECK CONSTRAINT [FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod]
+GO

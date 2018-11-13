@@ -76,4 +76,11 @@
     [WeightedRateFromLARS]         DECIMAL (10, 5) NULL,
     CONSTRAINT [PK_FM35_LearningDelivery] PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[FM35_LearningDelivery] ADD CONSTRAINT [FK_FM35LearningDelivery_FM35global] FOREIGN KEY([UKPRN])
+REFERENCES [Rulebase].[FM35_global] ([UKPRN]);
+GO
+
+ALTER TABLE [Rulebase].[FM35_LearningDelivery] CHECK CONSTRAINT [FK_FM35LearningDelivery_FM35global]
+GO

@@ -3,4 +3,4 @@
     [AimSeqNumber] INT NOT NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [AimSeqNumber] ASC)
 );
-
+GO

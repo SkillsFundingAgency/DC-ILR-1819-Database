@@ -59,6 +59,11 @@
     [PriceEpisodeRedStatusCode]                              INT             NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [PriceEpisodeIdentifier] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode] ADD CONSTRAINT [FK_AECApprenticeshipPriceEpisode_AECglobal] FOREIGN KEY([UKPRN])
+REFERENCES [Rulebase].[AEC_global] ([UKPRN]);
+GO
 
-
+ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode] CHECK CONSTRAINT [FK_AECApprenticeshipPriceEpisode_AECglobal]
+GO

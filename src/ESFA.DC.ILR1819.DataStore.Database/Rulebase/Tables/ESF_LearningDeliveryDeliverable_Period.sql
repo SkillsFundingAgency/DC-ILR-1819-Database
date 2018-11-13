@@ -12,4 +12,11 @@
     [StartEarnings]              DECIMAL (10, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [DeliverableCode] ASC, [Period] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[ESF_LearningDeliveryDeliverable_Period] ADD CONSTRAINT [FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber])
+REFERENCES [Rulebase].[ESF_LearningDelivery] ([UKPRN], [LearnRefNumber], [AimSeqNumber]);
+GO
+
+ALTER TABLE [Rulebase].[ESF_LearningDeliveryDeliverable_Period] CHECK CONSTRAINT [FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery]
+GO
