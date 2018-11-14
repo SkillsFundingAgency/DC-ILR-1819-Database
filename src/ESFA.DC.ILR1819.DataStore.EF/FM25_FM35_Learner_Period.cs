@@ -18,5 +18,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public string LearnRefNumber { get; set; }
         public int Period { get; set; }
         public Nullable<decimal> LnrOnProgPay { get; set; }
+    
+        public virtual FM25_FM35_global FM25_FM35_global { get; set; }
     }
 }

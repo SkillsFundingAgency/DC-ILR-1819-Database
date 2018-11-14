@@ -26,6 +26,20 @@
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.Source" Width="1.5" PointX="12.75" PointY="0.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.SourceFile" Width="1.5" PointX="12.75" PointY="4.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModelValid.LLDDandHealthProblem" Width="1.5" PointX="11.375" PointY="10.75" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_AppFinRecord_LearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_ContactPreference_Learner" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_DPOutcome_LearnerDestinationandProgression" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_LearnerEmploymentStatus_Learner" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_LearnerFAM_Learner" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_LearnerHE_Learner" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_LearningDelivery_Learner" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_LLDDandHealthProblem_Learner" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_ProviderSpecLearnerMonitoring_Learner" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_LearnerHEFinancialSupport_LearnerHE" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_LearningDeliveryFAM_LearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_LearningDeliveryHE_LearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_LearningDeliveryWorkPlacement_LearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModelValid.FK_ProviderSpecDeliveryMonitoring_LearningDelivery" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

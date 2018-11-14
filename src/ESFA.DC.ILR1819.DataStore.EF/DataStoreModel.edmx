@@ -483,7 +483,7 @@
             <PropertyRef Name="LearnRefNumber" />
             <PropertyRef Name="AimSeqNumber" />
           </Key>
-          <Property Name="UKPRN" Type="bigint" Nullable="false" />
+          <Property Name="UKPRN" Type="int" Nullable="false" />
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="AimSeqNumber" Type="int" Nullable="false" />
           <Property Name="AreaCostFactAdj" Type="decimal" Precision="10" Scale="5" />
@@ -514,7 +514,7 @@
             <PropertyRef Name="AimSeqNumber" />
             <PropertyRef Name="Period" />
           </Key>
-          <Property Name="UKPRN" Type="bigint" Nullable="false" />
+          <Property Name="UKPRN" Type="int" Nullable="false" />
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
           <Property Name="AimSeqNumber" Type="int" Nullable="false" />
           <Property Name="Period" Type="int" Nullable="false" />
@@ -1002,7 +1002,7 @@
           <Key>
             <PropertyRef Name="UKPRN" />
           </Key>
-          <Property Name="UKPRN" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="UKPRN" Type="int" Nullable="false" />
           <Property Name="CurFundYr" Type="varchar" MaxLength="9" />
           <Property Name="LARSVersion" Type="varchar" MaxLength="100" />
           <Property Name="OrgVersion" Type="varchar" MaxLength="100" />
@@ -1337,6 +1337,378 @@
           <Property Name="LearnRefNumber" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="RuleId" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_AECApprenticeshipPriceEpisode_AECglobal">
+          <End Role="AEC_global" Type="Self.AEC_global" Multiplicity="1" />
+          <End Role="AEC_ApprenticeshipPriceEpisode" Type="Self.AEC_ApprenticeshipPriceEpisode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="AEC_ApprenticeshipPriceEpisode">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode">
+          <End Role="AEC_ApprenticeshipPriceEpisode" Type="Self.AEC_ApprenticeshipPriceEpisode" Multiplicity="1" />
+          <End Role="AEC_ApprenticeshipPriceEpisode_Period" Type="Self.AEC_ApprenticeshipPriceEpisode_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_ApprenticeshipPriceEpisode">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="PriceEpisodeIdentifier" />
+            </Principal>
+            <Dependent Role="AEC_ApprenticeshipPriceEpisode_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="PriceEpisodeIdentifier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode">
+          <End Role="AEC_ApprenticeshipPriceEpisode" Type="Self.AEC_ApprenticeshipPriceEpisode" Multiplicity="1" />
+          <End Role="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" Type="Self.AEC_ApprenticeshipPriceEpisode_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_ApprenticeshipPriceEpisode">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="PriceEpisodeIdentifier" />
+            </Principal>
+            <Dependent Role="AEC_ApprenticeshipPriceEpisode_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="PriceEpisodeIdentifier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECLearningDelivery_AECglobal">
+          <End Role="AEC_global" Type="Self.AEC_global" Multiplicity="1" />
+          <End Role="AEC_LearningDelivery" Type="Self.AEC_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="AEC_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECLearningDeliveryPeriod_AECLearningDelivery">
+          <End Role="AEC_LearningDelivery" Type="Self.AEC_LearningDelivery" Multiplicity="1" />
+          <End Role="AEC_LearningDelivery_Period" Type="Self.AEC_LearningDelivery_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="AEC_LearningDelivery_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod">
+          <End Role="AEC_LearningDelivery" Type="Self.AEC_LearningDelivery" Multiplicity="1" />
+          <End Role="AEC_LearningDelivery_PeriodisedTextValues" Type="Self.AEC_LearningDelivery_PeriodisedTextValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="AEC_LearningDelivery_PeriodisedTextValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECLearningDeliveryPeriodisedValues_AECLearningDeliveryPeriod">
+          <End Role="AEC_LearningDelivery" Type="Self.AEC_LearningDelivery" Multiplicity="1" />
+          <End Role="AEC_LearningDelivery_PeriodisedValues" Type="Self.AEC_LearningDelivery_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="AEC_LearningDelivery_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALBLearningDelivery_ALBglobal">
+          <End Role="ALB_global" Type="Self.ALB_global" Multiplicity="1" />
+          <End Role="ALB_LearningDelivery" Type="Self.ALB_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALB_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="ALB_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALBLearningDeliveryPeriod_ALBLearningDelivery">
+          <End Role="ALB_LearningDelivery" Type="Self.ALB_LearningDelivery" Multiplicity="1" />
+          <End Role="ALB_LearningDelivery_Period" Type="Self.ALB_LearningDelivery_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALB_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ALB_LearningDelivery_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALBLearningDeliveryPeriodisedValues_ALBLearningDelivery">
+          <End Role="ALB_LearningDelivery" Type="Self.ALB_LearningDelivery" Multiplicity="1" />
+          <End Role="ALB_LearningDelivery_PeriodisedValues" Type="Self.ALB_LearningDelivery_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALB_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ALB_LearningDelivery_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DVLearner_DVglobal">
+          <End Role="DV_global" Type="Self.DV_global" Multiplicity="1" />
+          <End Role="DV_Learner" Type="Self.DV_Learner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DV_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="DV_Learner">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DVLearningDelivery_DVLearner">
+          <End Role="DV_Learner" Type="Self.DV_Learner" Multiplicity="1" />
+          <End Role="DV_LearningDelivery" Type="Self.DV_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DV_Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="DV_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESFLearningDelivery_ESFglobal">
+          <End Role="ESF_global" Type="Self.ESF_global" Multiplicity="1" />
+          <End Role="ESF_LearningDelivery" Type="Self.ESF_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESF_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="ESF_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESFLearningDeliveryDeliverable_ESFLearningDelivery">
+          <End Role="ESF_LearningDelivery" Type="Self.ESF_LearningDelivery" Multiplicity="1" />
+          <End Role="ESF_LearningDeliveryDeliverable" Type="Self.ESF_LearningDeliveryDeliverable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESF_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ESF_LearningDeliveryDeliverable">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery">
+          <End Role="ESF_LearningDelivery" Type="Self.ESF_LearningDelivery" Multiplicity="1" />
+          <End Role="ESF_LearningDeliveryDeliverable_Period" Type="Self.ESF_LearningDeliveryDeliverable_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESF_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ESF_LearningDeliveryDeliverable_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery">
+          <End Role="ESF_LearningDeliveryDeliverable" Type="Self.ESF_LearningDeliveryDeliverable" Multiplicity="1" />
+          <End Role="ESF_LearningDeliveryDeliverable_PeriodisedValues" Type="Self.ESF_LearningDeliveryDeliverable_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESF_LearningDeliveryDeliverable">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+              <PropertyRef Name="DeliverableCode" />
+            </Principal>
+            <Dependent Role="ESF_LearningDeliveryDeliverable_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+              <PropertyRef Name="DeliverableCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM25FM35LearnerPeriod_FM25FM35global">
+          <End Role="FM25_FM35_global" Type="Self.FM25_FM35_global" Multiplicity="1" />
+          <End Role="FM25_FM35_Learner_Period" Type="Self.FM25_FM35_Learner_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_FM35_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="FM25_FM35_Learner_Period">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM25FM35LearnerPeriodisedValues_FM25FM35global">
+          <End Role="FM25_FM35_global" Type="Self.FM25_FM35_global" Multiplicity="1" />
+          <End Role="FM25_FM35_Learner_PeriodisedValues" Type="Self.FM25_FM35_Learner_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_FM35_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="FM25_FM35_Learner_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM25Learner_FM25global">
+          <End Role="FM25_global" Type="Self.FM25_global" Multiplicity="1" />
+          <End Role="FM25_Learner" Type="Self.FM25_Learner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="FM25_Learner">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM35LearningDelivery_FM35global">
+          <End Role="FM35_global" Type="Self.FM35_global" Multiplicity="1" />
+          <End Role="FM35_LearningDelivery" Type="Self.FM35_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM35_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="FM35_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM35LearningDeliveryPeriod_FM35LearningDelivery">
+          <End Role="FM35_LearningDelivery" Type="Self.FM35_LearningDelivery" Multiplicity="1" />
+          <End Role="FM35_LearningDelivery_Period" Type="Self.FM35_LearningDelivery_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM35_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="FM35_LearningDelivery_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery">
+          <End Role="FM35_LearningDelivery" Type="Self.FM35_LearningDelivery" Multiplicity="1" />
+          <End Role="FM35_LearningDelivery_PeriodisedValues" Type="Self.FM35_LearningDelivery_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM35_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="FM35_LearningDelivery_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLLearningDelivery_TBLglobal">
+          <End Role="TBL_global" Type="Self.TBL_global" Multiplicity="1" />
+          <End Role="TBL_LearningDelivery" Type="Self.TBL_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="TBL_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLLearningDeliveryPeriod_TBLLearningDelivery">
+          <End Role="TBL_LearningDelivery" Type="Self.TBL_LearningDelivery" Multiplicity="1" />
+          <End Role="TBL_LearningDelivery_Period" Type="Self.TBL_LearningDelivery_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="TBL_LearningDelivery_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery">
+          <End Role="TBL_LearningDelivery" Type="Self.TBL_LearningDelivery" Multiplicity="1" />
+          <End Role="TBL_LearningDelivery_PeriodisedValues" Type="Self.TBL_LearningDelivery_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="TBL_LearningDelivery_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALLearner_VALglobal">
+          <End Role="VAL_global" Type="Self.VAL_global" Multiplicity="1" />
+          <End Role="VAL_Learner" Type="Self.VAL_Learner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VAL_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="VAL_Learner">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Function Name="CleanUpDataLock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="DataLock">
           <Parameter Name="ukprn" Type="int" Mode="In" />
         </Function>
@@ -1409,6 +1781,110 @@
           <EntitySet Name="VALDP_global" EntityType="Self.VALDP_global" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="VALDP_ValidationError" EntityType="Self.VALDP_ValidationError" Schema="Rulebase" store:Type="Tables" />
           <EntitySet Name="VALFD_ValidationError" EntityType="Self.VALFD_ValidationError" Schema="Rulebase" store:Type="Tables" />
+          <AssociationSet Name="FK_AECApprenticeshipPriceEpisode_AECglobal" Association="Self.FK_AECApprenticeshipPriceEpisode_AECglobal">
+            <End Role="AEC_global" EntitySet="AEC_global" />
+            <End Role="AEC_ApprenticeshipPriceEpisode" EntitySet="AEC_ApprenticeshipPriceEpisode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode" Association="Self.FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode">
+            <End Role="AEC_ApprenticeshipPriceEpisode" EntitySet="AEC_ApprenticeshipPriceEpisode" />
+            <End Role="AEC_ApprenticeshipPriceEpisode_Period" EntitySet="AEC_ApprenticeshipPriceEpisode_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode" Association="Self.FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode">
+            <End Role="AEC_ApprenticeshipPriceEpisode" EntitySet="AEC_ApprenticeshipPriceEpisode" />
+            <End Role="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" EntitySet="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECLearningDelivery_AECglobal" Association="Self.FK_AECLearningDelivery_AECglobal">
+            <End Role="AEC_global" EntitySet="AEC_global" />
+            <End Role="AEC_LearningDelivery" EntitySet="AEC_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECLearningDeliveryPeriod_AECLearningDelivery" Association="Self.FK_AECLearningDeliveryPeriod_AECLearningDelivery">
+            <End Role="AEC_LearningDelivery" EntitySet="AEC_LearningDelivery" />
+            <End Role="AEC_LearningDelivery_Period" EntitySet="AEC_LearningDelivery_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod" Association="Self.FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod">
+            <End Role="AEC_LearningDelivery" EntitySet="AEC_LearningDelivery" />
+            <End Role="AEC_LearningDelivery_PeriodisedTextValues" EntitySet="AEC_LearningDelivery_PeriodisedTextValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECLearningDeliveryPeriodisedValues_AECLearningDeliveryPeriod" Association="Self.FK_AECLearningDeliveryPeriodisedValues_AECLearningDeliveryPeriod">
+            <End Role="AEC_LearningDelivery" EntitySet="AEC_LearningDelivery" />
+            <End Role="AEC_LearningDelivery_PeriodisedValues" EntitySet="AEC_LearningDelivery_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALBLearningDelivery_ALBglobal" Association="Self.FK_ALBLearningDelivery_ALBglobal">
+            <End Role="ALB_global" EntitySet="ALB_global" />
+            <End Role="ALB_LearningDelivery" EntitySet="ALB_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALBLearningDeliveryPeriod_ALBLearningDelivery" Association="Self.FK_ALBLearningDeliveryPeriod_ALBLearningDelivery">
+            <End Role="ALB_LearningDelivery" EntitySet="ALB_LearningDelivery" />
+            <End Role="ALB_LearningDelivery_Period" EntitySet="ALB_LearningDelivery_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALBLearningDeliveryPeriodisedValues_ALBLearningDelivery" Association="Self.FK_ALBLearningDeliveryPeriodisedValues_ALBLearningDelivery">
+            <End Role="ALB_LearningDelivery" EntitySet="ALB_LearningDelivery" />
+            <End Role="ALB_LearningDelivery_PeriodisedValues" EntitySet="ALB_LearningDelivery_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DVLearner_DVglobal" Association="Self.FK_DVLearner_DVglobal">
+            <End Role="DV_global" EntitySet="DV_global" />
+            <End Role="DV_Learner" EntitySet="DV_Learner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DVLearningDelivery_DVLearner" Association="Self.FK_DVLearningDelivery_DVLearner">
+            <End Role="DV_Learner" EntitySet="DV_Learner" />
+            <End Role="DV_LearningDelivery" EntitySet="DV_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESFLearningDelivery_ESFglobal" Association="Self.FK_ESFLearningDelivery_ESFglobal">
+            <End Role="ESF_global" EntitySet="ESF_global" />
+            <End Role="ESF_LearningDelivery" EntitySet="ESF_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESFLearningDeliveryDeliverable_ESFLearningDelivery" Association="Self.FK_ESFLearningDeliveryDeliverable_ESFLearningDelivery">
+            <End Role="ESF_LearningDelivery" EntitySet="ESF_LearningDelivery" />
+            <End Role="ESF_LearningDeliveryDeliverable" EntitySet="ESF_LearningDeliveryDeliverable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery" Association="Self.FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery">
+            <End Role="ESF_LearningDelivery" EntitySet="ESF_LearningDelivery" />
+            <End Role="ESF_LearningDeliveryDeliverable_Period" EntitySet="ESF_LearningDeliveryDeliverable_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery" Association="Self.FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery">
+            <End Role="ESF_LearningDeliveryDeliverable" EntitySet="ESF_LearningDeliveryDeliverable" />
+            <End Role="ESF_LearningDeliveryDeliverable_PeriodisedValues" EntitySet="ESF_LearningDeliveryDeliverable_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM25FM35LearnerPeriod_FM25FM35global" Association="Self.FK_FM25FM35LearnerPeriod_FM25FM35global">
+            <End Role="FM25_FM35_global" EntitySet="FM25_FM35_global" />
+            <End Role="FM25_FM35_Learner_Period" EntitySet="FM25_FM35_Learner_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM25FM35LearnerPeriodisedValues_FM25FM35global" Association="Self.FK_FM25FM35LearnerPeriodisedValues_FM25FM35global">
+            <End Role="FM25_FM35_global" EntitySet="FM25_FM35_global" />
+            <End Role="FM25_FM35_Learner_PeriodisedValues" EntitySet="FM25_FM35_Learner_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM25Learner_FM25global" Association="Self.FK_FM25Learner_FM25global">
+            <End Role="FM25_global" EntitySet="FM25_global" />
+            <End Role="FM25_Learner" EntitySet="FM25_Learner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM35LearningDelivery_FM35global" Association="Self.FK_FM35LearningDelivery_FM35global">
+            <End Role="FM35_global" EntitySet="FM35_global" />
+            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" Association="Self.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery">
+            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
+            <End Role="FM35_LearningDelivery_Period" EntitySet="FM35_LearningDelivery_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" Association="Self.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery">
+            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
+            <End Role="FM35_LearningDelivery_PeriodisedValues" EntitySet="FM35_LearningDelivery_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLLearningDelivery_TBLglobal" Association="Self.FK_TBLLearningDelivery_TBLglobal">
+            <End Role="TBL_global" EntitySet="TBL_global" />
+            <End Role="TBL_LearningDelivery" EntitySet="TBL_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLLearningDeliveryPeriod_TBLLearningDelivery" Association="Self.FK_TBLLearningDeliveryPeriod_TBLLearningDelivery">
+            <End Role="TBL_LearningDelivery" EntitySet="TBL_LearningDelivery" />
+            <End Role="TBL_LearningDelivery_Period" EntitySet="TBL_LearningDelivery_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery" Association="Self.FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery">
+            <End Role="TBL_LearningDelivery" EntitySet="TBL_LearningDelivery" />
+            <End Role="TBL_LearningDelivery_PeriodisedValues" EntitySet="TBL_LearningDelivery_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="VALLearner_VALglobal" Association="Self.VALLearner_VALglobal">
+            <End Role="VAL_global" EntitySet="VAL_global" />
+            <End Role="VAL_Learner" EntitySet="VAL_Learner" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -1485,6 +1961,110 @@
           <EntitySet Name="FM25_FM35_Learner_PeriodisedValues" EntityType="ILR1819_DataStoreModel.FM25_FM35_Learner_PeriodisedValues" />
           <EntitySet Name="DV_global" EntityType="ILR1819_DataStoreModel.DV_global" />
           <EntitySet Name="ESF_global" EntityType="ILR1819_DataStoreModel.ESF_global" />
+          <AssociationSet Name="FK_AECApprenticeshipPriceEpisode_AECglobal" Association="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisode_AECglobal">
+            <End Role="AEC_global" EntitySet="AEC_global" />
+            <End Role="AEC_ApprenticeshipPriceEpisode" EntitySet="AEC_ApprenticeshipPriceEpisode" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode" Association="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode">
+            <End Role="AEC_ApprenticeshipPriceEpisode" EntitySet="AEC_ApprenticeshipPriceEpisode" />
+            <End Role="AEC_ApprenticeshipPriceEpisode_Period" EntitySet="AEC_ApprenticeshipPriceEpisode_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode" Association="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode">
+            <End Role="AEC_ApprenticeshipPriceEpisode" EntitySet="AEC_ApprenticeshipPriceEpisode" />
+            <End Role="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" EntitySet="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECLearningDelivery_AECglobal" Association="ILR1819_DataStoreModel.FK_AECLearningDelivery_AECglobal">
+            <End Role="AEC_global" EntitySet="AEC_global" />
+            <End Role="AEC_LearningDelivery" EntitySet="AEC_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECLearningDeliveryPeriod_AECLearningDelivery" Association="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriod_AECLearningDelivery">
+            <End Role="AEC_LearningDelivery" EntitySet="AEC_LearningDelivery" />
+            <End Role="AEC_LearningDelivery_Period" EntitySet="AEC_LearningDelivery_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod" Association="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod">
+            <End Role="AEC_LearningDelivery" EntitySet="AEC_LearningDelivery" />
+            <End Role="AEC_LearningDelivery_PeriodisedTextValues" EntitySet="AEC_LearningDelivery_PeriodisedTextValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AECLearningDeliveryPeriodisedValues_AECLearningDeliveryPeriod" Association="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriodisedValues_AECLearningDeliveryPeriod">
+            <End Role="AEC_LearningDelivery" EntitySet="AEC_LearningDelivery" />
+            <End Role="AEC_LearningDelivery_PeriodisedValues" EntitySet="AEC_LearningDelivery_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALBLearningDelivery_ALBglobal" Association="ILR1819_DataStoreModel.FK_ALBLearningDelivery_ALBglobal">
+            <End Role="ALB_global" EntitySet="ALB_global" />
+            <End Role="ALB_LearningDelivery" EntitySet="ALB_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALBLearningDeliveryPeriod_ALBLearningDelivery" Association="ILR1819_DataStoreModel.FK_ALBLearningDeliveryPeriod_ALBLearningDelivery">
+            <End Role="ALB_LearningDelivery" EntitySet="ALB_LearningDelivery" />
+            <End Role="ALB_LearningDelivery_Period" EntitySet="ALB_LearningDelivery_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALBLearningDeliveryPeriodisedValues_ALBLearningDelivery" Association="ILR1819_DataStoreModel.FK_ALBLearningDeliveryPeriodisedValues_ALBLearningDelivery">
+            <End Role="ALB_LearningDelivery" EntitySet="ALB_LearningDelivery" />
+            <End Role="ALB_LearningDelivery_PeriodisedValues" EntitySet="ALB_LearningDelivery_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DVLearner_DVglobal" Association="ILR1819_DataStoreModel.FK_DVLearner_DVglobal">
+            <End Role="DV_global" EntitySet="DV_global" />
+            <End Role="DV_Learner" EntitySet="DV_Learner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DVLearningDelivery_DVLearner" Association="ILR1819_DataStoreModel.FK_DVLearningDelivery_DVLearner">
+            <End Role="DV_Learner" EntitySet="DV_Learner" />
+            <End Role="DV_LearningDelivery" EntitySet="DV_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESFLearningDelivery_ESFglobal" Association="ILR1819_DataStoreModel.FK_ESFLearningDelivery_ESFglobal">
+            <End Role="ESF_global" EntitySet="ESF_global" />
+            <End Role="ESF_LearningDelivery" EntitySet="ESF_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESFLearningDeliveryDeliverable_ESFLearningDelivery" Association="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverable_ESFLearningDelivery">
+            <End Role="ESF_LearningDelivery" EntitySet="ESF_LearningDelivery" />
+            <End Role="ESF_LearningDeliveryDeliverable" EntitySet="ESF_LearningDeliveryDeliverable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery" Association="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery">
+            <End Role="ESF_LearningDelivery" EntitySet="ESF_LearningDelivery" />
+            <End Role="ESF_LearningDeliveryDeliverable_Period" EntitySet="ESF_LearningDeliveryDeliverable_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery" Association="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery">
+            <End Role="ESF_LearningDeliveryDeliverable" EntitySet="ESF_LearningDeliveryDeliverable" />
+            <End Role="ESF_LearningDeliveryDeliverable_PeriodisedValues" EntitySet="ESF_LearningDeliveryDeliverable_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM25FM35LearnerPeriod_FM25FM35global" Association="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriod_FM25FM35global">
+            <End Role="FM25_FM35_global" EntitySet="FM25_FM35_global" />
+            <End Role="FM25_FM35_Learner_Period" EntitySet="FM25_FM35_Learner_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM25FM35LearnerPeriodisedValues_FM25FM35global" Association="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriodisedValues_FM25FM35global">
+            <End Role="FM25_FM35_global" EntitySet="FM25_FM35_global" />
+            <End Role="FM25_FM35_Learner_PeriodisedValues" EntitySet="FM25_FM35_Learner_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM25Learner_FM25global" Association="ILR1819_DataStoreModel.FK_FM25Learner_FM25global">
+            <End Role="FM25_global" EntitySet="FM25_global" />
+            <End Role="FM25_Learner" EntitySet="FM25_Learner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM35LearningDelivery_FM35global" Association="ILR1819_DataStoreModel.FK_FM35LearningDelivery_FM35global">
+            <End Role="FM35_global" EntitySet="FM35_global" />
+            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery">
+            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
+            <End Role="FM35_LearningDelivery_Period" EntitySet="FM35_LearningDelivery_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery">
+            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
+            <End Role="FM35_LearningDelivery_PeriodisedValues" EntitySet="FM35_LearningDelivery_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLLearningDelivery_TBLglobal" Association="ILR1819_DataStoreModel.FK_TBLLearningDelivery_TBLglobal">
+            <End Role="TBL_global" EntitySet="TBL_global" />
+            <End Role="TBL_LearningDelivery" EntitySet="TBL_LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLLearningDeliveryPeriod_TBLLearningDelivery" Association="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriod_TBLLearningDelivery">
+            <End Role="TBL_LearningDelivery" EntitySet="TBL_LearningDelivery" />
+            <End Role="TBL_LearningDelivery_Period" EntitySet="TBL_LearningDelivery_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery" Association="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery">
+            <End Role="TBL_LearningDelivery" EntitySet="TBL_LearningDelivery" />
+            <End Role="TBL_LearningDelivery_PeriodisedValues" EntitySet="TBL_LearningDelivery_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="VALLearner_VALglobal" Association="ILR1819_DataStoreModel.VALLearner_VALglobal">
+            <End Role="VAL_global" EntitySet="VAL_global" />
+            <End Role="VAL_Learner" EntitySet="VAL_Learner" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="FileDetail">
           <Key>
@@ -1600,6 +2180,9 @@
           <Property Name="PriceEpisodeAgreeId" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="PriceEpisodeRedStartDate" Type="DateTime" Precision="0" />
           <Property Name="PriceEpisodeRedStatusCode" Type="Int32" />
+          <NavigationProperty Name="AEC_global" Relationship="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisode_AECglobal" FromRole="AEC_ApprenticeshipPriceEpisode" ToRole="AEC_global" />
+          <NavigationProperty Name="AEC_ApprenticeshipPriceEpisode_Period" Relationship="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode" FromRole="AEC_ApprenticeshipPriceEpisode" ToRole="AEC_ApprenticeshipPriceEpisode_Period" />
+          <NavigationProperty Name="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" Relationship="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode" FromRole="AEC_ApprenticeshipPriceEpisode" ToRole="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" />
         </EntityType>
         <EntityType Name="AEC_ApprenticeshipPriceEpisode_Period">
           <Key>
@@ -1633,6 +2216,7 @@
           <Property Name="PriceEpisodeSFAContribPct" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeTotProgFunding" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="PriceEpisodeLearnerAdditionalPayment" Type="Decimal" Precision="12" Scale="5" />
+          <NavigationProperty Name="AEC_ApprenticeshipPriceEpisode" Relationship="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode" FromRole="AEC_ApprenticeshipPriceEpisode_Period" ToRole="AEC_ApprenticeshipPriceEpisode" />
         </EntityType>
         <EntityType Name="AEC_ApprenticeshipPriceEpisode_PeriodisedValues">
           <Key>
@@ -1657,6 +2241,7 @@
           <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
+          <NavigationProperty Name="AEC_ApprenticeshipPriceEpisode" Relationship="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode" FromRole="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" ToRole="AEC_ApprenticeshipPriceEpisode" />
         </EntityType>
         <EntityType Name="AEC_global">
           <Key>
@@ -1666,6 +2251,8 @@
           <Property Name="LARSVersion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="Year" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AEC_ApprenticeshipPriceEpisode" Relationship="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisode_AECglobal" FromRole="AEC_global" ToRole="AEC_ApprenticeshipPriceEpisode" />
+          <NavigationProperty Name="AEC_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_AECLearningDelivery_AECglobal" FromRole="AEC_global" ToRole="AEC_LearningDelivery" />
         </EntityType>
         <EntityType Name="AEC_HistoricEarningOutput">
           <Key>
@@ -1762,6 +2349,10 @@
           <Property Name="LearnDelLearnerAddPayThresholdDate" Type="DateTime" Precision="0" />
           <Property Name="LearnDelRedCode" Type="Int32" />
           <Property Name="LearnDelRedStartDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AEC_global" Relationship="ILR1819_DataStoreModel.FK_AECLearningDelivery_AECglobal" FromRole="AEC_LearningDelivery" ToRole="AEC_global" />
+          <NavigationProperty Name="AEC_LearningDelivery_Period" Relationship="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriod_AECLearningDelivery" FromRole="AEC_LearningDelivery" ToRole="AEC_LearningDelivery_Period" />
+          <NavigationProperty Name="AEC_LearningDelivery_PeriodisedTextValues" Relationship="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod" FromRole="AEC_LearningDelivery" ToRole="AEC_LearningDelivery_PeriodisedTextValues" />
+          <NavigationProperty Name="AEC_LearningDelivery_PeriodisedValues" Relationship="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriodisedValues_AECLearningDeliveryPeriod" FromRole="AEC_LearningDelivery" ToRole="AEC_LearningDelivery_PeriodisedValues" />
         </EntityType>
         <EntityType Name="AEC_LearningDelivery_Period">
           <Key>
@@ -1801,6 +2392,7 @@
           <Property Name="ProgrammeAimProgFundIndMaxEmpCont" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="ProgrammeAimProgFundIndMinCoInvest" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="ProgrammeAimTotProgFund" Type="Decimal" Precision="12" Scale="5" />
+          <NavigationProperty Name="AEC_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriod_AECLearningDelivery" FromRole="AEC_LearningDelivery_Period" ToRole="AEC_LearningDelivery" />
         </EntityType>
         <EntityType Name="AEC_LearningDelivery_PeriodisedTextValues">
           <Key>
@@ -1825,6 +2417,7 @@
           <Property Name="Period_10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Period_11" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Period_12" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AEC_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod" FromRole="AEC_LearningDelivery_PeriodisedTextValues" ToRole="AEC_LearningDelivery" />
         </EntityType>
         <EntityType Name="AEC_LearningDelivery_PeriodisedValues">
           <Key>
@@ -1849,6 +2442,7 @@
           <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
+          <NavigationProperty Name="AEC_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriodisedValues_AECLearningDeliveryPeriod" FromRole="AEC_LearningDelivery_PeriodisedValues" ToRole="AEC_LearningDelivery" />
         </EntityType>
         <EntityType Name="ALB_global">
           <Key>
@@ -1858,6 +2452,7 @@
           <Property Name="LARSVersion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="PostcodeAreaCostVersion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ALB_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_ALBLearningDelivery_ALBglobal" FromRole="ALB_global" ToRole="ALB_LearningDelivery" />
         </EntityType>
         <EntityType Name="ALB_Learner_Period">
           <Key>
@@ -1921,6 +2516,9 @@
           <Property Name="LearnDelApplicLARSCarPilFundSubRate" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="LearnDelCarLearnPilotAimValue" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="LearnDelCarLearnPilotInstalAmount" Type="Decimal" Precision="12" Scale="5" />
+          <NavigationProperty Name="ALB_global" Relationship="ILR1819_DataStoreModel.FK_ALBLearningDelivery_ALBglobal" FromRole="ALB_LearningDelivery" ToRole="ALB_global" />
+          <NavigationProperty Name="ALB_LearningDelivery_Period" Relationship="ILR1819_DataStoreModel.FK_ALBLearningDeliveryPeriod_ALBLearningDelivery" FromRole="ALB_LearningDelivery" ToRole="ALB_LearningDelivery_Period" />
+          <NavigationProperty Name="ALB_LearningDelivery_PeriodisedValues" Relationship="ILR1819_DataStoreModel.FK_ALBLearningDeliveryPeriodisedValues_ALBLearningDelivery" FromRole="ALB_LearningDelivery" ToRole="ALB_LearningDelivery_PeriodisedValues" />
         </EntityType>
         <EntityType Name="ALB_LearningDelivery_Period">
           <Key>
@@ -1939,6 +2537,7 @@
           <Property Name="AreaUpliftOnProgPayment" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="LearnDelCarLearnPilotOnProgPayment" Type="Decimal" Precision="12" Scale="5" />
           <Property Name="LearnDelCarLearnPilotBalPayment" Type="Decimal" Precision="12" Scale="5" />
+          <NavigationProperty Name="ALB_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_ALBLearningDeliveryPeriod_ALBLearningDelivery" FromRole="ALB_LearningDelivery_Period" ToRole="ALB_LearningDelivery" />
         </EntityType>
         <EntityType Name="ALB_LearningDelivery_PeriodisedValues">
           <Key>
@@ -1963,6 +2562,7 @@
           <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
+          <NavigationProperty Name="ALB_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_ALBLearningDeliveryPeriodisedValues_ALBLearningDelivery" FromRole="ALB_LearningDelivery_PeriodisedValues" ToRole="ALB_LearningDelivery" />
         </EntityType>
         <EntityType Name="DV_Learner">
           <Key>
@@ -2019,6 +2619,8 @@
           <Property Name="Learn_UnempBenPrior" Type="Int32" />
           <Property Name="Learn_Uplift1516EFA" Type="Decimal" Precision="6" Scale="5" />
           <Property Name="Learn_Uplift1516SFA" Type="Decimal" Precision="6" Scale="5" />
+          <NavigationProperty Name="DV_global" Relationship="ILR1819_DataStoreModel.FK_DVLearner_DVglobal" FromRole="DV_Learner" ToRole="DV_global" />
+          <NavigationProperty Name="DV_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_DVLearningDelivery_DVLearner" FromRole="DV_Learner" ToRole="DV_LearningDelivery" />
         </EntityType>
         <EntityType Name="DV_LearningDelivery">
           <Key>
@@ -2186,6 +2788,7 @@
           <Property Name="Prog_LatestAim" Type="Int32" />
           <Property Name="Prog_SourceFundEFA" Type="Int32" />
           <Property Name="Prog_SourceFundSFA" Type="Int32" />
+          <NavigationProperty Name="DV_Learner" Relationship="ILR1819_DataStoreModel.FK_DVLearningDelivery_DVLearner" FromRole="DV_LearningDelivery" ToRole="DV_Learner" />
         </EntityType>
         <EntityType Name="ESF_DPOutcome">
           <Key>
@@ -2235,6 +2838,9 @@
           <Property Name="ProgressionEndDate" Type="DateTime" Precision="0" />
           <Property Name="Restart" Type="Boolean" />
           <Property Name="WeightedRateFromESOL" Type="Decimal" Precision="10" Scale="5" />
+          <NavigationProperty Name="ESF_global" Relationship="ILR1819_DataStoreModel.FK_ESFLearningDelivery_ESFglobal" FromRole="ESF_LearningDelivery" ToRole="ESF_global" />
+          <NavigationProperty Name="ESF_LearningDeliveryDeliverable" Relationship="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverable_ESFLearningDelivery" FromRole="ESF_LearningDelivery" ToRole="ESF_LearningDeliveryDeliverable" />
+          <NavigationProperty Name="ESF_LearningDeliveryDeliverable_Period" Relationship="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery" FromRole="ESF_LearningDelivery" ToRole="ESF_LearningDeliveryDeliverable_Period" />
         </EntityType>
         <EntityType Name="ESF_LearningDeliveryDeliverable">
           <Key>
@@ -2248,6 +2854,8 @@
           <Property Name="AimSeqNumber" Type="Int32" Nullable="false" />
           <Property Name="DeliverableCode" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
           <Property Name="DeliverableUnitCost" Type="Decimal" Precision="10" Scale="5" />
+          <NavigationProperty Name="ESF_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverable_ESFLearningDelivery" FromRole="ESF_LearningDeliveryDeliverable" ToRole="ESF_LearningDelivery" />
+          <NavigationProperty Name="ESF_LearningDeliveryDeliverable_PeriodisedValues" Relationship="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery" FromRole="ESF_LearningDeliveryDeliverable" ToRole="ESF_LearningDeliveryDeliverable_PeriodisedValues" />
         </EntityType>
         <EntityType Name="ESF_LearningDeliveryDeliverable_Period">
           <Key>
@@ -2268,6 +2876,7 @@
           <Property Name="ProgressionEarnings" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="ReportingVolume" Type="Int32" />
           <Property Name="StartEarnings" Type="Decimal" Precision="10" Scale="5" />
+          <NavigationProperty Name="ESF_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery" FromRole="ESF_LearningDeliveryDeliverable_Period" ToRole="ESF_LearningDelivery" />
         </EntityType>
         <EntityType Name="ESF_LearningDeliveryDeliverable_PeriodisedValues">
           <Key>
@@ -2294,6 +2903,7 @@
           <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
+          <NavigationProperty Name="ESF_LearningDeliveryDeliverable" Relationship="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery" FromRole="ESF_LearningDeliveryDeliverable_PeriodisedValues" ToRole="ESF_LearningDeliveryDeliverable" />
         </EntityType>
         <EntityType Name="ESFVAL_global">
           <Key>
@@ -2324,6 +2934,7 @@
           <Property Name="OrgVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PostcodeDisadvantageVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FM25_Learner" Relationship="ILR1819_DataStoreModel.FK_FM25Learner_FM25global" FromRole="FM25_global" ToRole="FM25_Learner" />
         </EntityType>
         <EntityType Name="FM25_Learner">
           <Key>
@@ -2358,17 +2969,19 @@
           <Property Name="RetentNew" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="StartFund" Type="Boolean" />
           <Property Name="ThresholdDays" Type="Int32" />
+          <NavigationProperty Name="FM25_global" Relationship="ILR1819_DataStoreModel.FK_FM25Learner_FM25global" FromRole="FM25_Learner" ToRole="FM25_global" />
         </EntityType>
         <EntityType Name="FM35_global">
           <Key>
             <PropertyRef Name="UKPRN" />
           </Key>
-          <Property Name="UKPRN" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="CurFundYr" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
           <Property Name="LARSVersion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="OrgVersion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="PostcodeDisadvantageVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FM35_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDelivery_FM35global" FromRole="FM35_global" ToRole="FM35_LearningDelivery" />
         </EntityType>
         <EntityType Name="FM35_LearningDelivery">
           <Key>
@@ -2451,6 +3064,9 @@
           <Property Name="UnweightedRateFromLARS" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="WeightedRateFromESOL" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="WeightedRateFromLARS" Type="Decimal" Precision="10" Scale="5" />
+          <NavigationProperty Name="FM35_global" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDelivery_FM35global" FromRole="FM35_LearningDelivery" ToRole="FM35_global" />
+          <NavigationProperty Name="FM35_LearningDelivery_Period" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" FromRole="FM35_LearningDelivery" ToRole="FM35_LearningDelivery_Period" />
+          <NavigationProperty Name="FM35_LearningDelivery_PeriodisedValues" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" FromRole="FM35_LearningDelivery" ToRole="FM35_LearningDelivery_PeriodisedValues" />
         </EntityType>
         <EntityType Name="FM35_LearningDelivery_Period">
           <Key>
@@ -2481,6 +3097,7 @@
           <Property Name="OnProgPayPct" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="OnProgPayPctTrans" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="TransInstPerPeriod" Type="Int32" />
+          <NavigationProperty Name="FM35_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" FromRole="FM35_LearningDelivery_Period" ToRole="FM35_LearningDelivery" />
         </EntityType>
         <EntityType Name="FM35_LearningDelivery_PeriodisedValues">
           <Key>
@@ -2505,6 +3122,7 @@
           <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
+          <NavigationProperty Name="FM35_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" FromRole="FM35_LearningDelivery_PeriodisedValues" ToRole="FM35_LearningDelivery" />
         </EntityType>
         <EntityType Name="TBL_global">
           <Key>
@@ -2514,6 +3132,7 @@
           <Property Name="CurFundYr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="LARSVersion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TBL_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_TBLLearningDelivery_TBLglobal" FromRole="TBL_global" ToRole="TBL_LearningDelivery" />
         </EntityType>
         <EntityType Name="TBL_LearningDelivery">
           <Key>
@@ -2574,6 +3193,9 @@
           <Property Name="ApplicFundValDate" Type="DateTime" Precision="0" />
           <Property Name="YoungAppFirstPayment" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="YoungAppPayment" Type="Decimal" Precision="10" Scale="5" />
+          <NavigationProperty Name="TBL_global" Relationship="ILR1819_DataStoreModel.FK_TBLLearningDelivery_TBLglobal" FromRole="TBL_LearningDelivery" ToRole="TBL_global" />
+          <NavigationProperty Name="TBL_LearningDelivery_Period" Relationship="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriod_TBLLearningDelivery" FromRole="TBL_LearningDelivery" ToRole="TBL_LearningDelivery_Period" />
+          <NavigationProperty Name="TBL_LearningDelivery_PeriodisedValues" Relationship="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery" FromRole="TBL_LearningDelivery" ToRole="TBL_LearningDelivery_PeriodisedValues" />
         </EntityType>
         <EntityType Name="TBL_LearningDelivery_Period">
           <Key>
@@ -2600,6 +3222,7 @@
           <Property Name="YoungAppFirstPayment" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="YoungAppPayment" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="YoungAppSecondPayment" Type="Decimal" Precision="10" Scale="5" />
+          <NavigationProperty Name="TBL_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriod_TBLLearningDelivery" FromRole="TBL_LearningDelivery_Period" ToRole="TBL_LearningDelivery" />
         </EntityType>
         <EntityType Name="TBL_LearningDelivery_PeriodisedValues">
           <Key>
@@ -2624,6 +3247,7 @@
           <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
+          <NavigationProperty Name="TBL_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery" FromRole="TBL_LearningDelivery_PeriodisedValues" ToRole="TBL_LearningDelivery" />
         </EntityType>
         <EntityType Name="VAL_global">
           <Key>
@@ -2635,6 +3259,7 @@
           <Property Name="OrgVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="PostcodeVersion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VAL_Learner" Relationship="ILR1819_DataStoreModel.VALLearner_VALglobal" FromRole="VAL_global" ToRole="VAL_Learner" />
         </EntityType>
         <EntityType Name="VAL_Learner">
           <Key>
@@ -2643,6 +3268,7 @@
           </Key>
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="VAL_global" Relationship="ILR1819_DataStoreModel.VALLearner_VALglobal" FromRole="VAL_Learner" ToRole="VAL_global" />
         </EntityType>
         <EntityType Name="VAL_LearningDelivery">
           <Key>
@@ -2754,6 +3380,8 @@
           </Key>
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FM25_FM35_Learner_Period" Relationship="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriod_FM25FM35global" FromRole="FM25_FM35_global" ToRole="FM25_FM35_Learner_Period" />
+          <NavigationProperty Name="FM25_FM35_Learner_PeriodisedValues" Relationship="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriodisedValues_FM25FM35global" FromRole="FM25_FM35_global" ToRole="FM25_FM35_Learner_PeriodisedValues" />
         </EntityType>
         <EntityType Name="FM25_FM35_Learner_Period">
           <Key>
@@ -2765,6 +3393,7 @@
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="Period" Type="Int32" Nullable="false" />
           <Property Name="LnrOnProgPay" Type="Decimal" Precision="10" Scale="5" />
+          <NavigationProperty Name="FM25_FM35_global" Relationship="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriod_FM25FM35global" FromRole="FM25_FM35_Learner_Period" ToRole="FM25_FM35_global" />
         </EntityType>
         <EntityType Name="FM25_FM35_Learner_PeriodisedValues">
           <Key>
@@ -2787,6 +3416,7 @@
           <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
+          <NavigationProperty Name="FM25_FM35_global" Relationship="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriodisedValues_FM25FM35global" FromRole="FM25_FM35_Learner_PeriodisedValues" ToRole="FM25_FM35_global" />
         </EntityType>
         <EntityType Name="DV_global">
           <Key>
@@ -2794,6 +3424,7 @@
           </Key>
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DV_Learner" Relationship="ILR1819_DataStoreModel.FK_DVLearner_DVglobal" FromRole="DV_global" ToRole="DV_Learner" />
         </EntityType>
         <EntityType Name="ESF_global">
           <Key>
@@ -2801,7 +3432,380 @@
           </Key>
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="RulebaseVersion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ESF_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_ESFLearningDelivery_ESFglobal" FromRole="ESF_global" ToRole="ESF_LearningDelivery" />
         </EntityType>
+        <Association Name="FK_AECApprenticeshipPriceEpisode_AECglobal">
+          <End Type="ILR1819_DataStoreModel.AEC_global" Role="AEC_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode" Role="AEC_ApprenticeshipPriceEpisode" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="AEC_ApprenticeshipPriceEpisode">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode">
+          <End Type="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode" Role="AEC_ApprenticeshipPriceEpisode" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode_Period" Role="AEC_ApprenticeshipPriceEpisode_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_ApprenticeshipPriceEpisode">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="PriceEpisodeIdentifier" />
+            </Principal>
+            <Dependent Role="AEC_ApprenticeshipPriceEpisode_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="PriceEpisodeIdentifier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode">
+          <End Type="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode" Role="AEC_ApprenticeshipPriceEpisode" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.AEC_ApprenticeshipPriceEpisode_PeriodisedValues" Role="AEC_ApprenticeshipPriceEpisode_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_ApprenticeshipPriceEpisode">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="PriceEpisodeIdentifier" />
+            </Principal>
+            <Dependent Role="AEC_ApprenticeshipPriceEpisode_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="PriceEpisodeIdentifier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECLearningDelivery_AECglobal">
+          <End Type="ILR1819_DataStoreModel.AEC_global" Role="AEC_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.AEC_LearningDelivery" Role="AEC_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="AEC_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECLearningDeliveryPeriod_AECLearningDelivery">
+          <End Type="ILR1819_DataStoreModel.AEC_LearningDelivery" Role="AEC_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.AEC_LearningDelivery_Period" Role="AEC_LearningDelivery_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="AEC_LearningDelivery_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod">
+          <End Type="ILR1819_DataStoreModel.AEC_LearningDelivery" Role="AEC_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.AEC_LearningDelivery_PeriodisedTextValues" Role="AEC_LearningDelivery_PeriodisedTextValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="AEC_LearningDelivery_PeriodisedTextValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AECLearningDeliveryPeriodisedValues_AECLearningDeliveryPeriod">
+          <End Type="ILR1819_DataStoreModel.AEC_LearningDelivery" Role="AEC_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.AEC_LearningDelivery_PeriodisedValues" Role="AEC_LearningDelivery_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AEC_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="AEC_LearningDelivery_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALBLearningDelivery_ALBglobal">
+          <End Type="ILR1819_DataStoreModel.ALB_global" Role="ALB_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.ALB_LearningDelivery" Role="ALB_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALB_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="ALB_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALBLearningDeliveryPeriod_ALBLearningDelivery">
+          <End Type="ILR1819_DataStoreModel.ALB_LearningDelivery" Role="ALB_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.ALB_LearningDelivery_Period" Role="ALB_LearningDelivery_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALB_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ALB_LearningDelivery_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALBLearningDeliveryPeriodisedValues_ALBLearningDelivery">
+          <End Type="ILR1819_DataStoreModel.ALB_LearningDelivery" Role="ALB_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.ALB_LearningDelivery_PeriodisedValues" Role="ALB_LearningDelivery_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALB_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ALB_LearningDelivery_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DVLearner_DVglobal">
+          <End Type="ILR1819_DataStoreModel.DV_global" Role="DV_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.DV_Learner" Role="DV_Learner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DV_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="DV_Learner">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DVLearningDelivery_DVLearner">
+          <End Type="ILR1819_DataStoreModel.DV_Learner" Role="DV_Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.DV_LearningDelivery" Role="DV_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DV_Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="DV_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESFLearningDelivery_ESFglobal">
+          <End Type="ILR1819_DataStoreModel.ESF_global" Role="ESF_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.ESF_LearningDelivery" Role="ESF_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESF_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="ESF_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESFLearningDeliveryDeliverable_ESFLearningDelivery">
+          <End Type="ILR1819_DataStoreModel.ESF_LearningDelivery" Role="ESF_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.ESF_LearningDeliveryDeliverable" Role="ESF_LearningDeliveryDeliverable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESF_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ESF_LearningDeliveryDeliverable">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery">
+          <End Type="ILR1819_DataStoreModel.ESF_LearningDelivery" Role="ESF_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.ESF_LearningDeliveryDeliverable_Period" Role="ESF_LearningDeliveryDeliverable_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESF_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ESF_LearningDeliveryDeliverable_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery">
+          <End Type="ILR1819_DataStoreModel.ESF_LearningDeliveryDeliverable" Role="ESF_LearningDeliveryDeliverable" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.ESF_LearningDeliveryDeliverable_PeriodisedValues" Role="ESF_LearningDeliveryDeliverable_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESF_LearningDeliveryDeliverable">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+              <PropertyRef Name="DeliverableCode" />
+            </Principal>
+            <Dependent Role="ESF_LearningDeliveryDeliverable_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+              <PropertyRef Name="DeliverableCode" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM25FM35LearnerPeriod_FM25FM35global">
+          <End Type="ILR1819_DataStoreModel.FM25_FM35_global" Role="FM25_FM35_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM25_FM35_Learner_Period" Role="FM25_FM35_Learner_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_FM35_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="FM25_FM35_Learner_Period">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM25FM35LearnerPeriodisedValues_FM25FM35global">
+          <End Type="ILR1819_DataStoreModel.FM25_FM35_global" Role="FM25_FM35_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM25_FM35_Learner_PeriodisedValues" Role="FM25_FM35_Learner_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_FM35_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="FM25_FM35_Learner_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM25Learner_FM25global">
+          <End Type="ILR1819_DataStoreModel.FM25_global" Role="FM25_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM25_Learner" Role="FM25_Learner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="FM25_Learner">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM35LearningDelivery_FM35global">
+          <End Type="ILR1819_DataStoreModel.FM35_global" Role="FM35_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery" Role="FM35_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM35_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="FM35_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM35LearningDeliveryPeriod_FM35LearningDelivery">
+          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery" Role="FM35_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery_Period" Role="FM35_LearningDelivery_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM35_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="FM35_LearningDelivery_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery">
+          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery" Role="FM35_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues" Role="FM35_LearningDelivery_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM35_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="FM35_LearningDelivery_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLLearningDelivery_TBLglobal">
+          <End Type="ILR1819_DataStoreModel.TBL_global" Role="TBL_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.TBL_LearningDelivery" Role="TBL_LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="TBL_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLLearningDeliveryPeriod_TBLLearningDelivery">
+          <End Type="ILR1819_DataStoreModel.TBL_LearningDelivery" Role="TBL_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.TBL_LearningDelivery_Period" Role="TBL_LearningDelivery_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="TBL_LearningDelivery_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery">
+          <End Type="ILR1819_DataStoreModel.TBL_LearningDelivery" Role="TBL_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.TBL_LearningDelivery_PeriodisedValues" Role="TBL_LearningDelivery_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="TBL_LearningDelivery_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VALLearner_VALglobal">
+          <End Type="ILR1819_DataStoreModel.VAL_global" Role="VAL_global" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.VAL_Learner" Role="VAL_Learner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VAL_global">
+              <PropertyRef Name="UKPRN" />
+            </Principal>
+            <Dependent Role="VAL_Learner">
+              <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

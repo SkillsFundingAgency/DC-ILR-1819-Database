@@ -174,5 +174,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<int> Prog_LatestAim { get; set; }
         public Nullable<int> Prog_SourceFundEFA { get; set; }
         public Nullable<int> Prog_SourceFundSFA { get; set; }
+    
+        public virtual DV_Learner DV_Learner { get; set; }
     }
 }

@@ -45,5 +45,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> ProgrammeAimProgFundIndMaxEmpCont { get; set; }
         public Nullable<decimal> ProgrammeAimProgFundIndMinCoInvest { get; set; }
         public Nullable<decimal> ProgrammeAimTotProgFund { get; set; }
+    
+        public virtual AEC_LearningDelivery AEC_LearningDelivery { get; set; }
     }
 }

@@ -14,6 +14,13 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class FM35_LearningDelivery
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public FM35_LearningDelivery()
+        {
+            this.FM35_LearningDelivery_Period = new HashSet<FM35_LearningDelivery_Period>();
+            this.FM35_LearningDelivery_PeriodisedValues = new HashSet<FM35_LearningDelivery_PeriodisedValues>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public int AimSeqNumber { get; set; }
@@ -89,5 +96,11 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> UnweightedRateFromLARS { get; set; }
         public Nullable<decimal> WeightedRateFromESOL { get; set; }
         public Nullable<decimal> WeightedRateFromLARS { get; set; }
+    
+        public virtual FM35_global FM35_global { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FM35_LearningDelivery_Period> FM35_LearningDelivery_Period { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FM35_LearningDelivery_PeriodisedValues> FM35_LearningDelivery_PeriodisedValues { get; set; }
     }
 }

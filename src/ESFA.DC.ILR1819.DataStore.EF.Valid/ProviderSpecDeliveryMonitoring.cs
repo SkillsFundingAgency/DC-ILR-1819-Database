@@ -19,5 +19,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public int AimSeqNumber { get; set; }
         public string ProvSpecDelMonOccur { get; set; }
         public string ProvSpecDelMon { get; set; }
+    
+        public virtual LearningDelivery LearningDelivery { get; set; }
     }
 }

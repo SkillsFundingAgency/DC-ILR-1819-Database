@@ -334,6 +334,212 @@
           <Property Name="SerialNo" Type="varchar" MaxLength="2" />
           <Property Name="DateTime" Type="datetime" />
         </EntityType>
+        <Association Name="FK_AppFinRecord_LearningDelivery">
+          <End Role="LearningDelivery" Type="Self.LearningDelivery" Multiplicity="1" />
+          <End Role="AppFinRecord" Type="Self.AppFinRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="AppFinRecord">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactPreference_Learner">
+          <End Role="Learner" Type="Self.Learner" Multiplicity="1" />
+          <End Role="ContactPreference" Type="Self.ContactPreference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="ContactPreference">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DPOutcome_LearnerDestinationandProgression">
+          <End Role="LearnerDestinationandProgression" Type="Self.LearnerDestinationandProgression" Multiplicity="1" />
+          <End Role="DPOutcome" Type="Self.DPOutcome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearnerDestinationandProgression">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="DPOutcome">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearnerEmploymentStatus_Learner">
+          <End Role="Learner" Type="Self.Learner" Multiplicity="1" />
+          <End Role="LearnerEmploymentStatus" Type="Self.LearnerEmploymentStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearnerEmploymentStatus">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearnerFAM_Learner">
+          <End Role="Learner" Type="Self.Learner" Multiplicity="1" />
+          <End Role="LearnerFAM" Type="Self.LearnerFAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearnerFAM">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearnerHE_Learner">
+          <End Role="Learner" Type="Self.Learner" Multiplicity="1" />
+          <End Role="LearnerHE" Type="Self.LearnerHE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearnerHE">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearnerHEFinancialSupport_LearnerHE">
+          <End Role="LearnerHE" Type="Self.LearnerHE" Multiplicity="1" />
+          <End Role="LearnerHEFinancialSupport" Type="Self.LearnerHEFinancialSupport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearnerHE">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearnerHEFinancialSupport">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningDelivery_Learner">
+          <End Role="Learner" Type="Self.Learner" Multiplicity="1" />
+          <End Role="LearningDelivery" Type="Self.LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningDeliveryFAM_LearningDelivery">
+          <End Role="LearningDelivery" Type="Self.LearningDelivery" Multiplicity="1" />
+          <End Role="LearningDeliveryFAM" Type="Self.LearningDeliveryFAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="LearningDeliveryFAM">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningDeliveryHE_LearningDelivery">
+          <End Role="LearningDelivery" Type="Self.LearningDelivery" Multiplicity="1" />
+          <End Role="LearningDeliveryHE" Type="Self.LearningDeliveryHE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="LearningDeliveryHE">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningDeliveryWorkPlacement_LearningDelivery">
+          <End Role="LearningDelivery" Type="Self.LearningDelivery" Multiplicity="1" />
+          <End Role="LearningDeliveryWorkPlacement" Type="Self.LearningDeliveryWorkPlacement" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="LearningDeliveryWorkPlacement">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LLDDandHealthProblem_Learner">
+          <End Role="Learner" Type="Self.Learner" Multiplicity="1" />
+          <End Role="LLDDandHealthProblem" Type="Self.LLDDandHealthProblem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LLDDandHealthProblem">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderSpecDeliveryMonitoring_LearningDelivery">
+          <End Role="LearningDelivery" Type="Self.LearningDelivery" Multiplicity="1" />
+          <End Role="ProviderSpecDeliveryMonitoring" Type="Self.ProviderSpecDeliveryMonitoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ProviderSpecDeliveryMonitoring">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderSpecLearnerMonitoring_Learner">
+          <End Role="Learner" Type="Self.Learner" Multiplicity="1" />
+          <End Role="ProviderSpecLearnerMonitoring" Type="Self.ProviderSpecLearnerMonitoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="ProviderSpecLearnerMonitoring">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ILR1819_DataStoreModelValidStoreContainer">
           <EntitySet Name="AppFinRecord" EntityType="Self.AppFinRecord" Schema="Valid" store:Type="Tables" />
           <EntitySet Name="CollectionDetails" EntityType="Self.CollectionDetails" Schema="Valid" store:Type="Tables" />
@@ -356,6 +562,62 @@
           <EntitySet Name="ProviderSpecLearnerMonitoring" EntityType="Self.ProviderSpecLearnerMonitoring" Schema="Valid" store:Type="Tables" />
           <EntitySet Name="Source" EntityType="Self.Source" Schema="Valid" store:Type="Tables" />
           <EntitySet Name="SourceFile" EntityType="Self.SourceFile" Schema="Valid" store:Type="Tables" />
+          <AssociationSet Name="FK_AppFinRecord_LearningDelivery" Association="Self.FK_AppFinRecord_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDelivery" />
+            <End Role="AppFinRecord" EntitySet="AppFinRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactPreference_Learner" Association="Self.FK_ContactPreference_Learner">
+            <End Role="Learner" EntitySet="Learner" />
+            <End Role="ContactPreference" EntitySet="ContactPreference" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DPOutcome_LearnerDestinationandProgression" Association="Self.FK_DPOutcome_LearnerDestinationandProgression">
+            <End Role="LearnerDestinationandProgression" EntitySet="LearnerDestinationandProgression" />
+            <End Role="DPOutcome" EntitySet="DPOutcome" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearnerEmploymentStatus_Learner" Association="Self.FK_LearnerEmploymentStatus_Learner">
+            <End Role="Learner" EntitySet="Learner" />
+            <End Role="LearnerEmploymentStatus" EntitySet="LearnerEmploymentStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearnerFAM_Learner" Association="Self.FK_LearnerFAM_Learner">
+            <End Role="Learner" EntitySet="Learner" />
+            <End Role="LearnerFAM" EntitySet="LearnerFAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearnerHE_Learner" Association="Self.FK_LearnerHE_Learner">
+            <End Role="Learner" EntitySet="Learner" />
+            <End Role="LearnerHE" EntitySet="LearnerHE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearnerHEFinancialSupport_LearnerHE" Association="Self.FK_LearnerHEFinancialSupport_LearnerHE">
+            <End Role="LearnerHE" EntitySet="LearnerHE" />
+            <End Role="LearnerHEFinancialSupport" EntitySet="LearnerHEFinancialSupport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningDelivery_Learner" Association="Self.FK_LearningDelivery_Learner">
+            <End Role="Learner" EntitySet="Learner" />
+            <End Role="LearningDelivery" EntitySet="LearningDelivery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningDeliveryFAM_LearningDelivery" Association="Self.FK_LearningDeliveryFAM_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDelivery" />
+            <End Role="LearningDeliveryFAM" EntitySet="LearningDeliveryFAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningDeliveryHE_LearningDelivery" Association="Self.FK_LearningDeliveryHE_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDelivery" />
+            <End Role="LearningDeliveryHE" EntitySet="LearningDeliveryHE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningDeliveryWorkPlacement_LearningDelivery" Association="Self.FK_LearningDeliveryWorkPlacement_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDelivery" />
+            <End Role="LearningDeliveryWorkPlacement" EntitySet="LearningDeliveryWorkPlacement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LLDDandHealthProblem_Learner" Association="Self.FK_LLDDandHealthProblem_Learner">
+            <End Role="Learner" EntitySet="Learner" />
+            <End Role="LLDDandHealthProblem" EntitySet="LLDDandHealthProblem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderSpecDeliveryMonitoring_LearningDelivery" Association="Self.FK_ProviderSpecDeliveryMonitoring_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDelivery" />
+            <End Role="ProviderSpecDeliveryMonitoring" EntitySet="ProviderSpecDeliveryMonitoring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderSpecLearnerMonitoring_Learner" Association="Self.FK_ProviderSpecLearnerMonitoring_Learner">
+            <End Role="Learner" EntitySet="Learner" />
+            <End Role="ProviderSpecLearnerMonitoring" EntitySet="ProviderSpecLearnerMonitoring" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -383,6 +645,62 @@
           <EntitySet Name="Sources" EntityType="ILR1819_DataStoreModelValid.Source" />
           <EntitySet Name="SourceFiles" EntityType="ILR1819_DataStoreModelValid.SourceFile" />
           <EntitySet Name="LLDDandHealthProblems" EntityType="ILR1819_DataStoreModelValid.LLDDandHealthProblem" />
+          <AssociationSet Name="FK_AppFinRecord_LearningDelivery" Association="ILR1819_DataStoreModelValid.FK_AppFinRecord_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDeliveries" />
+            <End Role="AppFinRecord" EntitySet="AppFinRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactPreference_Learner" Association="ILR1819_DataStoreModelValid.FK_ContactPreference_Learner">
+            <End Role="Learner" EntitySet="Learners" />
+            <End Role="ContactPreference" EntitySet="ContactPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DPOutcome_LearnerDestinationandProgression" Association="ILR1819_DataStoreModelValid.FK_DPOutcome_LearnerDestinationandProgression">
+            <End Role="LearnerDestinationandProgression" EntitySet="LearnerDestinationandProgressions" />
+            <End Role="DPOutcome" EntitySet="DPOutcomes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearnerEmploymentStatus_Learner" Association="ILR1819_DataStoreModelValid.FK_LearnerEmploymentStatus_Learner">
+            <End Role="Learner" EntitySet="Learners" />
+            <End Role="LearnerEmploymentStatu" EntitySet="LearnerEmploymentStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearnerFAM_Learner" Association="ILR1819_DataStoreModelValid.FK_LearnerFAM_Learner">
+            <End Role="Learner" EntitySet="Learners" />
+            <End Role="LearnerFAM" EntitySet="LearnerFAMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearnerHE_Learner" Association="ILR1819_DataStoreModelValid.FK_LearnerHE_Learner">
+            <End Role="Learner" EntitySet="Learners" />
+            <End Role="LearnerHE" EntitySet="LearnerHEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningDelivery_Learner" Association="ILR1819_DataStoreModelValid.FK_LearningDelivery_Learner">
+            <End Role="Learner" EntitySet="Learners" />
+            <End Role="LearningDelivery" EntitySet="LearningDeliveries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LLDDandHealthProblem_Learner" Association="ILR1819_DataStoreModelValid.FK_LLDDandHealthProblem_Learner">
+            <End Role="Learner" EntitySet="Learners" />
+            <End Role="LLDDandHealthProblem" EntitySet="LLDDandHealthProblems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderSpecLearnerMonitoring_Learner" Association="ILR1819_DataStoreModelValid.FK_ProviderSpecLearnerMonitoring_Learner">
+            <End Role="Learner" EntitySet="Learners" />
+            <End Role="ProviderSpecLearnerMonitoring" EntitySet="ProviderSpecLearnerMonitorings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearnerHEFinancialSupport_LearnerHE" Association="ILR1819_DataStoreModelValid.FK_LearnerHEFinancialSupport_LearnerHE">
+            <End Role="LearnerHE" EntitySet="LearnerHEs" />
+            <End Role="LearnerHEFinancialSupport" EntitySet="LearnerHEFinancialSupports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningDeliveryFAM_LearningDelivery" Association="ILR1819_DataStoreModelValid.FK_LearningDeliveryFAM_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDeliveries" />
+            <End Role="LearningDeliveryFAM" EntitySet="LearningDeliveryFAMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningDeliveryHE_LearningDelivery" Association="ILR1819_DataStoreModelValid.FK_LearningDeliveryHE_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDeliveries" />
+            <End Role="LearningDeliveryHE" EntitySet="LearningDeliveryHEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LearningDeliveryWorkPlacement_LearningDelivery" Association="ILR1819_DataStoreModelValid.FK_LearningDeliveryWorkPlacement_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDeliveries" />
+            <End Role="LearningDeliveryWorkPlacement" EntitySet="LearningDeliveryWorkPlacements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProviderSpecDeliveryMonitoring_LearningDelivery" Association="ILR1819_DataStoreModelValid.FK_ProviderSpecDeliveryMonitoring_LearningDelivery">
+            <End Role="LearningDelivery" EntitySet="LearningDeliveries" />
+            <End Role="ProviderSpecDeliveryMonitoring" EntitySet="ProviderSpecDeliveryMonitorings" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AppFinRecord">
           <Key>
@@ -400,6 +718,7 @@
           <Property Name="AFinCode" Type="Int32" Nullable="false" />
           <Property Name="AFinDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="AFinAmount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LearningDelivery" Relationship="ILR1819_DataStoreModelValid.FK_AppFinRecord_LearningDelivery" FromRole="AppFinRecord" ToRole="LearningDelivery" />
         </EntityType>
         <EntityType Name="CollectionDetail">
           <Key>
@@ -423,6 +742,7 @@
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="ContPrefType" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="ContPrefCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Learner" Relationship="ILR1819_DataStoreModelValid.FK_ContactPreference_Learner" FromRole="ContactPreference" ToRole="Learner" />
         </EntityType>
         <EntityType Name="DPOutcome">
           <Key>
@@ -440,6 +760,7 @@
           <Property Name="OutStartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="OutEndDate" Type="DateTime" Precision="0" />
           <Property Name="OutCollDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="LearnerDestinationandProgression" Relationship="ILR1819_DataStoreModelValid.FK_DPOutcome_LearnerDestinationandProgression" FromRole="DPOutcome" ToRole="LearnerDestinationandProgression" />
         </EntityType>
         <EntityType Name="EmploymentStatusMonitoring">
           <Key>
@@ -489,6 +810,13 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="CampId" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
           <Property Name="OTJHours" Type="Int64" />
+          <NavigationProperty Name="ContactPreferences" Relationship="ILR1819_DataStoreModelValid.FK_ContactPreference_Learner" FromRole="Learner" ToRole="ContactPreference" />
+          <NavigationProperty Name="LearnerEmploymentStatus" Relationship="ILR1819_DataStoreModelValid.FK_LearnerEmploymentStatus_Learner" FromRole="Learner" ToRole="LearnerEmploymentStatu" />
+          <NavigationProperty Name="LearnerFAMs" Relationship="ILR1819_DataStoreModelValid.FK_LearnerFAM_Learner" FromRole="Learner" ToRole="LearnerFAM" />
+          <NavigationProperty Name="LearnerHE" Relationship="ILR1819_DataStoreModelValid.FK_LearnerHE_Learner" FromRole="Learner" ToRole="LearnerHE" />
+          <NavigationProperty Name="LearningDeliveries" Relationship="ILR1819_DataStoreModelValid.FK_LearningDelivery_Learner" FromRole="Learner" ToRole="LearningDelivery" />
+          <NavigationProperty Name="LLDDandHealthProblems" Relationship="ILR1819_DataStoreModelValid.FK_LLDDandHealthProblem_Learner" FromRole="Learner" ToRole="LLDDandHealthProblem" />
+          <NavigationProperty Name="ProviderSpecLearnerMonitorings" Relationship="ILR1819_DataStoreModelValid.FK_ProviderSpecLearnerMonitoring_Learner" FromRole="Learner" ToRole="ProviderSpecLearnerMonitoring" />
         </EntityType>
         <EntityType Name="LearnerDestinationandProgression">
           <Key>
@@ -498,6 +826,7 @@
           <Property Name="UKPRN" Type="Int32" Nullable="false" />
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="ULN" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="DPOutcomes" Relationship="ILR1819_DataStoreModelValid.FK_DPOutcome_LearnerDestinationandProgression" FromRole="LearnerDestinationandProgression" ToRole="DPOutcome" />
         </EntityType>
         <EntityType Name="LearnerEmploymentStatu">
           <Key>
@@ -511,6 +840,7 @@
           <Property Name="DateEmpStatApp" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="EmpId" Type="Int32" />
           <Property Name="AgreeId" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Learner" Relationship="ILR1819_DataStoreModelValid.FK_LearnerEmploymentStatus_Learner" FromRole="LearnerEmploymentStatu" ToRole="Learner" />
         </EntityType>
         <EntityType Name="LearnerFAM">
           <Key>
@@ -523,6 +853,7 @@
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="LearnFAMType" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LearnFAMCode" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Learner" Relationship="ILR1819_DataStoreModelValid.FK_LearnerFAM_Learner" FromRole="LearnerFAM" ToRole="Learner" />
         </EntityType>
         <EntityType Name="LearnerHE">
           <Key>
@@ -533,6 +864,8 @@
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="UCASPERID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TTACCOM" Type="Int32" />
+          <NavigationProperty Name="Learner" Relationship="ILR1819_DataStoreModelValid.FK_LearnerHE_Learner" FromRole="LearnerHE" ToRole="Learner" />
+          <NavigationProperty Name="LearnerHEFinancialSupports" Relationship="ILR1819_DataStoreModelValid.FK_LearnerHEFinancialSupport_LearnerHE" FromRole="LearnerHE" ToRole="LearnerHEFinancialSupport" />
         </EntityType>
         <EntityType Name="LearnerHEFinancialSupport">
           <Key>
@@ -544,6 +877,7 @@
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="FINTYPE" Type="Int32" Nullable="false" />
           <Property Name="FINAMOUNT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LearnerHE" Relationship="ILR1819_DataStoreModelValid.FK_LearnerHEFinancialSupport_LearnerHE" FromRole="LearnerHEFinancialSupport" ToRole="LearnerHE" />
         </EntityType>
         <EntityType Name="LearningDelivery">
           <Key>
@@ -579,6 +913,12 @@
           <Property Name="AchDate" Type="DateTime" Precision="0" />
           <Property Name="OutGrade" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
           <Property Name="SWSupAimId" Type="String" MaxLength="36" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AppFinRecords" Relationship="ILR1819_DataStoreModelValid.FK_AppFinRecord_LearningDelivery" FromRole="LearningDelivery" ToRole="AppFinRecord" />
+          <NavigationProperty Name="Learner" Relationship="ILR1819_DataStoreModelValid.FK_LearningDelivery_Learner" FromRole="LearningDelivery" ToRole="Learner" />
+          <NavigationProperty Name="LearningDeliveryFAMs" Relationship="ILR1819_DataStoreModelValid.FK_LearningDeliveryFAM_LearningDelivery" FromRole="LearningDelivery" ToRole="LearningDeliveryFAM" />
+          <NavigationProperty Name="LearningDeliveryHE" Relationship="ILR1819_DataStoreModelValid.FK_LearningDeliveryHE_LearningDelivery" FromRole="LearningDelivery" ToRole="LearningDeliveryHE" />
+          <NavigationProperty Name="LearningDeliveryWorkPlacement" Relationship="ILR1819_DataStoreModelValid.FK_LearningDeliveryWorkPlacement_LearningDelivery" FromRole="LearningDelivery" ToRole="LearningDeliveryWorkPlacement" />
+          <NavigationProperty Name="ProviderSpecDeliveryMonitorings" Relationship="ILR1819_DataStoreModelValid.FK_ProviderSpecDeliveryMonitoring_LearningDelivery" FromRole="LearningDelivery" ToRole="ProviderSpecDeliveryMonitoring" />
         </EntityType>
         <EntityType Name="LearningDeliveryFAM">
           <Key>
@@ -593,6 +933,7 @@
           <Property Name="LearnDelFAMDateFrom" Type="DateTime" Precision="0" />
           <Property Name="LearnDelFAMDateTo" Type="DateTime" Precision="0" />
           <Property Name="LearningDeliveryFAM_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LearningDelivery" Relationship="ILR1819_DataStoreModelValid.FK_LearningDeliveryFAM_LearningDelivery" FromRole="LearningDeliveryFAM" ToRole="LearningDelivery" />
         </EntityType>
         <EntityType Name="LearningDeliveryHE">
           <Key>
@@ -626,6 +967,7 @@
           <Property Name="DOMICILE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <Property Name="ELQ" Type="Int32" />
           <Property Name="HEPostCode" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LearningDelivery" Relationship="ILR1819_DataStoreModelValid.FK_LearningDeliveryHE_LearningDelivery" FromRole="LearningDeliveryHE" ToRole="LearningDelivery" />
         </EntityType>
         <EntityType Name="LearningDeliveryWorkPlacement">
           <Key>
@@ -641,6 +983,7 @@
           <Property Name="WorkPlaceHours" Type="Int32" />
           <Property Name="WorkPlaceMode" Type="Int32" Nullable="false" />
           <Property Name="WorkPlaceEmpId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LearningDelivery" Relationship="ILR1819_DataStoreModelValid.FK_LearningDeliveryWorkPlacement_LearningDelivery" FromRole="LearningDeliveryWorkPlacement" ToRole="LearningDelivery" />
         </EntityType>
         <EntityType Name="LearningProvider">
           <Key>
@@ -660,6 +1003,7 @@
           <Property Name="AimSeqNumber" Type="Int32" Nullable="false" />
           <Property Name="ProvSpecDelMonOccur" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ProvSpecDelMon" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LearningDelivery" Relationship="ILR1819_DataStoreModelValid.FK_ProviderSpecDeliveryMonitoring_LearningDelivery" FromRole="ProviderSpecDeliveryMonitoring" ToRole="LearningDelivery" />
         </EntityType>
         <EntityType Name="ProviderSpecLearnerMonitoring">
           <Key>
@@ -671,6 +1015,7 @@
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="ProvSpecLearnMonOccur" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="ProvSpecLearnMon" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Learner" Relationship="ILR1819_DataStoreModelValid.FK_ProviderSpecLearnerMonitoring_Learner" FromRole="ProviderSpecLearnerMonitoring" ToRole="Learner" />
         </EntityType>
         <EntityType Name="Source">
           <Key>
@@ -712,7 +1057,214 @@
           <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="LLDDCat" Type="Int32" Nullable="false" />
           <Property Name="PrimaryLLDD" Type="Int32" />
+          <NavigationProperty Name="Learner" Relationship="ILR1819_DataStoreModelValid.FK_LLDDandHealthProblem_Learner" FromRole="LLDDandHealthProblem" ToRole="Learner" />
         </EntityType>
+        <Association Name="FK_AppFinRecord_LearningDelivery">
+          <End Type="ILR1819_DataStoreModelValid.LearningDelivery" Role="LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.AppFinRecord" Role="AppFinRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="AppFinRecord">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactPreference_Learner">
+          <End Type="ILR1819_DataStoreModelValid.Learner" Role="Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.ContactPreference" Role="ContactPreference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="ContactPreference">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DPOutcome_LearnerDestinationandProgression">
+          <End Type="ILR1819_DataStoreModelValid.LearnerDestinationandProgression" Role="LearnerDestinationandProgression" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.DPOutcome" Role="DPOutcome" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearnerDestinationandProgression">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="DPOutcome">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearnerEmploymentStatus_Learner">
+          <End Type="ILR1819_DataStoreModelValid.Learner" Role="Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.LearnerEmploymentStatu" Role="LearnerEmploymentStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearnerEmploymentStatu">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearnerFAM_Learner">
+          <End Type="ILR1819_DataStoreModelValid.Learner" Role="Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.LearnerFAM" Role="LearnerFAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearnerFAM">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearnerHE_Learner">
+          <End Type="ILR1819_DataStoreModelValid.Learner" Role="Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.LearnerHE" Role="LearnerHE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearnerHE">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningDelivery_Learner">
+          <End Type="ILR1819_DataStoreModelValid.Learner" Role="Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.LearningDelivery" Role="LearningDelivery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LLDDandHealthProblem_Learner">
+          <End Type="ILR1819_DataStoreModelValid.Learner" Role="Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.LLDDandHealthProblem" Role="LLDDandHealthProblem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LLDDandHealthProblem">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderSpecLearnerMonitoring_Learner">
+          <End Type="ILR1819_DataStoreModelValid.Learner" Role="Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.ProviderSpecLearnerMonitoring" Role="ProviderSpecLearnerMonitoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="ProviderSpecLearnerMonitoring">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearnerHEFinancialSupport_LearnerHE">
+          <End Type="ILR1819_DataStoreModelValid.LearnerHE" Role="LearnerHE" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.LearnerHEFinancialSupport" Role="LearnerHEFinancialSupport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearnerHE">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="LearnerHEFinancialSupport">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningDeliveryFAM_LearningDelivery">
+          <End Type="ILR1819_DataStoreModelValid.LearningDelivery" Role="LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.LearningDeliveryFAM" Role="LearningDeliveryFAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="LearningDeliveryFAM">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningDeliveryHE_LearningDelivery">
+          <End Type="ILR1819_DataStoreModelValid.LearningDelivery" Role="LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.LearningDeliveryHE" Role="LearningDeliveryHE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="LearningDeliveryHE">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LearningDeliveryWorkPlacement_LearningDelivery">
+          <End Type="ILR1819_DataStoreModelValid.LearningDelivery" Role="LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.LearningDeliveryWorkPlacement" Role="LearningDeliveryWorkPlacement" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="LearningDeliveryWorkPlacement">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProviderSpecDeliveryMonitoring_LearningDelivery">
+          <End Type="ILR1819_DataStoreModelValid.LearningDelivery" Role="LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModelValid.ProviderSpecDeliveryMonitoring" Role="ProviderSpecDeliveryMonitoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="ProviderSpecDeliveryMonitoring">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

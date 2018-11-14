@@ -25,5 +25,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> ProgressionEarnings { get; set; }
         public Nullable<int> ReportingVolume { get; set; }
         public Nullable<decimal> StartEarnings { get; set; }
+    
+        public virtual ESF_LearningDelivery ESF_LearningDelivery { get; set; }
     }
 }

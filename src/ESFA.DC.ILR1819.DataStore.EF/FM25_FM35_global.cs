@@ -14,7 +14,19 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class FM25_FM35_global
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public FM25_FM35_global()
+        {
+            this.FM25_FM35_Learner_Period = new HashSet<FM25_FM35_Learner_Period>();
+            this.FM25_FM35_Learner_PeriodisedValues = new HashSet<FM25_FM35_Learner_PeriodisedValues>();
+        }
+    
         public int UKPRN { get; set; }
         public string RulebaseVersion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FM25_FM35_Learner_Period> FM25_FM35_Learner_Period { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FM25_FM35_Learner_PeriodisedValues> FM25_FM35_Learner_PeriodisedValues { get; set; }
     }
 }

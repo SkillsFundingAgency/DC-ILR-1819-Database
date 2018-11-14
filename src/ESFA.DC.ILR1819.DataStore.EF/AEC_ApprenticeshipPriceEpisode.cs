@@ -14,6 +14,13 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class AEC_ApprenticeshipPriceEpisode
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AEC_ApprenticeshipPriceEpisode()
+        {
+            this.AEC_ApprenticeshipPriceEpisode_Period = new HashSet<AEC_ApprenticeshipPriceEpisode_Period>();
+            this.AEC_ApprenticeshipPriceEpisode_PeriodisedValues = new HashSet<AEC_ApprenticeshipPriceEpisode_PeriodisedValues>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public string PriceEpisodeIdentifier { get; set; }
@@ -72,5 +79,11 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public string PriceEpisodeAgreeId { get; set; }
         public Nullable<System.DateTime> PriceEpisodeRedStartDate { get; set; }
         public Nullable<int> PriceEpisodeRedStatusCode { get; set; }
+    
+        public virtual AEC_global AEC_global { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AEC_ApprenticeshipPriceEpisode_Period> AEC_ApprenticeshipPriceEpisode_Period { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AEC_ApprenticeshipPriceEpisode_PeriodisedValues> AEC_ApprenticeshipPriceEpisode_PeriodisedValues { get; set; }
     }
 }

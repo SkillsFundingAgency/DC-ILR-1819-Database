@@ -42,5 +42,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> RetentNew { get; set; }
         public Nullable<bool> StartFund { get; set; }
         public Nullable<int> ThresholdDays { get; set; }
+    
+        public virtual FM25_global FM25_global { get; set; }
     }
 }

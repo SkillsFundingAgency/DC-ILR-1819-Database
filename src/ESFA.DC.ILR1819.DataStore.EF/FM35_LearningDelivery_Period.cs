@@ -36,5 +36,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> OnProgPayPct { get; set; }
         public Nullable<decimal> OnProgPayPctTrans { get; set; }
         public Nullable<int> TransInstPerPeriod { get; set; }
+    
+        public virtual FM35_LearningDelivery FM35_LearningDelivery { get; set; }
     }
 }

@@ -18,5 +18,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public string LearnRefNumber { get; set; }
         public int FINTYPE { get; set; }
         public int FINAMOUNT { get; set; }
+    
+        public virtual LearnerHE LearnerHE { get; set; }
     }
 }

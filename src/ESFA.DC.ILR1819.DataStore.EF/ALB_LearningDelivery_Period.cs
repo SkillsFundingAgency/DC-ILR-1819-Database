@@ -24,5 +24,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> AreaUpliftOnProgPayment { get; set; }
         public Nullable<decimal> LearnDelCarLearnPilotOnProgPayment { get; set; }
         public Nullable<decimal> LearnDelCarLearnPilotBalPayment { get; set; }
+    
+        public virtual ALB_LearningDelivery ALB_LearningDelivery { get; set; }
     }
 }

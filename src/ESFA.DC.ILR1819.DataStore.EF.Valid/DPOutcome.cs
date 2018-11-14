@@ -21,5 +21,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public System.DateTime OutStartDate { get; set; }
         public Nullable<System.DateTime> OutEndDate { get; set; }
         public System.DateTime OutCollDate { get; set; }
+    
+        public virtual LearnerDestinationandProgression LearnerDestinationandProgression { get; set; }
     }
 }

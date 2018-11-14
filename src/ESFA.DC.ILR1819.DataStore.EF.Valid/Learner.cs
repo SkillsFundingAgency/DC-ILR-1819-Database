@@ -14,6 +14,17 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
     
     public partial class Learner
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Learner()
+        {
+            this.ContactPreferences = new HashSet<ContactPreference>();
+            this.LearnerEmploymentStatus = new HashSet<LearnerEmploymentStatu>();
+            this.LearnerFAMs = new HashSet<LearnerFAM>();
+            this.LearningDeliveries = new HashSet<LearningDelivery>();
+            this.LLDDandHealthProblems = new HashSet<LLDDandHealthProblem>();
+            this.ProviderSpecLearnerMonitorings = new HashSet<ProviderSpecLearnerMonitoring>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public string PrevLearnRefNumber { get; set; }
@@ -44,5 +55,19 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public string Email { get; set; }
         public string CampId { get; set; }
         public Nullable<long> OTJHours { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContactPreference> ContactPreferences { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LearnerEmploymentStatu> LearnerEmploymentStatus { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LearnerFAM> LearnerFAMs { get; set; }
+        public virtual LearnerHE LearnerHE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LearningDelivery> LearningDeliveries { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LLDDandHealthProblem> LLDDandHealthProblems { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProviderSpecLearnerMonitoring> ProviderSpecLearnerMonitorings { get; set; }
     }
 }

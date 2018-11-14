@@ -14,6 +14,14 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
     
     public partial class LearningDelivery
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public LearningDelivery()
+        {
+            this.AppFinRecords = new HashSet<AppFinRecord>();
+            this.LearningDeliveryFAMs = new HashSet<LearningDeliveryFAM>();
+            this.ProviderSpecDeliveryMonitorings = new HashSet<ProviderSpecDeliveryMonitoring>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public string LearnAimRef { get; set; }
@@ -42,5 +50,15 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public Nullable<System.DateTime> AchDate { get; set; }
         public string OutGrade { get; set; }
         public string SWSupAimId { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AppFinRecord> AppFinRecords { get; set; }
+        public virtual Learner Learner { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LearningDeliveryFAM> LearningDeliveryFAMs { get; set; }
+        public virtual LearningDeliveryHE LearningDeliveryHE { get; set; }
+        public virtual LearningDeliveryWorkPlacement LearningDeliveryWorkPlacement { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProviderSpecDeliveryMonitoring> ProviderSpecDeliveryMonitorings { get; set; }
     }
 }

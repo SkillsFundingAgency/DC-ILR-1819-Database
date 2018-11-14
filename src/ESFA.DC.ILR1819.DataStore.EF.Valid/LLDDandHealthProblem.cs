@@ -19,5 +19,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public string LearnRefNumber { get; set; }
         public int LLDDCat { get; set; }
         public Nullable<int> PrimaryLLDD { get; set; }
+    
+        public virtual Learner Learner { get; set; }
     }
 }

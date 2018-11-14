@@ -22,5 +22,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public Nullable<System.DateTime> LearnDelFAMDateFrom { get; set; }
         public Nullable<System.DateTime> LearnDelFAMDateTo { get; set; }
         public int LearningDeliveryFAM_Id { get; set; }
+    
+        public virtual LearningDelivery LearningDelivery { get; set; }
     }
 }

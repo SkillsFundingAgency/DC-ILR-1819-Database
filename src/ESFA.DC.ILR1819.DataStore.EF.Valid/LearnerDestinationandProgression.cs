@@ -14,8 +14,17 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
     
     public partial class LearnerDestinationandProgression
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public LearnerDestinationandProgression()
+        {
+            this.DPOutcomes = new HashSet<DPOutcome>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public long ULN { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DPOutcome> DPOutcomes { get; set; }
     }
 }
