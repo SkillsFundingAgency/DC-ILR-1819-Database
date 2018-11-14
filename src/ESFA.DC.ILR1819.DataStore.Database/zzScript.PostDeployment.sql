@@ -37,12 +37,12 @@ ELSE
 GO
 
 
-DROP VIEW IF EXISTS  [dbo].[DisplayDeploymentProperties_VW];
-GO
-EXEC ('CREATE VIEW [dbo].[DisplayDeploymentProperties_VW] AS SELECT name, value FROM fn_listextendedproperty(default, default, default, default, default, default, default);');
+DROP VIEW IF EXISTS [dbo].[DisplayDeploymentProperties_VW];
 GO
 
 RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
+GO
+ALTER ROLE [db_datareader] DROP MEMBER [User_DSCI];
 GO
 RAISERROR('			     RO User',10,1) WITH NOWAIT;
 ALTER USER [ILR1819DataStore_RO_User] WITH PASSWORD = N'$(ROUserPassword)';

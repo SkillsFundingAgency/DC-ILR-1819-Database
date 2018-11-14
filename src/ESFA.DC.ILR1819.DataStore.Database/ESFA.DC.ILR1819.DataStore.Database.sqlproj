@@ -219,6 +219,7 @@
     <Build Include="Rulebase\Tables\FM25_FM35_global.sql" />
     <Build Include="Valid\Views\ApprenticeshipFinancialRecord.sql" />
     <Build Include="Security\User_DSCI.sql" />
+    <Build Include="dbo\Stored Procedures\usp_DisplayDeploymentProperties.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="BUILD_BRANCHNAME">
@@ -251,5 +252,8 @@
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="zScript.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ESFA.DC.ILR1819.DataStore.Database.publish.xml" />
   </ItemGroup>
 </Project>
