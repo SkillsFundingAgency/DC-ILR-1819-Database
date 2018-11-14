@@ -22,5 +22,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public Nullable<int> WorkPlaceHours { get; set; }
         public int WorkPlaceMode { get; set; }
         public int WorkPlaceEmpId { get; set; }
+    
+        public virtual LearningDelivery LearningDelivery { get; set; }
     }
 }

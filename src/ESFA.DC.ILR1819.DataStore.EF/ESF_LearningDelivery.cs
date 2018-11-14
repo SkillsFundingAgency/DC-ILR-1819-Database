@@ -14,6 +14,13 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class ESF_LearningDelivery
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ESF_LearningDelivery()
+        {
+            this.ESF_LearningDeliveryDeliverable = new HashSet<ESF_LearningDeliveryDeliverable>();
+            this.ESF_LearningDeliveryDeliverable_Period = new HashSet<ESF_LearningDeliveryDeliverable_Period>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public int AimSeqNumber { get; set; }
@@ -36,5 +43,11 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<System.DateTime> ProgressionEndDate { get; set; }
         public Nullable<bool> Restart { get; set; }
         public Nullable<decimal> WeightedRateFromESOL { get; set; }
+    
+        public virtual ESF_global ESF_global { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ESF_LearningDeliveryDeliverable> ESF_LearningDeliveryDeliverable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ESF_LearningDeliveryDeliverable_Period> ESF_LearningDeliveryDeliverable_Period { get; set; }
     }
 }

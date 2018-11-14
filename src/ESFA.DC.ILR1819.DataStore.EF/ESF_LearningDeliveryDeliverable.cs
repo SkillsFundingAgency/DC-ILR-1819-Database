@@ -14,10 +14,20 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class ESF_LearningDeliveryDeliverable
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ESF_LearningDeliveryDeliverable()
+        {
+            this.ESF_LearningDeliveryDeliverable_PeriodisedValues = new HashSet<ESF_LearningDeliveryDeliverable_PeriodisedValues>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public int AimSeqNumber { get; set; }
         public string DeliverableCode { get; set; }
         public Nullable<decimal> DeliverableUnitCost { get; set; }
+    
+        public virtual ESF_LearningDelivery ESF_LearningDelivery { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ESF_LearningDeliveryDeliverable_PeriodisedValues> ESF_LearningDeliveryDeliverable_PeriodisedValues { get; set; }
     }
 }

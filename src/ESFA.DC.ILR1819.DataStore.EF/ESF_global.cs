@@ -14,7 +14,16 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class ESF_global
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ESF_global()
+        {
+            this.ESF_LearningDelivery = new HashSet<ESF_LearningDelivery>();
+        }
+    
         public int UKPRN { get; set; }
         public string RulebaseVersion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ESF_LearningDelivery> ESF_LearningDelivery { get; set; }
     }
 }

@@ -39,5 +39,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> PriceEpisodeSFAContribPct { get; set; }
         public Nullable<decimal> PriceEpisodeTotProgFunding { get; set; }
         public Nullable<decimal> PriceEpisodeLearnerAdditionalPayment { get; set; }
+    
+        public virtual AEC_ApprenticeshipPriceEpisode AEC_ApprenticeshipPriceEpisode { get; set; }
     }
 }

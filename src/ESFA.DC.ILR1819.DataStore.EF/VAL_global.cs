@@ -14,11 +14,20 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class VAL_global
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public VAL_global()
+        {
+            this.VAL_Learner = new HashSet<VAL_Learner>();
+        }
+    
         public int UKPRN { get; set; }
         public string EmployerVersion { get; set; }
         public string LARSVersion { get; set; }
         public string OrgVersion { get; set; }
         public string PostcodeVersion { get; set; }
         public string RulebaseVersion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VAL_Learner> VAL_Learner { get; set; }
     }
 }

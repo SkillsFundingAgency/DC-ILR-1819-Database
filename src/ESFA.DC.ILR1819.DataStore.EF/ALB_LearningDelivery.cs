@@ -14,6 +14,13 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class ALB_LearningDelivery
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ALB_LearningDelivery()
+        {
+            this.ALB_LearningDelivery_Period = new HashSet<ALB_LearningDelivery_Period>();
+            this.ALB_LearningDelivery_PeriodisedValues = new HashSet<ALB_LearningDelivery_PeriodisedValues>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public int AimSeqNumber { get; set; }
@@ -37,5 +44,11 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> LearnDelApplicLARSCarPilFundSubRate { get; set; }
         public Nullable<decimal> LearnDelCarLearnPilotAimValue { get; set; }
         public Nullable<decimal> LearnDelCarLearnPilotInstalAmount { get; set; }
+    
+        public virtual ALB_global ALB_global { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ALB_LearningDelivery_Period> ALB_LearningDelivery_Period { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ALB_LearningDelivery_PeriodisedValues> ALB_LearningDelivery_PeriodisedValues { get; set; }
     }
 }

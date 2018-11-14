@@ -16,5 +16,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     {
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
+    
+        public virtual VAL_global VAL_global { get; set; }
     }
 }

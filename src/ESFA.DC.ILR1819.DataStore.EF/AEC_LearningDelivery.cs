@@ -14,6 +14,14 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class AEC_LearningDelivery
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AEC_LearningDelivery()
+        {
+            this.AEC_LearningDelivery_Period = new HashSet<AEC_LearningDelivery_Period>();
+            this.AEC_LearningDelivery_PeriodisedTextValues = new HashSet<AEC_LearningDelivery_PeriodisedTextValues>();
+            this.AEC_LearningDelivery_PeriodisedValues = new HashSet<AEC_LearningDelivery_PeriodisedValues>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public int AimSeqNumber { get; set; }
@@ -69,5 +77,13 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<System.DateTime> LearnDelLearnerAddPayThresholdDate { get; set; }
         public Nullable<int> LearnDelRedCode { get; set; }
         public Nullable<System.DateTime> LearnDelRedStartDate { get; set; }
+    
+        public virtual AEC_global AEC_global { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AEC_LearningDelivery_Period> AEC_LearningDelivery_Period { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AEC_LearningDelivery_PeriodisedTextValues> AEC_LearningDelivery_PeriodisedTextValues { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AEC_LearningDelivery_PeriodisedValues> AEC_LearningDelivery_PeriodisedValues { get; set; }
     }
 }

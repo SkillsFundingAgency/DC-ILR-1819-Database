@@ -14,6 +14,12 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class DV_Learner
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DV_Learner()
+        {
+            this.DV_LearningDelivery = new HashSet<DV_LearningDelivery>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public Nullable<int> Learn_3rdSector { get; set; }
@@ -64,5 +70,9 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<int> Learn_UnempBenPrior { get; set; }
         public Nullable<decimal> Learn_Uplift1516EFA { get; set; }
         public Nullable<decimal> Learn_Uplift1516SFA { get; set; }
+    
+        public virtual DV_global DV_global { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DV_LearningDelivery> DV_LearningDelivery { get; set; }
     }
 }

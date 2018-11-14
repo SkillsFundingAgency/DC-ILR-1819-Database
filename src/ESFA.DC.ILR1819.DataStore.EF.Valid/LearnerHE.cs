@@ -14,9 +14,19 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
     
     public partial class LearnerHE
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public LearnerHE()
+        {
+            this.LearnerHEFinancialSupports = new HashSet<LearnerHEFinancialSupport>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public string UCASPERID { get; set; }
         public Nullable<int> TTACCOM { get; set; }
+    
+        public virtual Learner Learner { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LearnerHEFinancialSupport> LearnerHEFinancialSupports { get; set; }
     }
 }

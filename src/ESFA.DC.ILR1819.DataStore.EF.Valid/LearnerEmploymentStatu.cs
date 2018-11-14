@@ -20,5 +20,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public System.DateTime DateEmpStatApp { get; set; }
         public Nullable<int> EmpId { get; set; }
         public string AgreeId { get; set; }
+    
+        public virtual Learner Learner { get; set; }
     }
 }

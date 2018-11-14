@@ -18,5 +18,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public string LearnRefNumber { get; set; }
         public string ProvSpecLearnMonOccur { get; set; }
         public string ProvSpecLearnMon { get; set; }
+    
+        public virtual Learner Learner { get; set; }
     }
 }

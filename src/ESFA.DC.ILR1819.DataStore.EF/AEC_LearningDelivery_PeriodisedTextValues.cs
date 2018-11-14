@@ -30,5 +30,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public string Period_10 { get; set; }
         public string Period_11 { get; set; }
         public string Period_12 { get; set; }
+    
+        public virtual AEC_LearningDelivery AEC_LearningDelivery { get; set; }
     }
 }

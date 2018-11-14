@@ -30,5 +30,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> Period_10 { get; set; }
         public Nullable<decimal> Period_11 { get; set; }
         public Nullable<decimal> Period_12 { get; set; }
+    
+        public virtual AEC_ApprenticeshipPriceEpisode AEC_ApprenticeshipPriceEpisode { get; set; }
     }
 }

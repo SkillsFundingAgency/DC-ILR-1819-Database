@@ -58,6 +58,32 @@
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM25_FM35_Learner_PeriodisedValues" Width="1.5" PointX="27.375" PointY="0.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.DV_global" Width="1.5" PointX="3.375" PointY="16.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.ESF_global" Width="1.5" PointX="5.375" PointY="16.75" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisode_AECglobal" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisodePeriod_AECApprenticeshipPriceEpisode" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_AECApprenticeshipPriceEpisodePeriodisedValues_AECApprenticeshipPriceEpisode" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_AECLearningDelivery_AECglobal" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriod_AECLearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriodisedTextValues_AECLearningDeliveryPeriod" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_AECLearningDeliveryPeriodisedValues_AECLearningDeliveryPeriod" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_ALBLearningDelivery_ALBglobal" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_ALBLearningDeliveryPeriod_ALBLearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_ALBLearningDeliveryPeriodisedValues_ALBLearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_DVLearner_DVglobal" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_DVLearningDelivery_DVLearner" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_ESFLearningDelivery_ESFglobal" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverable_ESFLearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverablePeriod_ESFLearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_ESFLearningDeliveryDeliverablePeriodisedValues_ESFLearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriod_FM25FM35global" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriodisedValues_FM25FM35global" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM25Learner_FM25global" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM35LearningDelivery_FM35global" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_TBLLearningDelivery_TBLglobal" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriod_TBLLearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.VALLearner_VALglobal" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

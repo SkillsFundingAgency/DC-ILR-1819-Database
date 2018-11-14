@@ -14,9 +14,18 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class TBL_global
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_global()
+        {
+            this.TBL_LearningDelivery = new HashSet<TBL_LearningDelivery>();
+        }
+    
         public int UKPRN { get; set; }
         public string CurFundYr { get; set; }
         public string LARSVersion { get; set; }
         public string RulebaseVersion { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_LearningDelivery> TBL_LearningDelivery { get; set; }
     }
 }

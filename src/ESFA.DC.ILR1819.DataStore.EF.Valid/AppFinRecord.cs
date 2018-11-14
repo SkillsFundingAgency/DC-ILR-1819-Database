@@ -21,5 +21,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public int AFinCode { get; set; }
         public System.DateTime AFinDate { get; set; }
         public int AFinAmount { get; set; }
+    
+        public virtual LearningDelivery LearningDelivery { get; set; }
     }
 }

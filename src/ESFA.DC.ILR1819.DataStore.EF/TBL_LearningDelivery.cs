@@ -14,6 +14,13 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
     public partial class TBL_LearningDelivery
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_LearningDelivery()
+        {
+            this.TBL_LearningDelivery_Period = new HashSet<TBL_LearningDelivery_Period>();
+            this.TBL_LearningDelivery_PeriodisedValues = new HashSet<TBL_LearningDelivery_PeriodisedValues>();
+        }
+    
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }
         public int AimSeqNumber { get; set; }
@@ -67,5 +74,11 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<System.DateTime> ApplicFundValDate { get; set; }
         public Nullable<decimal> YoungAppFirstPayment { get; set; }
         public Nullable<decimal> YoungAppPayment { get; set; }
+    
+        public virtual TBL_global TBL_global { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_LearningDelivery_Period> TBL_LearningDelivery_Period { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_LearningDelivery_PeriodisedValues> TBL_LearningDelivery_PeriodisedValues { get; set; }
     }
 }

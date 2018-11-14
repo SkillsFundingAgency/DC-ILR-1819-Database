@@ -40,5 +40,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public string DOMICILE { get; set; }
         public Nullable<int> ELQ { get; set; }
         public string HEPostCode { get; set; }
+    
+        public virtual LearningDelivery LearningDelivery { get; set; }
     }
 }

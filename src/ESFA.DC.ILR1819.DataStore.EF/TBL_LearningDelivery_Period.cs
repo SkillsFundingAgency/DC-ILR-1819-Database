@@ -32,5 +32,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> YoungAppFirstPayment { get; set; }
         public Nullable<decimal> YoungAppPayment { get; set; }
         public Nullable<decimal> YoungAppSecondPayment { get; set; }
+    
+        public virtual TBL_LearningDelivery TBL_LearningDelivery { get; set; }
     }
 }
