@@ -51,4 +51,11 @@
     [Learn_Uplift1516SFA]        DECIMAL (6, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[DV_Learner] ADD CONSTRAINT [FK_DVLearner_DVglobal] FOREIGN KEY([UKPRN])
+REFERENCES [Rulebase].[DV_global] ([UKPRN]);
+GO
+
+ALTER TABLE [Rulebase].[DV_Learner] CHECK CONSTRAINT [FK_DVLearner_DVglobal]
+GO

@@ -16,4 +16,11 @@
     [Period_12]      DECIMAL (15, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AttributeName] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[FM25_FM35_Learner_PeriodisedValues] ADD CONSTRAINT [FK_FM25FM35LearnerPeriodisedValues_FM25FM35global] FOREIGN KEY([UKPRN])
+REFERENCES [Rulebase].[FM25_FM35_global] ([UKPRN]);
+GO
+
+ALTER TABLE [Rulebase].[FM25_FM35_Learner_PeriodisedValues] CHECK CONSTRAINT [FK_FM25FM35LearnerPeriodisedValues_FM25FM35global]
+GO

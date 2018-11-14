@@ -32,4 +32,11 @@
     [ProgrammeAimTotProgFund]                      DECIMAL (12, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [Period] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[AEC_LearningDelivery_Period] ADD CONSTRAINT [FK_AECLearningDeliveryPeriod_AECLearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber])
+REFERENCES [Rulebase].[AEC_LearningDelivery] ([UKPRN], [LearnRefNumber], [AimSeqNumber]);
+GO
+
+ALTER TABLE [Rulebase].[AEC_LearningDelivery_Period] CHECK CONSTRAINT [FK_AECLearningDeliveryPeriod_AECLearningDelivery]
+GO

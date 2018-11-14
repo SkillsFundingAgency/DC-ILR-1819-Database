@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [Rulebase].[ALB_LearningDelivery] (
-    [UKPRN]                               BIGINT          NOT NULL,
+    [UKPRN]                               INT			  NOT NULL,
     [LearnRefNumber]                      VARCHAR (12)    NOT NULL,
     [AimSeqNumber]                        INT             NOT NULL,
     [AreaCostFactAdj]                     DECIMAL (10, 5) NULL,
@@ -24,6 +24,13 @@
     [LearnDelCarLearnPilotInstalAmount]   DECIMAL (12, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[ALB_LearningDelivery] ADD CONSTRAINT [FK_ALBLearningDelivery_ALBglobal] FOREIGN KEY([UKPRN])
+REFERENCES [Rulebase].[ALB_global] ([UKPRN]);
+GO
+
+ALTER TABLE [Rulebase].[ALB_LearningDelivery] CHECK CONSTRAINT [FK_ALBLearningDelivery_ALBglobal]
+GO
 
 

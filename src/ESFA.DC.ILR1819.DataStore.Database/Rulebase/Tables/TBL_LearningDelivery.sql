@@ -54,4 +54,11 @@
     [YoungAppPayment]                DECIMAL (10, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[TBL_LearningDelivery] ADD CONSTRAINT [FK_TBLLearningDelivery_TBLglobal] FOREIGN KEY([UKPRN])
+REFERENCES [Rulebase].[TBL_global] ([UKPRN]);
+GO
+
+ALTER TABLE [Rulebase].[TBL_LearningDelivery] CHECK CONSTRAINT [FK_TBLLearningDelivery_TBLglobal]
+GO

@@ -27,4 +27,12 @@
     [HEPostCode]     VARCHAR (8)    NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
+GO
+
+ALTER TABLE [Valid].[LearningDeliveryHE] ADD CONSTRAINT [FK_LearningDeliveryHE_LearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber])
+REFERENCES [Valid].[LearningDelivery] ([UKPRN], [LearnRefNumber], [AimSeqNumber])
+GO
+
+ALTER TABLE [Valid].[LearningDeliveryHE] CHECK CONSTRAINT [FK_LearningDeliveryHE_LearningDelivery]
+GO
 

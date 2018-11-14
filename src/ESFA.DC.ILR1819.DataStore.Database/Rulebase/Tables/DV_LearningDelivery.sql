@@ -161,4 +161,11 @@
     [Prog_SourceFundSFA]                    INT            NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[DV_LearningDelivery] ADD CONSTRAINT [FK_DVLearningDelivery_DVLearner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Rulebase].[DV_Learner] ([UKPRN], [LearnRefNumber]);
+GO
+
+ALTER TABLE [Rulebase].[DV_LearningDelivery] CHECK CONSTRAINT [FK_DVLearningDelivery_DVLearner]
+GO

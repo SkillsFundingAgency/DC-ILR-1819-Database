@@ -17,4 +17,11 @@
     [Period_12]      DECIMAL (15, 5) NULL,
     CONSTRAINT [PK_FM35_LearningDelivery_PeriodisedValues] PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [AttributeName] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[FM35_LearningDelivery_PeriodisedValues] ADD CONSTRAINT [FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber])
+REFERENCES [Rulebase].[FM35_LearningDelivery] ([UKPRN], [LearnRefNumber], [AimSeqNumber]);
+GO
+
+ALTER TABLE [Rulebase].[FM35_LearningDelivery_PeriodisedValues] CHECK CONSTRAINT [FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery]
+GO

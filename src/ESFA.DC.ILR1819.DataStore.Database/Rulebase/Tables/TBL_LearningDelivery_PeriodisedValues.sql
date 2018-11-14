@@ -17,4 +17,11 @@
     [Period_12]      DECIMAL (15, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [AttributeName] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[TBL_LearningDelivery_PeriodisedValues] ADD CONSTRAINT [FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber])
+REFERENCES [Rulebase].[TBL_LearningDelivery] ([UKPRN], [LearnRefNumber], [AimSeqNumber]);
+GO
+
+ALTER TABLE [Rulebase].[TBL_LearningDelivery_PeriodisedValues] CHECK CONSTRAINT [FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery]
+GO

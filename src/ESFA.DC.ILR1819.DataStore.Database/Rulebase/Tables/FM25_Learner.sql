@@ -29,4 +29,11 @@
     [ThresholdDays]             INT             NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[FM25_Learner] ADD CONSTRAINT [FK_FM25Learner_FM25global] FOREIGN KEY([UKPRN])
+REFERENCES [Rulebase].[FM25_global] ([UKPRN]);
+GO
+
+ALTER TABLE [Rulebase].[FM25_Learner] CHECK CONSTRAINT [FK_FM25Learner_FM25global]
+GO

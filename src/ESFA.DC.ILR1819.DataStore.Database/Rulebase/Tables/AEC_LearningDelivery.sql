@@ -56,3 +56,11 @@
     [LearnDelRedStartDate]                          DATE            NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
+GO
+
+ALTER TABLE [Rulebase].[AEC_LearningDelivery] ADD CONSTRAINT [FK_AECLearningDelivery_AECglobal] FOREIGN KEY([UKPRN])
+REFERENCES [Rulebase].[AEC_global] ([UKPRN]);
+GO
+
+ALTER TABLE [Rulebase].[AEC_LearningDelivery] CHECK CONSTRAINT [FK_AECLearningDelivery_AECglobal]
+GO

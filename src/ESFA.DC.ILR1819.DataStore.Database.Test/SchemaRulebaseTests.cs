@@ -385,7 +385,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateBigInt("UKPRN", 1, false),
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
                 ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
                 ExpectedColumn.CreateDecimal("AreaCostFactAdj", 4, true, 10, 5),
@@ -417,7 +417,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateBigInt("UKPRN", 1, false),
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
                 ExpectedColumn.CreateInt("AimSeqNumber", 3, false),
                 ExpectedColumn.CreateInt("Period", 4, false),
@@ -1166,7 +1166,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
         {
             List<ExpectedColumn> expectedColumns = new List<ExpectedColumn>
             {
-                ExpectedColumn.CreateVarChar("UKPRN", 1, false, 8),
+                ExpectedColumn.CreateInt("UKPRN", 1, false),
                 ExpectedColumn.CreateVarChar("CurFundYr", 2, true, 9),
                 ExpectedColumn.CreateVarChar("LARSVersion", 3, true, 100),
                 ExpectedColumn.CreateVarChar("OrgVersion", 4, true, 100),

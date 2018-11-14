@@ -29,3 +29,11 @@
     [SWSupAimId]         VARCHAR (36) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
+GO
+
+ALTER TABLE [Valid].[LearningDelivery] ADD CONSTRAINT [FK_LearningDelivery_Learner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Valid].[Learner] ([UKPRN], [LearnRefNumber])
+GO
+
+ALTER TABLE [Valid].[LearningDelivery] CHECK CONSTRAINT [FK_LearningDelivery_Learner]
+GO

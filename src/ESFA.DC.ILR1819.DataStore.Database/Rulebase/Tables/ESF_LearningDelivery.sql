@@ -23,4 +23,11 @@
     [WeightedRateFromESOL]               DECIMAL (10, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC)
 );
+GO
 
+ALTER TABLE [Rulebase].[ESF_LearningDelivery] ADD CONSTRAINT [FK_ESFLearningDelivery_ESFglobal] FOREIGN KEY([UKPRN])
+REFERENCES [Rulebase].[ESF_global] ([UKPRN]);
+GO
+
+ALTER TABLE [Rulebase].[ESF_LearningDelivery] CHECK CONSTRAINT [FK_ESFLearningDelivery_ESFglobal]
+GO

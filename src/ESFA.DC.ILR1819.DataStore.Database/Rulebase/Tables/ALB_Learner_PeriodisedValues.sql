@@ -16,4 +16,4 @@
     [Period_12]      DECIMAL (15, 5) NULL,
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AttributeName] ASC)
 );
-
+GO
