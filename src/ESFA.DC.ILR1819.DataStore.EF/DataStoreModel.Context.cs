@@ -59,8 +59,6 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual DbSet<FM25_Learner> FM25_Learner { get; set; }
         public virtual DbSet<FM35_global> FM35_global { get; set; }
         public virtual DbSet<FM35_LearningDelivery> FM35_LearningDelivery { get; set; }
-        public virtual DbSet<FM35_LearningDelivery_Period> FM35_LearningDelivery_Period { get; set; }
-        public virtual DbSet<FM35_LearningDelivery_PeriodisedValues> FM35_LearningDelivery_PeriodisedValues { get; set; }
         public virtual DbSet<TBL_global> TBL_global { get; set; }
         public virtual DbSet<TBL_LearningDelivery> TBL_LearningDelivery { get; set; }
         public virtual DbSet<TBL_LearningDelivery_Period> TBL_LearningDelivery_Period { get; set; }
@@ -80,6 +78,8 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual DbSet<FM25_FM35_Learner_PeriodisedValues> FM25_FM35_Learner_PeriodisedValues { get; set; }
         public virtual DbSet<DV_global> DV_global { get; set; }
         public virtual DbSet<ESF_global> ESF_global { get; set; }
+        public virtual DbSet<FM35_LearningDelivery_Period> FM35_LearningDelivery_Period { get; set; }
+        public virtual DbSet<FM35_LearningDelivery_PeriodisedValues> FM35_LearningDelivery_PeriodisedValues { get; set; }
     
         public virtual int CleanUpDataLock(Nullable<int> ukprn)
         {

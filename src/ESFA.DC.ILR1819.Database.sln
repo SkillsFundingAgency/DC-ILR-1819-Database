@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESFA.DC.ILR1819.DataStore.D
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ESFA.DC.ILR1819.DataStore.Database", "ESFA.DC.ILR1819.DataStore.Database\ESFA.DC.ILR1819.DataStore.Database.sqlproj", "{5E3748FB-22A4-4EC1-A5E3-22FEEAAA6D7E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ESFA.DC.ILR1819.Database.EF", "ESFA.DC.ILR1819.Database.EF\ESFA.DC.ILR1819.Database.EF.csproj", "{4D0BCF37-BA15-41A8-BE54-96C032ECF919}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA439751-C7A2-47A5-986F-1E383ED087CB}"
 	ProjectSection(SolutionItems) = preProject
 		..\README.md = ..\README.md
@@ -70,14 +68,6 @@ Global
 		{5E3748FB-22A4-4EC1-A5E3-22FEEAAA6D7E}.Release|x64.ActiveCfg = Release|x64
 		{5E3748FB-22A4-4EC1-A5E3-22FEEAAA6D7E}.Release|x64.Build.0 = Release|x64
 		{5E3748FB-22A4-4EC1-A5E3-22FEEAAA6D7E}.Release|x64.Deploy.0 = Release|x64
-		{4D0BCF37-BA15-41A8-BE54-96C032ECF919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D0BCF37-BA15-41A8-BE54-96C032ECF919}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D0BCF37-BA15-41A8-BE54-96C032ECF919}.Debug|x64.ActiveCfg = Debug|x64
-		{4D0BCF37-BA15-41A8-BE54-96C032ECF919}.Debug|x64.Build.0 = Debug|x64
-		{4D0BCF37-BA15-41A8-BE54-96C032ECF919}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D0BCF37-BA15-41A8-BE54-96C032ECF919}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D0BCF37-BA15-41A8-BE54-96C032ECF919}.Release|x64.ActiveCfg = Release|x64
-		{4D0BCF37-BA15-41A8-BE54-96C032ECF919}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,7 +14,8 @@
     [Period_10]      DECIMAL (15, 5) NULL,
     [Period_11]      DECIMAL (15, 5) NULL,
     [Period_12]      DECIMAL (15, 5) NULL,
-    PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AttributeName] ASC)
+    PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AttributeName] ASC), 
+    CONSTRAINT [FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner] FOREIGN KEY ([UKPRN], [LearnRefNumber]) REFERENCES [Rulebase].[FM25_Learner]([UKPRN], [LearnRefNumber])
 );
 GO
 

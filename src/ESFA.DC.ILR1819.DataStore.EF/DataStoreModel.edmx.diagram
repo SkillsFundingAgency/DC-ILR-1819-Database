@@ -37,8 +37,6 @@
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM25_Learner" Width="1.5" PointX="20.75" PointY="6.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM35_global" Width="1.5" PointX="20.75" PointY="17.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery" Width="1.5" PointX="20.75" PointY="20.75" />
-        <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_Period" Width="1.5" PointX="6.75" PointY="21.75" />
-        <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues" Width="1.5" PointX="8.75" PointY="21.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.TBL_global" Width="1.5" PointX="22.75" PointY="0.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.TBL_LearningDelivery" Width="1.5" PointX="0.75" PointY="22.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.TBL_LearningDelivery_Period" Width="1.5" PointX="2.75" PointY="22.75" />
@@ -78,12 +76,16 @@
         <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriodisedValues_FM25FM35global" />
         <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM25Learner_FM25global" />
         <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM35LearningDelivery_FM35global" />
-        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" />
-        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" />
         <AssociationConnector Association="ILR1819_DataStoreModel.FK_TBLLearningDelivery_TBLglobal" />
         <AssociationConnector Association="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriod_TBLLearningDelivery" />
         <AssociationConnector Association="ILR1819_DataStoreModel.FK_TBLLearningDeliveryPeriodisedValues_TBLLearningDelivery" />
         <AssociationConnector Association="ILR1819_DataStoreModel.VALLearner_VALglobal" />
+        <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_Period" Width="1.5" PointX="23" PointY="29.75" />
+        <EntityTypeShape EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues" Width="1.5" PointX="23" PointY="24.75" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM25_FM35_Learner_Period_FM25_Learner" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" />
+        <AssociationConnector Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
