@@ -253,7 +253,4 @@
   <ItemGroup>
     <PreDeploy Include="zScript.PreDeployment.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="ESFA.DC.ILR1819.DataStore.Database.publish.xml" />
-  </ItemGroup>
 </Project>

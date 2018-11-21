@@ -54,12 +54,13 @@ begin
 	delete from Rulebase.DV_Learner where UKPRN = @ukprn
 	delete from Rulebase.DV_global where UKPRN = @ukprn
 	
-	delete from Rulebase.FM25_Learner where UKPRN = @ukprn
-	delete from Rulebase.FM25_global where UKPRN = @ukprn
 	
 	delete from Rulebase.FM25_FM35_Learner_PeriodisedValues where UKPRN = @ukprn
 	delete from Rulebase.FM25_FM35_Learner_Period where UKPRN = @ukprn
 	delete from Rulebase.FM25_FM35_global where UKPRN = @ukprn
+
+	delete from Rulebase.FM25_Learner where UKPRN = @ukprn
+	delete from Rulebase.FM25_global where UKPRN = @ukprn
 		
 	delete from Rulebase.ESFVAL_ValidationError where UKPRN = @ukprn
 	delete from Rulebase.ESFVAL_global where UKPRN = @ukprn
