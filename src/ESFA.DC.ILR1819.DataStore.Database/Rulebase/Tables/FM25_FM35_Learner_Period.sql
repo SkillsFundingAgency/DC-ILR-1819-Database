@@ -3,7 +3,8 @@
     [LearnRefNumber] VARCHAR (12)    NOT NULL,
     [Period]         INT             NOT NULL,
     [LnrOnProgPay]   DECIMAL (10, 5) NULL,
-    PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [Period] ASC)
+    PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [Period] ASC),
+	CONSTRAINT [FK_FM25_FM35_Learner_Period_FM25_Learner] FOREIGN KEY ([UKPRN], [LearnRefNumber]) REFERENCES [Rulebase].[FM25_Learner]([UKPRN], [LearnRefNumber])
 );
 GO
 

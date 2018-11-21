@@ -20,5 +20,6 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> LnrOnProgPay { get; set; }
     
         public virtual FM25_FM35_global FM25_FM35_global { get; set; }
+        public virtual FM25_Learner FM25_Learner { get; set; }
     }
 }

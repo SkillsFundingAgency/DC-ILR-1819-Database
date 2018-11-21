@@ -1573,6 +1573,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FM25_FM35_Learner_Period_FM25_Learner">
+          <End Role="FM25_Learner" Type="Self.FM25_Learner" Multiplicity="1" />
+          <End Role="FM25_FM35_Learner_Period" Type="Self.FM25_FM35_Learner_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="FM25_FM35_Learner_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner">
+          <End Role="FM25_Learner" Type="Self.FM25_Learner" Multiplicity="1" />
+          <End Role="FM25_FM35_Learner_PeriodisedValues" Type="Self.FM25_FM35_Learner_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="FM25_FM35_Learner_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FM25FM35LearnerPeriod_FM25FM35global">
           <End Role="FM25_FM35_global" Type="Self.FM25_FM35_global" Multiplicity="1" />
           <End Role="FM25_FM35_Learner_Period" Type="Self.FM25_FM35_Learner_Period" Multiplicity="*" />
@@ -1845,6 +1873,14 @@
             <End Role="ESF_LearningDeliveryDeliverable" EntitySet="ESF_LearningDeliveryDeliverable" />
             <End Role="ESF_LearningDeliveryDeliverable_PeriodisedValues" EntitySet="ESF_LearningDeliveryDeliverable_PeriodisedValues" />
           </AssociationSet>
+          <AssociationSet Name="FK_FM25_FM35_Learner_Period_FM25_Learner" Association="Self.FK_FM25_FM35_Learner_Period_FM25_Learner">
+            <End Role="FM25_Learner" EntitySet="FM25_Learner" />
+            <End Role="FM25_FM35_Learner_Period" EntitySet="FM25_FM35_Learner_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner" Association="Self.FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner">
+            <End Role="FM25_Learner" EntitySet="FM25_Learner" />
+            <End Role="FM25_FM35_Learner_PeriodisedValues" EntitySet="FM25_FM35_Learner_PeriodisedValues" />
+          </AssociationSet>
           <AssociationSet Name="FK_FM25FM35LearnerPeriod_FM25FM35global" Association="Self.FK_FM25FM35LearnerPeriod_FM25FM35global">
             <End Role="FM25_FM35_global" EntitySet="FM25_FM35_global" />
             <End Role="FM25_FM35_Learner_Period" EntitySet="FM25_FM35_Learner_Period" />
@@ -1940,8 +1976,6 @@
           <EntitySet Name="FM25_Learner" EntityType="ILR1819_DataStoreModel.FM25_Learner" />
           <EntitySet Name="FM35_global" EntityType="ILR1819_DataStoreModel.FM35_global" />
           <EntitySet Name="FM35_LearningDelivery" EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery" />
-          <EntitySet Name="FM35_LearningDelivery_Period" EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_Period" />
-          <EntitySet Name="FM35_LearningDelivery_PeriodisedValues" EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues" />
           <EntitySet Name="TBL_global" EntityType="ILR1819_DataStoreModel.TBL_global" />
           <EntitySet Name="TBL_LearningDelivery" EntityType="ILR1819_DataStoreModel.TBL_LearningDelivery" />
           <EntitySet Name="TBL_LearningDelivery_Period" EntityType="ILR1819_DataStoreModel.TBL_LearningDelivery_Period" />
@@ -2041,14 +2075,6 @@
             <End Role="FM35_global" EntitySet="FM35_global" />
             <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
           </AssociationSet>
-          <AssociationSet Name="FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery">
-            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
-            <End Role="FM35_LearningDelivery_Period" EntitySet="FM35_LearningDelivery_Period" />
-          </AssociationSet>
-          <AssociationSet Name="FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery">
-            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
-            <End Role="FM35_LearningDelivery_PeriodisedValues" EntitySet="FM35_LearningDelivery_PeriodisedValues" />
-          </AssociationSet>
           <AssociationSet Name="FK_TBLLearningDelivery_TBLglobal" Association="ILR1819_DataStoreModel.FK_TBLLearningDelivery_TBLglobal">
             <End Role="TBL_global" EntitySet="TBL_global" />
             <End Role="TBL_LearningDelivery" EntitySet="TBL_LearningDelivery" />
@@ -2064,6 +2090,24 @@
           <AssociationSet Name="VALLearner_VALglobal" Association="ILR1819_DataStoreModel.VALLearner_VALglobal">
             <End Role="VAL_global" EntitySet="VAL_global" />
             <End Role="VAL_Learner" EntitySet="VAL_Learner" />
+          </AssociationSet>
+          <EntitySet Name="FM35_LearningDelivery_Period" EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_Period" />
+          <EntitySet Name="FM35_LearningDelivery_PeriodisedValues" EntityType="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues" />
+          <AssociationSet Name="FK_FM25_FM35_Learner_Period_FM25_Learner" Association="ILR1819_DataStoreModel.FK_FM25_FM35_Learner_Period_FM25_Learner">
+            <End Role="FM25_Learner" EntitySet="FM25_Learner" />
+            <End Role="FM25_FM35_Learner_Period" EntitySet="FM25_FM35_Learner_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner" Association="ILR1819_DataStoreModel.FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner">
+            <End Role="FM25_Learner" EntitySet="FM25_Learner" />
+            <End Role="FM25_FM35_Learner_PeriodisedValues" EntitySet="FM25_FM35_Learner_PeriodisedValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery">
+            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
+            <End Role="FM35_LearningDelivery_Period" EntitySet="FM35_LearningDelivery_Period" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" Association="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery">
+            <End Role="FM35_LearningDelivery" EntitySet="FM35_LearningDelivery" />
+            <End Role="FM35_LearningDelivery_PeriodisedValues" EntitySet="FM35_LearningDelivery_PeriodisedValues" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="FileDetail">
@@ -2970,6 +3014,8 @@
           <Property Name="StartFund" Type="Boolean" />
           <Property Name="ThresholdDays" Type="Int32" />
           <NavigationProperty Name="FM25_global" Relationship="ILR1819_DataStoreModel.FK_FM25Learner_FM25global" FromRole="FM25_Learner" ToRole="FM25_global" />
+          <NavigationProperty Name="FM25_FM35_Learner_Period" Relationship="ILR1819_DataStoreModel.FK_FM25_FM35_Learner_Period_FM25_Learner" FromRole="FM25_Learner" ToRole="FM25_FM35_Learner_Period" />
+          <NavigationProperty Name="FM25_FM35_Learner_PeriodisedValues" Relationship="ILR1819_DataStoreModel.FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner" FromRole="FM25_Learner" ToRole="FM25_FM35_Learner_PeriodisedValues" />
         </EntityType>
         <EntityType Name="FM35_global">
           <Key>
@@ -3067,63 +3113,7 @@
           <NavigationProperty Name="FM35_global" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDelivery_FM35global" FromRole="FM35_LearningDelivery" ToRole="FM35_global" />
           <NavigationProperty Name="FM35_LearningDelivery_Period" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" FromRole="FM35_LearningDelivery" ToRole="FM35_LearningDelivery_Period" />
           <NavigationProperty Name="FM35_LearningDelivery_PeriodisedValues" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" FromRole="FM35_LearningDelivery" ToRole="FM35_LearningDelivery_PeriodisedValues" />
-        </EntityType>
-        <EntityType Name="FM35_LearningDelivery_Period">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="AimSeqNumber" />
-            <PropertyRef Name="Period" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="AimSeqNumber" Type="Int32" Nullable="false" />
-          <Property Name="Period" Type="Int32" Nullable="false" />
-          <Property Name="AchievePayment" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="AchievePayPct" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="AchievePayPctTrans" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="BalancePayment" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="BalancePaymentUncapped" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="BalancePct" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="BalancePctTrans" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="EmpOutcomePay" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="EmpOutcomePct" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="EmpOutcomePctTrans" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="InstPerPeriod" Type="Int32" />
-          <Property Name="LearnSuppFund" Type="Boolean" />
-          <Property Name="LearnSuppFundCash" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="OnProgPayment" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="OnProgPaymentUncapped" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="OnProgPayPct" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="OnProgPayPctTrans" Type="Decimal" Precision="10" Scale="5" />
-          <Property Name="TransInstPerPeriod" Type="Int32" />
-          <NavigationProperty Name="FM35_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" FromRole="FM35_LearningDelivery_Period" ToRole="FM35_LearningDelivery" />
-        </EntityType>
-        <EntityType Name="FM35_LearningDelivery_PeriodisedValues">
-          <Key>
-            <PropertyRef Name="UKPRN" />
-            <PropertyRef Name="LearnRefNumber" />
-            <PropertyRef Name="AimSeqNumber" />
-            <PropertyRef Name="AttributeName" />
-          </Key>
-          <Property Name="UKPRN" Type="Int32" Nullable="false" />
-          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="AimSeqNumber" Type="Int32" Nullable="false" />
-          <Property Name="AttributeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Period_1" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_2" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_3" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_4" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_5" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_6" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_7" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_8" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_9" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
-          <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
-          <NavigationProperty Name="FM35_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" FromRole="FM35_LearningDelivery_PeriodisedValues" ToRole="FM35_LearningDelivery" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="TBL_global">
           <Key>
             <PropertyRef Name="UKPRN" />
@@ -3394,6 +3384,7 @@
           <Property Name="Period" Type="Int32" Nullable="false" />
           <Property Name="LnrOnProgPay" Type="Decimal" Precision="10" Scale="5" />
           <NavigationProperty Name="FM25_FM35_global" Relationship="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriod_FM25FM35global" FromRole="FM25_FM35_Learner_Period" ToRole="FM25_FM35_global" />
+          <NavigationProperty Name="FM25_Learner" Relationship="ILR1819_DataStoreModel.FK_FM25_FM35_Learner_Period_FM25_Learner" FromRole="FM25_FM35_Learner_Period" ToRole="FM25_Learner" />
         </EntityType>
         <EntityType Name="FM25_FM35_Learner_PeriodisedValues">
           <Key>
@@ -3417,6 +3408,7 @@
           <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
           <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
           <NavigationProperty Name="FM25_FM35_global" Relationship="ILR1819_DataStoreModel.FK_FM25FM35LearnerPeriodisedValues_FM25FM35global" FromRole="FM25_FM35_Learner_PeriodisedValues" ToRole="FM25_FM35_global" />
+          <NavigationProperty Name="FM25_Learner" Relationship="ILR1819_DataStoreModel.FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner" FromRole="FM25_FM35_Learner_PeriodisedValues" ToRole="FM25_Learner" />
         </EntityType>
         <EntityType Name="DV_global">
           <Key>
@@ -3718,38 +3710,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_FM35LearningDeliveryPeriod_FM35LearningDelivery">
-          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery" Role="FM35_LearningDelivery" Multiplicity="1" />
-          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery_Period" Role="FM35_LearningDelivery_Period" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FM35_LearningDelivery">
-              <PropertyRef Name="UKPRN" />
-              <PropertyRef Name="LearnRefNumber" />
-              <PropertyRef Name="AimSeqNumber" />
-            </Principal>
-            <Dependent Role="FM35_LearningDelivery_Period">
-              <PropertyRef Name="UKPRN" />
-              <PropertyRef Name="LearnRefNumber" />
-              <PropertyRef Name="AimSeqNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery">
-          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery" Role="FM35_LearningDelivery" Multiplicity="1" />
-          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues" Role="FM35_LearningDelivery_PeriodisedValues" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="FM35_LearningDelivery">
-              <PropertyRef Name="UKPRN" />
-              <PropertyRef Name="LearnRefNumber" />
-              <PropertyRef Name="AimSeqNumber" />
-            </Principal>
-            <Dependent Role="FM35_LearningDelivery_PeriodisedValues">
-              <PropertyRef Name="UKPRN" />
-              <PropertyRef Name="LearnRefNumber" />
-              <PropertyRef Name="AimSeqNumber" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TBLLearningDelivery_TBLglobal">
           <End Type="ILR1819_DataStoreModel.TBL_global" Role="TBL_global" Multiplicity="1" />
           <End Type="ILR1819_DataStoreModel.TBL_LearningDelivery" Role="TBL_LearningDelivery" Multiplicity="*" />
@@ -3803,6 +3763,122 @@
             </Principal>
             <Dependent Role="VAL_Learner">
               <PropertyRef Name="UKPRN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FM35_LearningDelivery_Period">
+          <Key>
+            <PropertyRef Name="UKPRN" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="AimSeqNumber" />
+            <PropertyRef Name="Period" />
+          </Key>
+          <Property Name="UKPRN" Type="Int32" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="AimSeqNumber" Type="Int32" Nullable="false" />
+          <Property Name="Period" Type="Int32" Nullable="false" />
+          <Property Name="AchievePayment" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="AchievePayPct" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="AchievePayPctTrans" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="BalancePayment" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="BalancePaymentUncapped" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="BalancePct" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="BalancePctTrans" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="EmpOutcomePay" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="EmpOutcomePct" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="EmpOutcomePctTrans" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="InstPerPeriod" Type="Int32" />
+          <Property Name="LearnSuppFund" Type="Boolean" />
+          <Property Name="LearnSuppFundCash" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="OnProgPayment" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="OnProgPaymentUncapped" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="OnProgPayPct" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="OnProgPayPctTrans" Type="Decimal" Precision="10" Scale="5" />
+          <Property Name="TransInstPerPeriod" Type="Int32" />
+          <NavigationProperty Name="FM35_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriod_FM35LearningDelivery" FromRole="FM35_LearningDelivery_Period" ToRole="FM35_LearningDelivery" />
+        </EntityType>
+        <EntityType Name="FM35_LearningDelivery_PeriodisedValues">
+          <Key>
+            <PropertyRef Name="UKPRN" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="AimSeqNumber" />
+            <PropertyRef Name="AttributeName" />
+          </Key>
+          <Property Name="UKPRN" Type="Int32" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="AimSeqNumber" Type="Int32" Nullable="false" />
+          <Property Name="AttributeName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Period_1" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_2" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_3" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_4" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_5" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_6" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_7" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_8" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_9" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_10" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_11" Type="Decimal" Precision="15" Scale="5" />
+          <Property Name="Period_12" Type="Decimal" Precision="15" Scale="5" />
+          <NavigationProperty Name="FM35_LearningDelivery" Relationship="ILR1819_DataStoreModel.FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery" FromRole="FM35_LearningDelivery_PeriodisedValues" ToRole="FM35_LearningDelivery" />
+        </EntityType>
+        <Association Name="FK_FM25_FM35_Learner_Period_FM25_Learner">
+          <End Type="ILR1819_DataStoreModel.FM25_Learner" Role="FM25_Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM25_FM35_Learner_Period" Role="FM25_FM35_Learner_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="FM25_FM35_Learner_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM25_FM35_Learner_PeriodisedValues_FM25_Learner">
+          <End Type="ILR1819_DataStoreModel.FM25_Learner" Role="FM25_Learner" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM25_FM35_Learner_PeriodisedValues" Role="FM25_FM35_Learner_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM25_Learner">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Principal>
+            <Dependent Role="FM25_FM35_Learner_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM35LearningDeliveryPeriod_FM35LearningDelivery">
+          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery" Role="FM35_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery_Period" Role="FM35_LearningDelivery_Period" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM35_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="FM35_LearningDelivery_Period">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FM35LearningDeliveryPeriodisedValues_FM35LearningDelivery">
+          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery" Role="FM35_LearningDelivery" Multiplicity="1" />
+          <End Type="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues" Role="FM35_LearningDelivery_PeriodisedValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FM35_LearningDelivery">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
+            </Principal>
+            <Dependent Role="FM35_LearningDelivery_PeriodisedValues">
+              <PropertyRef Name="UKPRN" />
+              <PropertyRef Name="LearnRefNumber" />
+              <PropertyRef Name="AimSeqNumber" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4757,56 +4833,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FM35_LearningDelivery_Period">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.FM35_LearningDelivery_Period">
-              <MappingFragment StoreEntitySet="FM35_LearningDelivery_Period">
-                <ScalarProperty Name="TransInstPerPeriod" ColumnName="TransInstPerPeriod" />
-                <ScalarProperty Name="OnProgPayPctTrans" ColumnName="OnProgPayPctTrans" />
-                <ScalarProperty Name="OnProgPayPct" ColumnName="OnProgPayPct" />
-                <ScalarProperty Name="OnProgPaymentUncapped" ColumnName="OnProgPaymentUncapped" />
-                <ScalarProperty Name="OnProgPayment" ColumnName="OnProgPayment" />
-                <ScalarProperty Name="LearnSuppFundCash" ColumnName="LearnSuppFundCash" />
-                <ScalarProperty Name="LearnSuppFund" ColumnName="LearnSuppFund" />
-                <ScalarProperty Name="InstPerPeriod" ColumnName="InstPerPeriod" />
-                <ScalarProperty Name="EmpOutcomePctTrans" ColumnName="EmpOutcomePctTrans" />
-                <ScalarProperty Name="EmpOutcomePct" ColumnName="EmpOutcomePct" />
-                <ScalarProperty Name="EmpOutcomePay" ColumnName="EmpOutcomePay" />
-                <ScalarProperty Name="BalancePctTrans" ColumnName="BalancePctTrans" />
-                <ScalarProperty Name="BalancePct" ColumnName="BalancePct" />
-                <ScalarProperty Name="BalancePaymentUncapped" ColumnName="BalancePaymentUncapped" />
-                <ScalarProperty Name="BalancePayment" ColumnName="BalancePayment" />
-                <ScalarProperty Name="AchievePayPctTrans" ColumnName="AchievePayPctTrans" />
-                <ScalarProperty Name="AchievePayPct" ColumnName="AchievePayPct" />
-                <ScalarProperty Name="AchievePayment" ColumnName="AchievePayment" />
-                <ScalarProperty Name="Period" ColumnName="Period" />
-                <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="FM35_LearningDelivery_PeriodisedValues">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues">
-              <MappingFragment StoreEntitySet="FM35_LearningDelivery_PeriodisedValues">
-                <ScalarProperty Name="Period_12" ColumnName="Period_12" />
-                <ScalarProperty Name="Period_11" ColumnName="Period_11" />
-                <ScalarProperty Name="Period_10" ColumnName="Period_10" />
-                <ScalarProperty Name="Period_9" ColumnName="Period_9" />
-                <ScalarProperty Name="Period_8" ColumnName="Period_8" />
-                <ScalarProperty Name="Period_7" ColumnName="Period_7" />
-                <ScalarProperty Name="Period_6" ColumnName="Period_6" />
-                <ScalarProperty Name="Period_5" ColumnName="Period_5" />
-                <ScalarProperty Name="Period_4" ColumnName="Period_4" />
-                <ScalarProperty Name="Period_3" ColumnName="Period_3" />
-                <ScalarProperty Name="Period_2" ColumnName="Period_2" />
-                <ScalarProperty Name="Period_1" ColumnName="Period_1" />
-                <ScalarProperty Name="AttributeName" ColumnName="AttributeName" />
-                <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
-                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
-                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TBL_global">
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.TBL_global">
               <MappingFragment StoreEntitySet="TBL_global">
@@ -5090,6 +5116,56 @@
             <EntityTypeMapping TypeName="ILR1819_DataStoreModel.ESF_global">
               <MappingFragment StoreEntitySet="ESF_global">
                 <ScalarProperty Name="RulebaseVersion" ColumnName="RulebaseVersion" />
+                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FM35_LearningDelivery_Period">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.FM35_LearningDelivery_Period">
+              <MappingFragment StoreEntitySet="FM35_LearningDelivery_Period">
+                <ScalarProperty Name="TransInstPerPeriod" ColumnName="TransInstPerPeriod" />
+                <ScalarProperty Name="OnProgPayPctTrans" ColumnName="OnProgPayPctTrans" />
+                <ScalarProperty Name="OnProgPayPct" ColumnName="OnProgPayPct" />
+                <ScalarProperty Name="OnProgPaymentUncapped" ColumnName="OnProgPaymentUncapped" />
+                <ScalarProperty Name="OnProgPayment" ColumnName="OnProgPayment" />
+                <ScalarProperty Name="LearnSuppFundCash" ColumnName="LearnSuppFundCash" />
+                <ScalarProperty Name="LearnSuppFund" ColumnName="LearnSuppFund" />
+                <ScalarProperty Name="InstPerPeriod" ColumnName="InstPerPeriod" />
+                <ScalarProperty Name="EmpOutcomePctTrans" ColumnName="EmpOutcomePctTrans" />
+                <ScalarProperty Name="EmpOutcomePct" ColumnName="EmpOutcomePct" />
+                <ScalarProperty Name="EmpOutcomePay" ColumnName="EmpOutcomePay" />
+                <ScalarProperty Name="BalancePctTrans" ColumnName="BalancePctTrans" />
+                <ScalarProperty Name="BalancePct" ColumnName="BalancePct" />
+                <ScalarProperty Name="BalancePaymentUncapped" ColumnName="BalancePaymentUncapped" />
+                <ScalarProperty Name="BalancePayment" ColumnName="BalancePayment" />
+                <ScalarProperty Name="AchievePayPctTrans" ColumnName="AchievePayPctTrans" />
+                <ScalarProperty Name="AchievePayPct" ColumnName="AchievePayPct" />
+                <ScalarProperty Name="AchievePayment" ColumnName="AchievePayment" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
+                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
+                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FM35_LearningDelivery_PeriodisedValues">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModel.FM35_LearningDelivery_PeriodisedValues">
+              <MappingFragment StoreEntitySet="FM35_LearningDelivery_PeriodisedValues">
+                <ScalarProperty Name="Period_12" ColumnName="Period_12" />
+                <ScalarProperty Name="Period_11" ColumnName="Period_11" />
+                <ScalarProperty Name="Period_10" ColumnName="Period_10" />
+                <ScalarProperty Name="Period_9" ColumnName="Period_9" />
+                <ScalarProperty Name="Period_8" ColumnName="Period_8" />
+                <ScalarProperty Name="Period_7" ColumnName="Period_7" />
+                <ScalarProperty Name="Period_6" ColumnName="Period_6" />
+                <ScalarProperty Name="Period_5" ColumnName="Period_5" />
+                <ScalarProperty Name="Period_4" ColumnName="Period_4" />
+                <ScalarProperty Name="Period_3" ColumnName="Period_3" />
+                <ScalarProperty Name="Period_2" ColumnName="Period_2" />
+                <ScalarProperty Name="Period_1" ColumnName="Period_1" />
+                <ScalarProperty Name="AttributeName" ColumnName="AttributeName" />
+                <ScalarProperty Name="AimSeqNumber" ColumnName="AimSeqNumber" />
+                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
                 <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
               </MappingFragment>
             </EntityTypeMapping>
