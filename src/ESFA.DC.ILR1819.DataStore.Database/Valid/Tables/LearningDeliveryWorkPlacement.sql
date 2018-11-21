@@ -6,13 +6,13 @@
     [WorkPlaceEndDate]   DATE         NULL,
     [WorkPlaceHours]     INT          NULL,
     [WorkPlaceMode]      INT          NOT NULL,
-    [WorkPlaceEmpId]     INT          NOT NULL, 
-    CONSTRAINT [PK_LearningDeliveryWorkPlacement] PRIMARY KEY ([UKPRN], [LearnRefNumber], [AimSeqNumber])
+    [WorkPlaceEmpId]     INT          NULL,
+    CONSTRAINT [PK_LearningDeliveryWorkPlacement] PRIMARY KEY ([UKPRN], [LearnRefNumber], [AimSeqNumber], [WorkPlaceStartDate])
 );
 GO
 
 CREATE NONCLUSTERED INDEX [IX_Valid_LearningDeliveryWorkPlacement]
-    ON [Valid].[LearningDeliveryWorkPlacement]([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [WorkPlaceStartDate] ASC, [WorkPlaceMode] ASC, [WorkPlaceEmpId] ASC);
+    ON [Valid].[LearningDeliveryWorkPlacement]([UKPRN] ASC, [LearnRefNumber] ASC, [AimSeqNumber] ASC, [WorkPlaceStartDate] ASC, [WorkPlaceMode] ASC);
 GO
 
 ALTER TABLE [Valid].[LearningDeliveryWorkPlacement] ADD CONSTRAINT [FK_LearningDeliveryWorkPlacement_LearningDelivery] FOREIGN KEY([UKPRN], [LearnRefNumber], [AimSeqNumber])

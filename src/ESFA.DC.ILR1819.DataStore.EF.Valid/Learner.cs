@@ -18,7 +18,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public Learner()
         {
             this.ContactPreferences = new HashSet<ContactPreference>();
-            this.LearnerEmploymentStatus = new HashSet<LearnerEmploymentStatu>();
+            this.LearnerEmploymentStatus = new HashSet<LearnerEmploymentStatus>();
             this.LearnerFAMs = new HashSet<LearnerFAM>();
             this.LearningDeliveries = new HashSet<LearningDelivery>();
             this.LLDDandHealthProblems = new HashSet<LLDDandHealthProblem>();
@@ -59,7 +59,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ContactPreference> ContactPreferences { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LearnerEmploymentStatu> LearnerEmploymentStatus { get; set; }
+        public virtual ICollection<LearnerEmploymentStatus> LearnerEmploymentStatus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LearnerFAM> LearnerFAMs { get; set; }
         public virtual LearnerHE LearnerHE { get; set; }

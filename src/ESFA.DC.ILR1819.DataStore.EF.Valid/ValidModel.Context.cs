@@ -32,7 +32,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
         public virtual DbSet<EmploymentStatusMonitoring> EmploymentStatusMonitorings { get; set; }
         public virtual DbSet<Learner> Learners { get; set; }
         public virtual DbSet<LearnerDestinationandProgression> LearnerDestinationandProgressions { get; set; }
-        public virtual DbSet<LearnerEmploymentStatu> LearnerEmploymentStatus { get; set; }
+        public virtual DbSet<LearnerEmploymentStatus> LearnerEmploymentStatuses { get; set; }
         public virtual DbSet<LearnerFAM> LearnerFAMs { get; set; }
         public virtual DbSet<LearnerHE> LearnerHEs { get; set; }
         public virtual DbSet<LearnerHEFinancialSupport> LearnerHEFinancialSupports { get; set; }

@@ -12,7 +12,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid
     using System;
     using System.Collections.Generic;
     
-    public partial class LearnerEmploymentStatu
+    public partial class LearnerEmploymentStatus
     {
         public int UKPRN { get; set; }
         public string LearnRefNumber { get; set; }

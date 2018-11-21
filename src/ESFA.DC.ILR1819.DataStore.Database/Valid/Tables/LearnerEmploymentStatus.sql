@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [Valid].[LearnerEmploymentStatus] (
     [UKPRN]          INT          NOT NULL,
     [LearnRefNumber] VARCHAR (12) NOT NULL,
-    [EmpStat]        INT          NULL,
+    [EmpStat]        INT          NOT NULL,
     [DateEmpStatApp] DATE         NOT NULL,
     [EmpId]          INT          NULL,
     [AgreeId]        VARCHAR (6)  NULL,

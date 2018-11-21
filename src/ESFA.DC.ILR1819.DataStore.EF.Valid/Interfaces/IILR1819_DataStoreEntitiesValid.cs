@@ -11,7 +11,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF.Valid.Interfaces
          DbSet<EmploymentStatusMonitoring> EmploymentStatusMonitorings { get; set; }
          DbSet<Learner> Learners { get; set; }
          DbSet<LearnerDestinationandProgression> LearnerDestinationandProgressions { get; set; }
-         DbSet<LearnerEmploymentStatu> LearnerEmploymentStatus { get; set; }
+         DbSet<LearnerEmploymentStatus> LearnerEmploymentStatuses { get; set; }
          DbSet<LearnerFAM> LearnerFAMs { get; set; }
          DbSet<LearnerHE> LearnerHEs { get; set; }
          DbSet<LearnerHEFinancialSupport> LearnerHEFinancialSupports { get; set; }
