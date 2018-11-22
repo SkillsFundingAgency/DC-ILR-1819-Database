@@ -58,9 +58,9 @@
 );
 GO
 
-ALTER TABLE [Rulebase].[AEC_LearningDelivery] ADD CONSTRAINT [FK_AECLearningDelivery_AECglobal] FOREIGN KEY([UKPRN])
-REFERENCES [Rulebase].[AEC_global] ([UKPRN]);
+ALTER TABLE [Rulebase].[AEC_LearningDelivery] ADD CONSTRAINT [FK_AECLearningDelivery_AECLearner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Rulebase].[AEC_Learner] ([UKPRN], [LearnRefNumber]);
 GO
 
-ALTER TABLE [Rulebase].[AEC_LearningDelivery] CHECK CONSTRAINT [FK_AECLearningDelivery_AECglobal]
+ALTER TABLE [Rulebase].[AEC_LearningDelivery] CHECK CONSTRAINT [FK_AECLearningDelivery_AECLearner]
 GO

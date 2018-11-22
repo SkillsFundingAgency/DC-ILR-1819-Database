@@ -85,5 +85,6 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual ICollection<AEC_LearningDelivery_PeriodisedTextValues> AEC_LearningDelivery_PeriodisedTextValues { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AEC_LearningDelivery_PeriodisedValues> AEC_LearningDelivery_PeriodisedValues { get; set; }
+        public virtual AEC_Learner AEC_Learner { get; set; }
     }
 }

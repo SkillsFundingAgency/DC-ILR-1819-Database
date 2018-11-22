@@ -26,11 +26,11 @@
 );
 GO
 
-ALTER TABLE [Rulebase].[ALB_LearningDelivery] ADD CONSTRAINT [FK_ALBLearningDelivery_ALBglobal] FOREIGN KEY([UKPRN])
-REFERENCES [Rulebase].[ALB_global] ([UKPRN]);
+ALTER TABLE [Rulebase].[ALB_LearningDelivery] ADD CONSTRAINT [FK_ALBLearningDelivery_ALBLearner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Rulebase].[ALB_Learner] ([UKPRN], [LearnRefNumber]);
 GO
 
-ALTER TABLE [Rulebase].[ALB_LearningDelivery] CHECK CONSTRAINT [FK_ALBLearningDelivery_ALBglobal]
+ALTER TABLE [Rulebase].[ALB_LearningDelivery] CHECK CONSTRAINT [FK_ALBLearningDelivery_ALBLearner]
 GO
 
 

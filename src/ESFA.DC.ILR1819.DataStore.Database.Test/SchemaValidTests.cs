@@ -110,8 +110,8 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
                 ExpectedColumn.CreateInt("PlanEEPHours", 18, true),
                 ExpectedColumn.CreateVarChar("MathGrade", 19, true, 4),
                 ExpectedColumn.CreateVarChar("EngGrade", 20, true, 4),
-                ExpectedColumn.CreateVarChar("PostcodePrior", 21, true, 8),
-                ExpectedColumn.CreateVarChar("Postcode", 22, true, 8),
+                ExpectedColumn.CreateVarChar("PostcodePrior", 21, false, 8),
+                ExpectedColumn.CreateVarChar("Postcode", 22, false, 8),
                 ExpectedColumn.CreateVarChar("AddLine1", 23, true, 50),
                 ExpectedColumn.CreateVarChar("AddLine2", 24, true, 50),
                 ExpectedColumn.CreateVarChar("AddLine3", 25, true, 50),
@@ -143,7 +143,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
             {
                 ExpectedColumn.CreateInt("UKPRN", 1, false),
                 ExpectedColumn.CreateVarChar("LearnRefNumber", 2, false, 12),
-                ExpectedColumn.CreateInt("EmpStat", 3, true),
+                ExpectedColumn.CreateInt("EmpStat", 3, false),
                 ExpectedColumn.CreateDate("DateEmpStatApp", 4, false),
                 ExpectedColumn.CreateInt("EmpId", 5, true),
                 ExpectedColumn.CreateVarChar("AgreeId", 6, true, 6)
@@ -328,7 +328,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
                 ExpectedColumn.CreateDate("WorkPlaceEndDate", 5, true),
                 ExpectedColumn.CreateInt("WorkPlaceHours", 6, true),
                 ExpectedColumn.CreateInt("WorkPlaceMode", 7, false),
-                ExpectedColumn.CreateInt("WorkPlaceEmpId", 8, false)
+                ExpectedColumn.CreateInt("WorkPlaceEmpId", 8, true)
             };
             _fixture.SchemaTests.AssertTableColumnsExist("Valid", "LearningDeliveryWorkPlacement", expectedColumns, true);
         }

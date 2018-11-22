@@ -18,5 +18,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public string LearnRefNumber { get; set; }
         public int Period { get; set; }
         public Nullable<int> ALBSeqNum { get; set; }
+    
+        public virtual ALB_Learner ALB_Learner { get; set; }
     }
 }

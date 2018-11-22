@@ -80,5 +80,6 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual ICollection<TBL_LearningDelivery_Period> TBL_LearningDelivery_Period { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_LearningDelivery_PeriodisedValues> TBL_LearningDelivery_PeriodisedValues { get; set; }
+        public virtual TBL_Learner TBL_Learner { get; set; }
     }
 }

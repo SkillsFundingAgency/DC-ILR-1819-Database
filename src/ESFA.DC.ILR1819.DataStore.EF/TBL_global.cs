@@ -18,6 +18,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public TBL_global()
         {
             this.TBL_LearningDelivery = new HashSet<TBL_LearningDelivery>();
+            this.TBL_Learner = new HashSet<TBL_Learner>();
         }
     
         public int UKPRN { get; set; }
@@ -27,5 +28,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_LearningDelivery> TBL_LearningDelivery { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_Learner> TBL_Learner { get; set; }
     }
 }

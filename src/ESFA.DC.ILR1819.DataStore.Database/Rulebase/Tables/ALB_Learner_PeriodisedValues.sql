@@ -17,3 +17,9 @@
     PRIMARY KEY CLUSTERED ([UKPRN] ASC, [LearnRefNumber] ASC, [AttributeName] ASC)
 );
 GO
+
+ALTER TABLE [Rulebase].[ALB_Learner_PeriodisedValues] ADD CONSTRAINT [FK_ALBLearnerPeriodisedValues_ALBLearner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Rulebase].[ALB_Learner] ([UKPRN], [LearnRefNumber]);
+GO
+
+ALTER TABLE [Rulebase].[ALB_Learner_PeriodisedValues] CHECK CONSTRAINT [FK_ALBLearnerPeriodisedValues_ALBLearner]

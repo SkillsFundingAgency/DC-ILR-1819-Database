@@ -90,7 +90,7 @@
     <Compile Include="LearnerDestinationandProgression.cs">
       <DependentUpon>ValidModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="LearnerEmploymentStatu.cs">
+    <Compile Include="LearnerEmploymentStatus.cs">
       <DependentUpon>ValidModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LearnerFAM.cs">

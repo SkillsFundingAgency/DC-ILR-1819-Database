@@ -41,6 +41,7 @@ begin
 	delete from Rulebase.AEC_LearningDelivery_Period where UKPRN = @ukprn
 	delete from Rulebase.AEC_LearningDelivery where UKPRN = @ukprn
 	delete from Rulebase.AEC_HistoricEarningOutput where UKPRN = @ukprn
+	delete from Rulebase.AEC_Learner where UKPRN = @ukprn
 	delete from Rulebase.AEC_global where UKPRN = @ukprn
 
 	delete from Rulebase.ALB_LearningDelivery_PeriodisedValues where UKPRN = @ukprn
@@ -48,6 +49,7 @@ begin
 	delete from Rulebase.ALB_LearningDelivery where UKPRN = @ukprn
 	delete from Rulebase.ALB_Learner_PeriodisedValues where UKPRN = @ukprn
 	delete from Rulebase.ALB_Learner_Period where UKPRN = @ukprn
+	delete from Rulebase.ALB_Learner where UKPRN = @ukprn
 	delete from Rulebase.ALB_global where UKPRN = @ukprn
 	
 	delete from Rulebase.DV_LearningDelivery where UKPRN = @ukprn
@@ -70,16 +72,19 @@ begin
 	delete from Rulebase.ESF_LearningDeliveryDeliverable_Period where UKPRN = @ukprn
 	delete from Rulebase.ESF_LearningDeliveryDeliverable where UKPRN = @ukprn
 	delete from Rulebase.ESF_LearningDelivery where UKPRN = @ukprn
+	delete from Rulebase.ESF_Learner where UKPRN = @ukprn
 	delete from Rulebase.ESF_global where UKPRN = @ukprn
 	
 	delete from Rulebase.FM35_LearningDelivery_PeriodisedValues where UKPRN = @ukprn
 	delete from Rulebase.FM35_LearningDelivery_Period where UKPRN = @ukprn
 	delete from Rulebase.FM35_LearningDelivery where UKPRN = @ukprn
+	delete from Rulebase.FM35_Learner where UKPRN = @ukprn
 	delete from Rulebase.FM35_global where UKPRN = @ukprn
 	
 	delete from Rulebase.TBL_LearningDelivery_PeriodisedValues where UKPRN = @ukprn
 	delete from Rulebase.TBL_LearningDelivery_Period where UKPRN = @ukprn
 	delete from Rulebase.TBL_LearningDelivery where UKPRN = @ukprn
+	delete from Rulebase.TBL_Learner where UKPRN = @ukprn
 	delete from Rulebase.TBL_global where UKPRN = @ukprn
 	
 	delete from Rulebase.VAL_ValidationError where UKPRN = @ukprn

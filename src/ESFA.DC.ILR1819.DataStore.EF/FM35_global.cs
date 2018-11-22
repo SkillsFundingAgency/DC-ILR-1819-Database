@@ -18,6 +18,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public FM35_global()
         {
             this.FM35_LearningDelivery = new HashSet<FM35_LearningDelivery>();
+            this.FM35_Learner = new HashSet<FM35_Learner>();
         }
     
         public int UKPRN { get; set; }
@@ -29,5 +30,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FM35_LearningDelivery> FM35_LearningDelivery { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FM35_Learner> FM35_Learner { get; set; }
     }
 }

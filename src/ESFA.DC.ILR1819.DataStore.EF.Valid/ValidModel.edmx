@@ -631,7 +631,7 @@
           <EntitySet Name="EmploymentStatusMonitorings" EntityType="ILR1819_DataStoreModelValid.EmploymentStatusMonitoring" />
           <EntitySet Name="Learners" EntityType="ILR1819_DataStoreModelValid.Learner" />
           <EntitySet Name="LearnerDestinationandProgressions" EntityType="ILR1819_DataStoreModelValid.LearnerDestinationandProgression" />
-          <EntitySet Name="LearnerEmploymentStatus" EntityType="ILR1819_DataStoreModelValid.LearnerEmploymentStatu" />
+          <EntitySet Name="LearnerEmploymentStatuses" EntityType="ILR1819_DataStoreModelValid.LearnerEmploymentStatus" />
           <EntitySet Name="LearnerFAMs" EntityType="ILR1819_DataStoreModelValid.LearnerFAM" />
           <EntitySet Name="LearnerHEs" EntityType="ILR1819_DataStoreModelValid.LearnerHE" />
           <EntitySet Name="LearnerHEFinancialSupports" EntityType="ILR1819_DataStoreModelValid.LearnerHEFinancialSupport" />
@@ -659,7 +659,7 @@
           </AssociationSet>
           <AssociationSet Name="FK_LearnerEmploymentStatus_Learner" Association="ILR1819_DataStoreModelValid.FK_LearnerEmploymentStatus_Learner">
             <End Role="Learner" EntitySet="Learners" />
-            <End Role="LearnerEmploymentStatu" EntitySet="LearnerEmploymentStatus" />
+            <End Role="LearnerEmploymentStatu" EntitySet="LearnerEmploymentStatuses" />
           </AssociationSet>
           <AssociationSet Name="FK_LearnerFAM_Learner" Association="ILR1819_DataStoreModelValid.FK_LearnerFAM_Learner">
             <End Role="Learner" EntitySet="Learners" />
@@ -828,7 +828,7 @@
           <Property Name="ULN" Type="Int64" Nullable="false" />
           <NavigationProperty Name="DPOutcomes" Relationship="ILR1819_DataStoreModelValid.FK_DPOutcome_LearnerDestinationandProgression" FromRole="LearnerDestinationandProgression" ToRole="DPOutcome" />
         </EntityType>
-        <EntityType Name="LearnerEmploymentStatu">
+        <EntityType Name="LearnerEmploymentStatus">
           <Key>
             <PropertyRef Name="UKPRN" />
             <PropertyRef Name="LearnRefNumber" />
@@ -1105,7 +1105,7 @@
         </Association>
         <Association Name="FK_LearnerEmploymentStatus_Learner">
           <End Type="ILR1819_DataStoreModelValid.Learner" Role="Learner" Multiplicity="1" />
-          <End Type="ILR1819_DataStoreModelValid.LearnerEmploymentStatu" Role="LearnerEmploymentStatu" Multiplicity="*" />
+          <End Type="ILR1819_DataStoreModelValid.LearnerEmploymentStatus" Role="LearnerEmploymentStatu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Learner">
               <PropertyRef Name="UKPRN" />
@@ -1373,8 +1373,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LearnerEmploymentStatus">
-            <EntityTypeMapping TypeName="ILR1819_DataStoreModelValid.LearnerEmploymentStatu">
+          <EntitySetMapping Name="LearnerEmploymentStatuses">
+            <EntityTypeMapping TypeName="ILR1819_DataStoreModelValid.LearnerEmploymentStatus">
               <MappingFragment StoreEntitySet="LearnerEmploymentStatus">
                 <ScalarProperty Name="AgreeId" ColumnName="AgreeId" />
                 <ScalarProperty Name="EmpId" ColumnName="EmpId" />
