@@ -10,5 +10,5 @@ ALTER TABLE [Rulebase].[AEC_Learner] ADD CONSTRAINT [FK_AECLearner_AECglobal] FO
 REFERENCES [Rulebase].[AEC_global] ([UKPRN]);
 GO
 
-ALTER TABLE [Rulebase].[AEC_LearningDelivery] CHECK CONSTRAINT [FK_AECLearner_AECglobal]
+ALTER TABLE [Rulebase].[AEC_Learner] CHECK CONSTRAINT [FK_AECLearner_AECglobal]
 GO
