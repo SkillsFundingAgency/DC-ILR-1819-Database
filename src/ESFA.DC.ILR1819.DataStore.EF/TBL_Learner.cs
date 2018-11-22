@@ -12,21 +12,19 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class ESF_global
+    public partial class TBL_Learner
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ESF_global()
+        public TBL_Learner()
         {
-            this.ESF_LearningDelivery = new HashSet<ESF_LearningDelivery>();
-            this.ESF_Learner = new HashSet<ESF_Learner>();
+            this.TBL_LearningDelivery = new HashSet<TBL_LearningDelivery>();
         }
     
         public int UKPRN { get; set; }
-        public string RulebaseVersion { get; set; }
+        public string LearnRefNumber { get; set; }
     
+        public virtual TBL_global TBL_global { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ESF_LearningDelivery> ESF_LearningDelivery { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ESF_Learner> ESF_Learner { get; set; }
+        public virtual ICollection<TBL_LearningDelivery> TBL_LearningDelivery { get; set; }
     }
 }

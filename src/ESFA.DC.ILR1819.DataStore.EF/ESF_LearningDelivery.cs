@@ -49,5 +49,6 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual ICollection<ESF_LearningDeliveryDeliverable> ESF_LearningDeliveryDeliverable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ESF_LearningDeliveryDeliverable_Period> ESF_LearningDeliveryDeliverable_Period { get; set; }
+        public virtual ESF_Learner ESF_Learner { get; set; }
     }
 }

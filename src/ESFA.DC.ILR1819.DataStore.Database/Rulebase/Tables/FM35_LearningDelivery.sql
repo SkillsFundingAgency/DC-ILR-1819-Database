@@ -78,9 +78,9 @@
 );
 GO
 
-ALTER TABLE [Rulebase].[FM35_LearningDelivery] ADD CONSTRAINT [FK_FM35LearningDelivery_FM35global] FOREIGN KEY([UKPRN])
-REFERENCES [Rulebase].[FM35_global] ([UKPRN]);
+ALTER TABLE [Rulebase].[FM35_LearningDelivery] ADD CONSTRAINT [FK_FM35LearningDelivery_FM35Learner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Rulebase].[FM35_Learner] ([UKPRN], [LearnRefNumber]);
 GO
 
-ALTER TABLE [Rulebase].[FM35_LearningDelivery] CHECK CONSTRAINT [FK_FM35LearningDelivery_FM35global]
+ALTER TABLE [Rulebase].[FM35_LearningDelivery] CHECK CONSTRAINT [FK_FM35LearningDelivery_FM35Learner]
 GO

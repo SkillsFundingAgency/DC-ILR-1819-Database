@@ -19,6 +19,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         {
             this.AEC_ApprenticeshipPriceEpisode = new HashSet<AEC_ApprenticeshipPriceEpisode>();
             this.AEC_LearningDelivery = new HashSet<AEC_LearningDelivery>();
+            this.AEC_Learner = new HashSet<AEC_Learner>();
         }
     
         public int UKPRN { get; set; }
@@ -30,5 +31,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual ICollection<AEC_ApprenticeshipPriceEpisode> AEC_ApprenticeshipPriceEpisode { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AEC_LearningDelivery> AEC_LearningDelivery { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AEC_Learner> AEC_Learner { get; set; }
     }
 }

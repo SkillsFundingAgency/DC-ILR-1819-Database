@@ -85,5 +85,6 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual ICollection<AEC_ApprenticeshipPriceEpisode_Period> AEC_ApprenticeshipPriceEpisode_Period { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AEC_ApprenticeshipPriceEpisode_PeriodisedValues> AEC_ApprenticeshipPriceEpisode_PeriodisedValues { get; set; }
+        public virtual AEC_Learner AEC_Learner { get; set; }
     }
 }

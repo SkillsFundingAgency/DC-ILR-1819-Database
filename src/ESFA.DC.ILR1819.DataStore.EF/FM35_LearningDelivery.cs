@@ -102,5 +102,6 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual ICollection<FM35_LearningDelivery_Period> FM35_LearningDelivery_Period { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FM35_LearningDelivery_PeriodisedValues> FM35_LearningDelivery_PeriodisedValues { get; set; }
+        public virtual FM35_Learner FM35_Learner { get; set; }
     }
 }

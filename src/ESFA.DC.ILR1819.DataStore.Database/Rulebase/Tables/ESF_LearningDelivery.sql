@@ -25,9 +25,9 @@
 );
 GO
 
-ALTER TABLE [Rulebase].[ESF_LearningDelivery] ADD CONSTRAINT [FK_ESFLearningDelivery_ESFglobal] FOREIGN KEY([UKPRN])
-REFERENCES [Rulebase].[ESF_global] ([UKPRN]);
+ALTER TABLE [Rulebase].[ESF_LearningDelivery] ADD CONSTRAINT [FK_ESFLearningDelivery_ESFLearner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Rulebase].[ESF_Learner] ([UKPRN], [LearnRefNumber]);
 GO
 
-ALTER TABLE [Rulebase].[ESF_LearningDelivery] CHECK CONSTRAINT [FK_ESFLearningDelivery_ESFglobal]
+ALTER TABLE [Rulebase].[ESF_LearningDelivery] CHECK CONSTRAINT [FK_ESFLearningDelivery_ESFLearner]
 GO

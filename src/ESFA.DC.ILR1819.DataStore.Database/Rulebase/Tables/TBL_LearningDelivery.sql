@@ -56,9 +56,9 @@
 );
 GO
 
-ALTER TABLE [Rulebase].[TBL_LearningDelivery] ADD CONSTRAINT [FK_TBLLearningDelivery_TBLglobal] FOREIGN KEY([UKPRN])
-REFERENCES [Rulebase].[TBL_global] ([UKPRN]);
+ALTER TABLE [Rulebase].[TBL_LearningDelivery] ADD CONSTRAINT [FK_TBLLearningDelivery_TBLLearner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Rulebase].[TBL_Learner] ([UKPRN], [LearnRefNumber]);
 GO
 
-ALTER TABLE [Rulebase].[TBL_LearningDelivery] CHECK CONSTRAINT [FK_TBLLearningDelivery_TBLglobal]
+ALTER TABLE [Rulebase].[TBL_LearningDelivery] CHECK CONSTRAINT [FK_TBLLearningDelivery_TBLLearner]
 GO

@@ -12,21 +12,25 @@ namespace ESFA.DC.ILR1819.DataStore.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class ESF_global
+    public partial class ALB_Learner
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ESF_global()
+        public ALB_Learner()
         {
-            this.ESF_LearningDelivery = new HashSet<ESF_LearningDelivery>();
-            this.ESF_Learner = new HashSet<ESF_Learner>();
+            this.ALB_Learner_Period = new HashSet<ALB_Learner_Period>();
+            this.ALB_Learner_PeriodisedValues = new HashSet<ALB_Learner_PeriodisedValues>();
+            this.ALB_LearningDelivery = new HashSet<ALB_LearningDelivery>();
         }
     
         public int UKPRN { get; set; }
-        public string RulebaseVersion { get; set; }
+        public string LearnRefNumber { get; set; }
     
+        public virtual ALB_global ALB_global { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ESF_LearningDelivery> ESF_LearningDelivery { get; set; }
+        public virtual ICollection<ALB_Learner_Period> ALB_Learner_Period { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ESF_Learner> ESF_Learner { get; set; }
+        public virtual ICollection<ALB_Learner_PeriodisedValues> ALB_Learner_PeriodisedValues { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ALB_LearningDelivery> ALB_LearningDelivery { get; set; }
     }
 }

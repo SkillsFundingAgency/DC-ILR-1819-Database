@@ -61,9 +61,8 @@
 );
 GO
 
-ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode] ADD CONSTRAINT [FK_AECApprenticeshipPriceEpisode_AECglobal] FOREIGN KEY([UKPRN])
-REFERENCES [Rulebase].[AEC_global] ([UKPRN]);
+ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode] ADD CONSTRAINT [FK_AECApprenticeshipPriceEpisode_AECLearner] FOREIGN KEY([UKPRN], [LearnRefNumber])
+REFERENCES [Rulebase].[AEC_Learner] ([UKPRN], [LearnRefNumber]);
 GO
 
-ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode] CHECK CONSTRAINT [FK_AECApprenticeshipPriceEpisode_AECglobal]
-GO
+ALTER TABLE [Rulebase].[AEC_ApprenticeshipPriceEpisode] CHECK CONSTRAINT [FK_AECApprenticeshipPriceEpisode_AECLearner]

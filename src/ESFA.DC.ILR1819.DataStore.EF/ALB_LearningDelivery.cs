@@ -50,5 +50,6 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public virtual ICollection<ALB_LearningDelivery_Period> ALB_LearningDelivery_Period { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ALB_LearningDelivery_PeriodisedValues> ALB_LearningDelivery_PeriodisedValues { get; set; }
+        public virtual ALB_Learner ALB_Learner { get; set; }
     }
 }

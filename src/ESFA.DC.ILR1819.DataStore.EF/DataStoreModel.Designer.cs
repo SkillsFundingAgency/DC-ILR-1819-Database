@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\DevUser\source\repos\DC-ILR-1819-Database\src\ESFA.DC.ILR1819.DataStore.EF\DataStoreModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Code\GIT\ILRDS\src\ESFA.DC.ILR1819.DataStore.EF\DataStoreModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
