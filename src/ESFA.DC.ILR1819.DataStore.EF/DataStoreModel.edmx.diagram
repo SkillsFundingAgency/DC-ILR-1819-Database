@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0eb76600d11540aabdcc1073ee05f7a3" Name="Diagram1" ZoomLevel="96">
+      <Diagram DiagramId="0eb76600d11540aabdcc1073ee05f7a3" Name="Diagram1" ZoomLevel="87">
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.FileDetail" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.ProcessingData" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="ILR1819_DataStoreModel.ValidationError" Width="1.5" PointX="2.75" PointY="3.75" />

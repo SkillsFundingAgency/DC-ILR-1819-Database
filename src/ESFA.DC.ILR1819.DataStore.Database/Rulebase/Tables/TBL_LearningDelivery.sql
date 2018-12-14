@@ -30,7 +30,7 @@
     [AchievementApplicVal]           DECIMAL (10, 5) NULL,
     [AchPayment]                     DECIMAL (10, 5) NULL,
     [ActualNumInstalm]               INT             NULL,
-    [CombinedAdjProp]                BIGINT          NULL,
+    [CombinedAdjProp]                DECIMAL (10, 5) NULL,
     [EmpIdAchDate]                   INT             NULL,
     [LearnDelDaysIL]                 INT             NULL,
     [LearnDelStandardAccDaysIL]      INT             NULL,

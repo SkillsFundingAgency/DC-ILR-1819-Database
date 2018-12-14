@@ -1232,7 +1232,7 @@
           <Property Name="AchievementApplicVal" Type="decimal" Precision="10" Scale="5" />
           <Property Name="AchPayment" Type="decimal" Precision="10" Scale="5" />
           <Property Name="ActualNumInstalm" Type="int" />
-          <Property Name="CombinedAdjProp" Type="bigint" />
+          <Property Name="CombinedAdjProp" Type="decimal" Precision="10" Scale="5" />
           <Property Name="EmpIdAchDate" Type="int" />
           <Property Name="LearnDelDaysIL" Type="int" />
           <Property Name="LearnDelStandardAccDaysIL" Type="int" />
@@ -3403,7 +3403,7 @@
           <Property Name="AchievementApplicVal" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="AchPayment" Type="Decimal" Precision="10" Scale="5" />
           <Property Name="ActualNumInstalm" Type="Int32" />
-          <Property Name="CombinedAdjProp" Type="Int64" />
+          <Property Name="CombinedAdjProp" Type="Decimal" />
           <Property Name="EmpIdAchDate" Type="Int32" />
           <Property Name="LearnDelDaysIL" Type="Int32" />
           <Property Name="LearnDelStandardAccDaysIL" Type="Int32" />

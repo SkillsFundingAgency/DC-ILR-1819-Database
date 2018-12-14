@@ -52,7 +52,7 @@ namespace ESFA.DC.ILR1819.DataStore.EF
         public Nullable<decimal> AchievementApplicVal { get; set; }
         public Nullable<decimal> AchPayment { get; set; }
         public Nullable<int> ActualNumInstalm { get; set; }
-        public Nullable<long> CombinedAdjProp { get; set; }
+        public Nullable<decimal> CombinedAdjProp { get; set; }
         public Nullable<int> EmpIdAchDate { get; set; }
         public Nullable<int> LearnDelDaysIL { get; set; }
         public Nullable<int> LearnDelStandardAccDaysIL { get; set; }

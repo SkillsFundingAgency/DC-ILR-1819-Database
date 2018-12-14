@@ -935,7 +935,7 @@ namespace ESFA.DC.ILR1819.DataStore.Database.Test
                 ExpectedColumn.CreateDecimal("AchievementApplicVal", 29, true, 10, 5),
                 ExpectedColumn.CreateDecimal("AchPayment", 30, true, 10, 5),
                 ExpectedColumn.CreateInt("ActualNumInstalm", 31, true),
-                ExpectedColumn.CreateBigInt("CombinedAdjProp", 32, true),
+                ExpectedColumn.CreateDecimal("CombinedAdjProp", 32, true, 10, 5),
                 ExpectedColumn.CreateInt("EmpIdAchDate", 33, true),
                 ExpectedColumn.CreateInt("LearnDelDaysIL", 34, true),
                 ExpectedColumn.CreateInt("LearnDelStandardAccDaysIL", 35, true),
